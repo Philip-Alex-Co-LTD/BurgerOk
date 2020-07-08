@@ -1,5 +1,6 @@
 import React from "react";
 import "./Features.css";
+import  { connect } from 'react-redux';
 // import Burger from '../../components/Burger/Burger';
 // import BuildControls from '../../components/Burger/BuildControls/BuildControls';
 // import Modal from '../../components/UI/Modal/Modal';
@@ -7,7 +8,6 @@ import "./Features.css";
 // import Spinner from '../../components/UI/Spinner/Spinner';
 // import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler'
 // import * as burgerBuiderActions from '../../store/actions/index';
-import  { connect } from 'react-redux';
 // import axios from '../../axios-orders';
 
 const Features = (props) =>  {

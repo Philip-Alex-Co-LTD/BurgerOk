@@ -1,4 +1,4 @@
-.Auth {
+.auth {
   margin: 20px auto;
   width: 40%;
   text-align: center;
@@ -9,7 +9,7 @@
 }
 
 @media (min-wdth: 600px) {
-  .Auth {
+  .auth {
     width: 500px;
   }
 }

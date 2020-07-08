@@ -5,7 +5,6 @@ import { Redirect } from "react-router-dom";
 import Button from "../../components/UI/Button/Button";
 import Spinner from "../../components/UI/Spinner/Spinner";
 import Input from "../../components/UI/Input/Input";
-import classes from "./Auth.css";
 import * as actions from "../../store/actions/index";
 
 class Auth extends Component {
@@ -142,7 +141,7 @@ class Auth extends Component {
     }
 
     return (
-      <div className={classes.Auth}>
+      <div className="auth">
         {authRedirect}
         {errorMessage}
         <form onSubmit={this.submitHandler}>
