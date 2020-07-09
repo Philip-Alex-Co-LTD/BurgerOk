@@ -1,5 +1,8 @@
 import React from "react";
 import { FaRegStar, FaUser, FaRegComments } from "react-icons/fa";
+import bobr from "../../assets/images/bobr.jpg";
+import minsk from "../../assets/images/minsk.jpg";
+import gz from "../../assets/images/gz.jpg";
 export default function Cities() {
   return (
     <div>
@@ -8,13 +11,9 @@ export default function Cities() {
           <h2>We're currently in these cities</h2>
         </div>
         <div className="row">
-          <div className="col span-1-of-4 box">
-            <img
-              src="resources/css/img/lisbon-3-min.jpg"
-              alt="Lisbon"
-              class="cities-photo"
-            />
-            <h3>Lisbon</h3>
+          <div className="col span-1-of-3 box">
+            <img src={bobr} alt="Bobruisk" class="cities-photo" />
+            <h3>Bobruisk</h3>
             <ul className="cities-details">
               <li>
                 <FaUser className="icon-small" />
@@ -32,9 +31,9 @@ export default function Cities() {
               </li>
             </ul>
           </div>
-          <div className="col span-1-of-4 box">
-            <img src="" alt="San Francisco" className="cities-photo" />
-            <h3>San Francisco</h3>
+          <div className="col span-1-of-3 box">
+            <img src={minsk} alt="Minsk" className="cities-photo" />
+            <h3>Minsk</h3>
             <ul className="cities-details">
               <li>
                 <FaUser className="icon-small" />
@@ -52,13 +51,9 @@ export default function Cities() {
               </li>
             </ul>
           </div>
-          <div className="col span-1-of-4 box">
-            <img
-              src="resources/css/img/berlin-min.jpg"
-              alt="Berlin"
-              className="cities-photo"
-            />
-            <h3>Berlin</h3>
+          <div className="col span-1-of-3 box">
+            <img src={gz} alt="Guangzhou" className="cities-photo" />
+            <h3>Guangzhou</h3>
             <ul className="cities-details">
               <li>
                 <FaUser className="icon-small" />
