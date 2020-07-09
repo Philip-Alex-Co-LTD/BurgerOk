@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
-
 import Button from "../../components/UI/Button/Button";
 import Spinner from "../../components/UI/Spinner/Spinner";
 import Input from "../../components/UI/Input/Input";
-import classes from "./Auth.css";
 import * as actions from "../../store/actions/index";
 
 class Auth extends Component {
@@ -142,16 +140,16 @@ class Auth extends Component {
     }
 
     return (
-      <div className={classes.Auth}>
+      <div className="auth">
         {authRedirect}
         {errorMessage}
         <form onSubmit={this.submitHandler}>
           {form}
-          <Button btnType="Success">SUBMIT</Button>
+          <Button btnType="success">SUBMIT</Button>
         </form>
         <Button
           clicked={this.switchAuthModeHandler}
-          btnType={this.state.isSignup ? "Danger" : "Success"}
+          btnType={this.state.isSignup ? "danger" : "success"}
         >
           SWITCH TO {this.state.isSignup ? "SIGNIN" : "SIGNUP"}
         </Button>

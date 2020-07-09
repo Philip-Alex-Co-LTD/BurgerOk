@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import Cities from "../Cities/Cities";
 import HowItWorks from "../HowItWorks/HowItWorks";
 import Burger from "../../components/Burger/Burger";
+import Features from "../Features/Features";
 import BuildControls from "../../components/Burger/BuildControls/BuildControls";
 import Modal from "../../components/UI/Modal/Modal";
 import OrderSummary from "../../components/Burger/OrderSummary/OrderSummary";
@@ -9,7 +11,6 @@ import withErrorHandler from "../../hoc/withErrorHandler/withErrorHandler";
 import * as burgerBuiderActions from "../../store/actions/index";
 import { connect } from "react-redux";
 import axios from "../../axios-orders";
-import Cities from "../Cities/Cities";
 
 class BurgerBuilder extends Component {
   // constructor (props) {
@@ -105,6 +106,7 @@ class BurgerBuilder extends Component {
         >
           {orderSummary}
         </Modal>
+        <Features />
         <HowItWorks />
         {burger}
         <Cities />
