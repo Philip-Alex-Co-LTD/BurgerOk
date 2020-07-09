@@ -820,10 +820,9 @@ section {
     align-items: center;
 }
 
-.span-1-of-4 {
-    width: 20%;
-    float: left;
-    margin: 0px 10px 50px 10px;
+.wrapper {
+    align-items: center;
+    margin: 0 10% 0 10%;
 }
 
 .long-copy {
@@ -845,7 +844,39 @@ section {
     line-height: 145%;
 }
 
+.box {
+    display: inline-block;
+    text-align: center;
+}
+
 .row {
     max-width: 1140px;
     margin: 0 auto;
+}
+
+/*  GRID COLUMN SETUP   ==================================================================== */
+
+.span-1-of-4 {
+    width: 23.8%; 
+}
+
+@media only screen and (max-width: 767px) {
+    .span-1-of-4 {
+        width: 100%; 
+    }
+}
+
+.col {
+    display: block;
+    float:left;
+    margin: 1% 0 1% 1.6%;
+}
+
+.col:first-child { margin-left: 0; } /* all browsers except IE6 and lower */
+
+@media only screen and (max-width: 767px) {
+    .col { 
+        /*margin: 1% 0 1% 0%;*/
+        margin: 0;
+    }
 }
