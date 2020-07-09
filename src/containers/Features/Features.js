@@ -5,7 +5,7 @@ import { FaArrowUp } from "react-icons/fa";
 const Features = (props) =>  {
 
     return (
-        <section className = 'section-features'>
+        <div className = 'section-features'>
             <div className="row">
                 <h2>Get food fast &mdash; not fast food</h2>
                 <p className="long-copy">
@@ -42,7 +42,7 @@ const Features = (props) =>  {
                     </p>
                 </div>
             </div>
-        </section>
+        </div>
     );
 };
 
