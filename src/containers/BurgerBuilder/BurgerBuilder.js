@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import Burger from '../../components/Burger/Burger';
+import Features from '../Features/Features';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
 import Modal from '../../components/UI/Modal/Modal';
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
@@ -93,6 +94,7 @@ class BurgerBuilder extends Component {
                 <Modal show={this.state.purchasing} modalClosed={this.purchaseCancelHandler}>
                     {orderSummary}
                 </Modal>
+                <Features/>
                 {burger}
             </div>
         );
