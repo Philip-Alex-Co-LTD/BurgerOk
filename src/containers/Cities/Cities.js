@@ -10,7 +10,7 @@ export default function Cities() {
         <div className="row">
           <h2>We're currently in these cities</h2>
         </div>
-        <div className="row">
+        <div className="cities">
           <div className="col span-1-of-3 box">
             <img src={bobr} alt="Bobruisk" class="cities-photo" />
             <h3>Bobruisk</h3>

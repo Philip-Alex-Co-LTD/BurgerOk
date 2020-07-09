@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Cities from "../Cities/Cities";
 import HowItWorks from "../HowItWorks/HowItWorks";
+import ContactUs from "../ContactUs/ContactUs";
 import Burger from "../../components/Burger/Burger";
 import Features from "../Features/Features";
 import BuildControls from "../../components/Burger/BuildControls/BuildControls";
@@ -110,6 +111,7 @@ class BurgerBuilder extends Component {
         <HowItWorks />
         {burger}
         <Cities />
+        <ContactUs />
       </div>
     );
   }

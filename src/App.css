@@ -1081,6 +1081,7 @@ ol {
   counter-reset: num;
   position: relative;
   margin: 80px 0 0 7%;
+  width: 45%;
   padding: 15px 0 5px 0;
   font-size: 20px;
 }
@@ -1150,14 +1151,17 @@ h3 {
 /* Cities */
 .section-cities {
   vertical-align: middle;
-  margin-top: 40px;
+  margin: 40px 0;
 }
 .span-1-of-3 {
   width: 29%;
-  float: left;
   text-align: left;
-  justify-content: space-evenly;
+  display: inline-block;
+  justify-items: center;
   margin: 0px 10px 0px 10px;
+}
+.cities {
+  margin: 0 10%;
 }
 .box img {
   width: 100%;
@@ -1166,7 +1170,7 @@ h3 {
 }
 
 .cities-photo {
-  width: 85%;
+  width: 80%;
   float: center;
   margin-bottom: 15px;
 }
@@ -1175,4 +1179,50 @@ h3 {
   font-size: 90%;
   list-style: none;
   width: 100%;
+}
+
+/* --------------------- CONTACT FORM --------------------- */
+.section-contact {
+  background: #fff;
+}
+
+.contact-form {
+  width: 60%;
+  margin: 0 auto 40px auto;
+}
+.span-33 {
+  width: 30%;
+  text-align: left;
+  display: inline-flex;
+  justify-items: center;
+  margin: 0px 10px 0px 10px;
+}
+.span-66 {
+  width: 60%;
+  text-align: left;
+  display: inline-flex;
+  justify-items: center;
+  margin: 10px 0;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+  width: 100%;
+  padding: 7px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}
+
+textarea {
+  height: 100px;
+}
+
+input[type="checkbox"] {
+  margin: 10px 5px 10px 0;
+}
+
+*:focus {
+  outline: none;
 }
