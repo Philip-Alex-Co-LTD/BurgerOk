@@ -1,9 +1,63 @@
+/* GENERAL */
+
 * {
     margin: 0;
     padding: 0;
     /* box-sizing: border-box; */
 }
 
+html {
+    background-color: #fff;
+    color: #555;
+    font-family: 'Lato', 'Arial', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    text-rendering: optimizeLegibility;
+}
+
+h1 {
+    color: #fff;
+    font-size: 200%;
+    letter-spacing: 1px;
+    word-spacing: 4px;
+    margin-bottom: 30px;
+}
+
+h1, h2, h3 {
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+h2 {
+    font-size: 180%;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+    margin-top: 0;
+    margin-bottom: 30px;   
+    text-align: center;
+}
+
+h2::after {
+    display: block;
+    height: 2px;
+    background-color: #e67e22;
+    content: " ";
+    width: 100px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+h3 {
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+/* SECTION */
+
+section {
+    padding: 80px 0;
+}
 
 /* BUILD CONTROL */
 
@@ -741,22 +795,6 @@
       width: 30%;
     }
 }
-  
-/* .navigation-items {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    height: 100%;
-}
-
-@media (min-width: 500px) {
-    .navigation-items {
-        flex-flow: row;
-    }
-} */
 
 /* CONTACT DATA */
 
@@ -778,18 +816,36 @@
 
 /* FEATURES */
 
-.features {
-    vertical-align: middle;
+.section-features {
+    align-items: center;
 }
 
 .span-1-of-4 {
     width: 20%;
     float: left;
-    text-align: center;
-    margin: 0px 10px 0px 10px;
+    margin: 0px 10px 50px 10px;
 }
 
-h3 {
-    text-transform: uppercase;
+.long-copy {
+    line-height: 145%;
+    width: 70%;
+    margin-left: 15%;
+    text-align: center
 }
-  
+
+.icon-big {
+    font-size: 350%;
+    color: #e67e22;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.box p {
+    font-size: 90%;
+    line-height: 145%;
+}
+
+.row {
+    max-width: 1140px;
+    margin: 0 auto;
+}
