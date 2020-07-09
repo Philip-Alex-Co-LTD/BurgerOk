@@ -1,7 +1,5 @@
 import React from "react";
 
-import "./Order.css";
-
 const order = (props) => {
     const ingredients = [];
 

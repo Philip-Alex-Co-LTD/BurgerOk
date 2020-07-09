@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Route, Switch, withRouter, Redirect } from 'react-router-dom';
 import { connect} from 'react-redux';
 import "./App.css";
-
 import Layout from './components/Layout/Layout';
 import BurgerBuilder from './containers/BurgerBuilder/BurgerBuilder';
 import Checkout from './containers/Checkout/Checkout';
@@ -40,7 +39,7 @@ class App extends Component {
     }
 
     return (
-      <div>
+      <div className = "meat">
         <Layout>
             {routes}
         </Layout>
