@@ -12,6 +12,7 @@ import withErrorHandler from "../../hoc/withErrorHandler/withErrorHandler";
 import * as burgerBuiderActions from "../../store/actions/index";
 import { connect } from "react-redux";
 import axios from "../../axios-orders";
+import Footer from "../Footer";
 
 class BurgerBuilder extends Component {
   // constructor (props) {
@@ -112,6 +113,7 @@ class BurgerBuilder extends Component {
         {burger}
         <Cities />
         <ContactUs />
+        <Footer />
       </div>
     );
   }
