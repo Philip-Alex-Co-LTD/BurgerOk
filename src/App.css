@@ -56,7 +56,7 @@ h3 {
 /* SECTION */
 
 section {
-    padding: 80px 0;
+    padding: 40px 0;
 }
 
 /* BUILD CONTROL */
@@ -816,9 +816,10 @@ section {
 
 /* FEATURES */
 
-.section-features {
+/* .section-features {
     align-items: center;
-}
+    margin: 30px 0px 30px 0px;
+} */
 
 .wrapper {
     align-items: center;
@@ -879,4 +880,11 @@ section {
         /*margin: 1% 0 1% 0%;*/
         margin: 0;
     }
+}
+
+/* BURGER BUILDER */
+
+section {
+    align-items: center;
+    margin: 30px 0px 30px 0px;
 }

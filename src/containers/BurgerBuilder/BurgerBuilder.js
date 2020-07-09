@@ -67,7 +67,7 @@ class BurgerBuilder extends Component {
 
         if (this.props.ings) {
             burger = (
-                <div>
+                <section>
                     <Burger ingredients={this.props.ings}/>
                     <BuildControls
                         ingredientAdded={this.props.onIngredientAdded}
@@ -78,7 +78,7 @@ class BurgerBuilder extends Component {
                         isAuth={this.props.isAuthenticated}
                         price={this.props.price}
                     />
-                </div>
+                </section>
             );
             orderSummary = <OrderSummary 
                 ingredients={this.props.ings}
