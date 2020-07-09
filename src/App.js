@@ -39,7 +39,7 @@ class App extends Component {
     }
 
     return (
-      <div className = "meat">
+      <div>
         <Layout>
             {routes}
         </Layout>

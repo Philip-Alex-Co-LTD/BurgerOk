@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
-
 import Button from "../../components/UI/Button/Button";
 import Spinner from "../../components/UI/Spinner/Spinner";
 import Input from "../../components/UI/Input/Input";
@@ -150,7 +149,7 @@ class Auth extends Component {
         </form>
         <Button
           clicked={this.switchAuthModeHandler}
-          btnType={this.state.isSignup ? "Danger" : "Success"}
+          btnType={this.state.isSignup ? "danger" : "success"}
         >
           SWITCH TO {this.state.isSignup ? "SIGNIN" : "SIGNUP"}
         </Button>

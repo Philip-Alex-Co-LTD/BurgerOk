@@ -1,8 +1,9 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
 }
+
 
 /* BUILD CONTROL */
 
@@ -53,7 +54,7 @@
     color: white;
 }
 
-.build-control .less:hover, .BuildControl .less:active {  
+.build-control .less:hover, .build-control .less:active {  
     background-color: #DAA972;
     color: white;
 }
@@ -489,10 +490,10 @@
     transform: translateX(-100%);
 }
 
-.logo {
+/* .logo {
     height: 11%;
     margin-bottom: 32px;
-}
+} */
 
 /* TOOLBAR */
 
@@ -721,7 +722,7 @@
 
 .auth {
     margin: 20px auto;
-    width: 40%;
+    width: 300px;
     text-align: center;
     box-shadow: 0 2px 3px #ccc;
     border: 1px solid #eee;
@@ -729,12 +730,34 @@
     box-sizing: border-box;
 }
   
-@media (min-wdth: 600px) {
+@media (min-width: 600px) {
     .auth {
-      width: 500px;
+      width: 40%;
+    }
+}
+
+@media (min-width: 1000px) {
+    .auth {
+      width: 30%;
     }
 }
   
+/* .navigation-items {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    height: 100%;
+}
+
+@media (min-width: 500px) {
+    .navigation-items {
+        flex-flow: row;
+    }
+} */
+
 /* CONTACT DATA */
 
 .contact-data {
@@ -747,7 +770,7 @@
     box-sizing: border-box;
 }
 
-@media (min-wdth: 600px) {
+@media (min-width: 600px) {
     .contact-data {
         width: 500px;
     }
