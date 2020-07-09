@@ -1,2 +1,160 @@
+/* --------------------- BASIC SETUP --------------------- */
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+html {
+  background-color: #fff;
+  color: #555;
+  font-family: "Lato", "Arial", sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  text-rendering: optimizeLegibility;
+}
+
+.clearfix {
+  zoom: 1;
+}
+.clearfix:after {
+  content: ".";
+  clear: both;
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+
+/* --------------------- REUSABLE --------------------- */
+
+.row {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/* --------------------- HEADINGS --------------------- */
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+h1 {
+  color: #fff;
+  font-size: 200%;
+  letter-spacing: 1px;
+  word-spacing: 4px;
+  margin-bottom: 30px;
+}
+
+h2 {
+  font-size: 180%;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  margin-top: 0;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2::after {
+  display: block;
+  height: 2px;
+  background-color: #e67e22;
+  content: " ";
+  width: 100px;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+h3 {
+  font-size: 110%;
+
+  margin-bottom: 15px;
+}
+
+/* --------------------- ICONS --------------------- */
+
+.icon-big {
+  font-size: 350%;
+  color: #e67e22;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.icon-small {
+  width: 30px;
+  font-size: 120%;
+  color: #e67e22;
+  display: inline-block;
+  margin-right: 15px;
+  margin-bottom: 10px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* --------------------- PARAGRAPHS --------------------- */
+
+.long-copy {
+  line-height: 145%;
+  width: 70%;
+  margin-left: 15%;
+}
+
+.box p {
+  font-size: 90%;
+  line-height: 145%;
+}
+
+/* --------------------- BUTTONS --------------------- */
+
+.btn:link,
+.btn:visited,
+input[type="submit"] {
+  display: inline-block;
+  font-weight: 300;
+  padding: 10px 30px;
+  text-decoration: none;
+  border-radius: 10px;
+  border: 1px solid #e67e22;
+  -webkit-transition: background-color 0.2s, border 0.2s, color 0.2s;
+  transition: background-color 0.2s, border 0.2s, color 0.2s;
+}
+
+.btn-full:link,
+.btn-full:visited,
+input[type="submit"] {
+  background-color: #e67e22;
+  border: 1px solid #e67e22;
+  color: white;
+  margin-right: 15px;
+}
+
+.btn-ghost:link,
+.btn-ghost:visited {
+  border: 1px solid #e67e22;
+  color: #e67e22;
+}
+
+.btn:hover,
+.btn:active,
+input[type="submit"]:hover,
+input[type="submit"]:active {
+  background-color: #c46a1c;
+}
+
+.btn-full:hover,
+.btn-full:active {
+  border: 1px solid #c46a1c;
+}
+
+.btn-ghost:hover,
+.btn-ghost:active {
+  border: 1px solid #c46a1c;
+  color: white;
+}
+
+/* --------------------- LINKS --------------------- */
