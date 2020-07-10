@@ -56,7 +56,8 @@ h3 {
 /* SECTION */
 
 section {
-    padding: 40px 0;
+    align-items: center;
+    margin: 40px 0px 40px 0px;
 }
 
 /* BUILD CONTROL */
@@ -816,14 +817,18 @@ section {
 
 /* FEATURES */
 
-/* .section-features {
-    align-items: center;
-    margin: 30px 0px 30px 0px;
-} */
+/* --------------------- FEATURES --------------------- */
+section {
+    padding: 30px 0;
+}
+
+.section-features .long-copy {
+    margin-bottom: 40px;
+}
 
 .wrapper {
     align-items: center;
-    margin: 0 10% 0 10%;
+    margin: 0 5%;
 }
 
 .long-copy {
@@ -845,20 +850,23 @@ section {
     line-height: 145%;
 }
 
-.box {
-    display: inline-block;
-    text-align: center;
+.box img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
 }
 
-.row {
-    max-width: 1140px;
-    margin: 0 auto;
+.long-copy {
+    line-height: 145%;
+    width: 70%;
+    margin-left: 15%;
 }
 
 /*  GRID COLUMN SETUP   ==================================================================== */
 
 .span-1-of-4 {
     width: 23.8%; 
+    display: inline-block;
 }
 
 @media only screen and (max-width: 767px) {
@@ -884,7 +892,19 @@ section {
 
 /* BURGER BUILDER */
 
-section {
-    align-items: center;
-    margin: 30px 0px 30px 0px;
+
+
+/*  GROUPING  ============================================================================= */
+
+.row {
+    zoom: 1; /* For IE 6/7 (trigger hasLayout) */
+}
+
+.row:before,
+.row:after {
+    content:"";
+    display:table;
+}
+.row:after {
+    clear:both;
 }
