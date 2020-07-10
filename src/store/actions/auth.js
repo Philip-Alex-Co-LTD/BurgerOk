@@ -3,9 +3,20 @@ import axios from 'axios'
 import * as actionTypes from './actionTypes';
 
 export const authStart = () => {
-    console.log('Hello')
     return {
         type: actionTypes.AUTH_START
+    };
+};
+
+export const continueSigning = () => {
+    return {
+        type: actionTypes.CONTINUE_SIGNING
+    };
+};
+
+export const cancelSigning = () => {
+    return {
+        type: actionTypes.CANCEL_SIGNING
     };
 };
 

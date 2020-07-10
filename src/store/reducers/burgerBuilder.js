@@ -4,7 +4,8 @@ const initialState = {
     ingredients: null,
     totalPrice: 4,
     error: false,
-    building: false
+    building: false,
+    purchasing: false
 };
 
 const INGREDIENT_PRICES = {
@@ -16,6 +17,16 @@ const INGREDIENT_PRICES = {
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
+        case actionTypes.CONTINUE_PURCHASING:
+            return {
+                ...state,
+                purchasing: true 
+            };
+        case actionTypes.CANCEL_PURCHASING:
+            return {
+                ...state,
+                purchasing: false 
+            };
         case actionTypes.ADD_INGREDIENTS:
             return {
                 ...state,
