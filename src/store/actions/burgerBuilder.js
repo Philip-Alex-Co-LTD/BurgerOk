@@ -15,18 +15,28 @@ export const removeIngredient = (name) => {
     };
 };
 
+export const continuePurchasing = () => {
+    return {
+        type: actionTypes.CONTINUE_PURCHASING
+    };
+};
+
+export const cancelPurchasing = () => {
+    return {
+        type: actionTypes.CANCEL_PURCHASING
+    };
+};
+
 export const setIngredients = (ingredients) => {
     return {
         type: actionTypes.SET_INGREDIENTS,
         ingredients: ingredients
-
     };
 };
 
 export const fetchIngredientsFailed = (ingredients) => {
     return {
         type: actionTypes.FETCH_INGREDIENTS_FAILED
-
     };
 };
 

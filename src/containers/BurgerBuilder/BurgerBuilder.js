@@ -16,14 +16,6 @@ import axios from "../../axios-orders";
 import Footer from "../Footer";
 
 class BurgerBuilder extends Component {
-  // constructor (props) {
-  //     super (props);
-  //     this.state = {...}
-  // }
-  state = {
-    purchasing: false,
-    signing: false,
-  };
 
   componentDidMount() {
     // Fetching data from the Database
@@ -54,7 +46,11 @@ class BurgerBuilder extends Component {
   };
 
   purchaseCancelHandler = () => {
-    this.setState({ purchasing: false });
+    this.props.onCancelPurchasing();
+  };
+
+  signingCancelHandler = () => {
+    this.props.onCancelSigning();
   };
 
   purchaseContinueHandler = () => {
@@ -103,12 +99,14 @@ class BurgerBuilder extends Component {
     return (
         <React.Fragment>
             <Modal
-              show={this.state.purchasing}
+              show={this.props.purchasing}
               modalClosed={this.purchaseCancelHandler}
             >
             {orderSummary}
             </Modal>
-            <Modal show={this.state.signing}>
+            <Modal 
+              show={this.props.signing}
+              modalClosed={this.signingCancelHandler}>
               <Auth/>
             </Modal>
             <Features />
@@ -129,6 +127,7 @@ const mapStateToProps = (state) => {
     price: state.burgerBuilder.totalPrice,
     error: state.burgerBuilder.error,
     isAuthenticated: state.auth.token !== null,
+    purchasing: state.burgerBuilder.purchasing,
   };
 };
 
@@ -143,6 +142,10 @@ const mapDispatchToProps = (dispatch) => {
     onInitPurchase: () => dispatch(burgerBuiderActions.purchaseInit()),
     onSetAuthRedirectPath: (path) =>
       dispatch(burgerBuiderActions.setAuthRedirectPath(path)),
+    onCancelPurchasing: () =>
+      dispatch(burgerBuiderActions.cancelPurchasing()),
+    onContinuePurchasing: () =>
+      dispatch(burgerBuiderActions.continuePurchasing()),
   };
 };
 
