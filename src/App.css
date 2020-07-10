@@ -1038,7 +1038,6 @@ input[type="submit"]:active {
 /* --------------------- HOW IT WORKS --------------------- */
 
 .section-steps {
-  padding: 300px 0 50px 0;
   background-color: rgb(255, 255, 255);
 }
 
@@ -1135,7 +1134,7 @@ ol li:last-child:before {
 
 /* --------------------- FEATURES --------------------- */
 section {
-    padding: 30px 0;
+    padding: 50px 0;
     align-items: center;
     /* margin: 40px 0px 40px 0px; */
 }
