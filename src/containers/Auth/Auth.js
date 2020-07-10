@@ -7,6 +7,7 @@ import Input from "../../components/UI/Input/Input";
 import * as actions from "../../store/actions/index";
 
 class Auth extends Component {
+  
   state = {
     controls: {
       email: {

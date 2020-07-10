@@ -4,6 +4,7 @@ import HowItWorks from "../HowItWorks/HowItWorks";
 import ContactUs from "../ContactUs/ContactUs";
 import Burger from "../../components/Burger/Burger";
 import Features from "../Features/Features";
+import Auth from "../Auth/Auth";
 import BuildControls from "../../components/Burger/BuildControls/BuildControls";
 import Modal from "../../components/UI/Modal/Modal";
 import OrderSummary from "../../components/Burger/OrderSummary/OrderSummary";
@@ -21,6 +22,7 @@ class BurgerBuilder extends Component {
   // }
   state = {
     purchasing: false,
+    signing: false,
   };
 
   componentDidMount() {
@@ -47,7 +49,7 @@ class BurgerBuilder extends Component {
       this.setState({ purchasing: true });
     } else {
       this.props.onSetAuthRedirectPath("/checkout");
-      this.props.history.push("/auth");
+      this.setState({ signing: true });
     }
   };
 
@@ -94,21 +96,24 @@ class BurgerBuilder extends Component {
                 price={this.props.price}
                 purchaseCancelled={this.purchaseCancelHandler}
                 purchaseContinued={this.purchaseContinueHandler}
-            />
+            />;
         };
 
     // {salad: true, meat: false, ...}
     return (
         <React.Fragment>
             <Modal
-            show={this.state.purchasing}
-            modalClosed={this.purchaseCancelHandler}
+              show={this.state.purchasing}
+              modalClosed={this.purchaseCancelHandler}
             >
             {orderSummary}
             </Modal>
+            <Modal show={this.state.signing}>
+              <Auth/>
+            </Modal>
             <Features />
             <HowItWorks />
-            {burger}
+              {burger}
             <Cities />
             <ContactUs />
             <Footer />
