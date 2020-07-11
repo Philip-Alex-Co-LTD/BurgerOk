@@ -7,8 +7,8 @@ const initialState = {
     userId: null,
     error: null,
     loading: false,
-    authRedirectPath: '/',
-    signing: true
+    signing: false,
+    authRedirectPath: '/'
 }
 
 const reducer = (state = initialState, action) => {

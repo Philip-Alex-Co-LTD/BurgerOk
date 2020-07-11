@@ -38,10 +38,10 @@ class BurgerBuilder extends Component {
 
   purchaseHandler = () => {
     if (this.props.isAuthenticated) {
-      this.setState({ purchasing: true });
+      this.props.onContinuePurchasing();
     } else {
       this.props.onSetAuthRedirectPath("/checkout");
-      this.setState({ signing: true });
+      this.props.onContinueSigning();
     }
   };
 
@@ -106,7 +106,8 @@ class BurgerBuilder extends Component {
             </Modal>
             <Modal 
               show={this.props.signing}
-              modalClosed={this.signingCancelHandler}>
+              modalClosed={this.signingCancelHandler}
+            >
               <Auth/>
             </Modal>
             <Features />
@@ -128,6 +129,7 @@ const mapStateToProps = (state) => {
     error: state.burgerBuilder.error,
     isAuthenticated: state.auth.token !== null,
     purchasing: state.burgerBuilder.purchasing,
+    signing: state.auth.signing,
   };
 };
 
@@ -146,6 +148,8 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(burgerBuiderActions.cancelPurchasing()),
     onContinuePurchasing: () =>
       dispatch(burgerBuiderActions.continuePurchasing()),
+    onContinueSigning: () =>
+      dispatch(burgerBuiderActions.continueSigning()),
   };
 };
 

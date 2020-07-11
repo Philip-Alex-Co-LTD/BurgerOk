@@ -19,7 +19,7 @@ const navigationItem = (props) => {
         >
           {props.children}
         </NavLink> : 
-        <div activeClassName="active" onClick={() => continueSigningHandler()}>{props.children}</div>
+        <div activeClassName={!this.props.signing ? null : "active"} onClick={() => continueSigningHandler()}>{props.children}</div>
       }
     </li>
   );
