@@ -1,19 +1,19 @@
 import React, { Component } from "react";
-import Cities from "../Cities/Cities";
-import HowItWorks from "../HowItWorks/HowItWorks";
-import ContactUs from "../ContactUs/ContactUs";
-import Burger from "../../components/Burger/Burger";
-import Features from "../Features/Features";
-import Auth from "../Auth/Auth";
-import BuildControls from "../../components/Burger/BuildControls/BuildControls";
-import Modal from "../../components/UI/Modal/Modal";
-import OrderSummary from "../../components/Burger/OrderSummary/OrderSummary";
-import Spinner from "../../components/UI/Spinner/Spinner";
-import withErrorHandler from "../../hoc/withErrorHandler/withErrorHandler";
-import * as burgerBuiderActions from "../../store/actions/index";
+import Cities from "../components/Cities";
+import HowItWorks from "../components/HowItWorks";
+import ContactUs from "../components/ContactUs";
+import Burger from "../components/Burger";
+import Features from "../components/Features";
+import Auth from "./Auth";
+import BuildControls from "../components/BuildControls";
+import Modal from "../components/Modal";
+import OrderSummary from "../components/OrderSummary";
+import Spinner from "../components/Spinner";
+import withErrorHandler from "../hoc/withErrorHandler/withErrorHandler";
+import * as burgerBuiderActions from "../store/actions/index";
 import { connect } from "react-redux";
-import axios from "../../axios-orders";
-import Footer from "../Footer";
+import axios from "../axios-orders";
+import Footer from "./Footer";
 
 class BurgerBuilder extends Component {
 
