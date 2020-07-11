@@ -8,7 +8,7 @@ export default function Cities() {
     <React.Fragment>
       <section className="section-cities" id="cities">
         <div className="row">
-          <h2>We're currently in these cities</h2>
+          <h2>Find us in these cities</h2>
         </div>
         <div class="row">
 
@@ -28,7 +28,7 @@ export default function Cities() {
               <li>
                 <FaRegComments className="icon-small" />
                 <a href="#" className="twitter-ref">
-                  @omnifood_lx
+                  @burgerok_bk
                 </a>
               </li>
             </ul>
@@ -48,7 +48,7 @@ export default function Cities() {
               <li>
                 <FaRegComments className="icon-small" />
                 <a href="#" className="twitter-ref">
-                  @omnifood_sf
+                  @burgerok_ms
                 </a>
               </li>
             </ul>
@@ -68,7 +68,7 @@ export default function Cities() {
               <li>
                 <FaRegComments className="icon-small" />
                 <a href="#" className="twitter-ref">
-                  @omnifood_berlin
+                  @burgerok_gz
                 </a>
               </li>
             </ul>
