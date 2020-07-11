@@ -150,6 +150,8 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(burgerBuiderActions.continuePurchasing()),
     onContinueSigning: () =>
       dispatch(burgerBuiderActions.continueSigning()),
+    onCancelSigning: () =>
+      dispatch(burgerBuiderActions.cancelSigning()),
   };
 };
 
