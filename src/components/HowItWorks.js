@@ -17,7 +17,7 @@ export default function HowItWorks() {
             Fill in the contact form & submit.<br/> Check out your order in "orders" section! 
           </li>
           <li>
-            Enjoy your meal after less than 20 minutes.<br/> See you the next time!
+            Enjoy your meal after less than 20 minutes.<br/> See you next time!
           </li>
         </ol>
       </section>
