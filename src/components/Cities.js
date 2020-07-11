@@ -1,8 +1,8 @@
 import React from "react";
 import { FaRegStar, FaUser, FaRegComments } from "react-icons/fa";
-import bobr from "../../assets/images/bobr.jpg";
-import minsk from "../../assets/images/minsk.jpg";
-import gz from "../../assets/images/gz.jpg";
+import bobr from "../assets/images/bobr.jpg";
+import minsk from "../assets/images/minsk.jpg";
+import gz from "../assets/images/gz.jpg";
 export default function Cities() {
   return (
     <React.Fragment>
