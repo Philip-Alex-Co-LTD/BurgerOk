@@ -141,7 +141,7 @@ class Auth extends Component {
     }
 
     return (
-      <div className="auth">
+      <div className="sign-form">
         {authRedirect}
         {errorMessage}
         <form onSubmit={this.submitHandler}>

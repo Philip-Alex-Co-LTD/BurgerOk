@@ -4,14 +4,18 @@ import * as signingActions from "../store/actions/index";
 import { connect } from "react-redux";
 
 const navigationItem = (props) => {
-
+  
   const continueSigningHandler = () => {
-    this.props.onContinueSigning();
+    props.onContinueSigning();
+  };
+
+  const logoutHandler = () => {
+    props.onLogout();
   };
 
   return (
     <li className="navigation-item">
-      {(props.children == `Orders` || props.children == `Burger Builder`) ?
+      {(props.children === `Orders` || props.children === `BurgerOk`) ?
         <NavLink
           to={props.link}
           exact={props.exact}
@@ -19,7 +23,14 @@ const navigationItem = (props) => {
         >
           {props.children}
         </NavLink> : 
-        <div activeClassName={!this.props.signing ? null : "active"} onClick={() => continueSigningHandler()}>{props.children}</div>
+        <div 
+          className={["navigation-item", "no-ref-element", `${!props.signing ? "" : "active"}`].join(' ')}
+          onClick={props.children === `Sign in` ? 
+            () => continueSigningHandler() :
+            () => logoutHandler()}
+        >
+          {props.children}
+        </div>
       }
     </li>
   );
@@ -39,6 +50,8 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(signingActions.cancelSigning()),
     onContinueSigning: () =>
       dispatch(signingActions.continueSigning()),
+    onLogout: () =>
+      dispatch(signingActions.logout()),
   };
 };
 

@@ -35,7 +35,8 @@ const reducer = (state = initialState, action) => {
                 token: action.token,
                 userId: action.userId,
                 error: null,
-                loading: false
+                loading: false,
+                signing: false
             };
         case actionTypes.AUTH_FAIL:
             return {

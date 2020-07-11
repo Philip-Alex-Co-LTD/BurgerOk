@@ -13,14 +13,6 @@ class Logout extends Component {
     }
 }
 
-// const mapStateToProps = state => {
-//     return {
-//         loading: state.auth.loading,
-//         error: state.auth.error
-//     };
-// };
-
-
 // Function responsible for passing actions to the reducer
 const mapDispatchToProps = dispatch => {
     return {
