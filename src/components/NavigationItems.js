@@ -1,5 +1,6 @@
 import React from "react";
 import NavigationItem from "./NavigationItem";
+import NavigationItem from "./ProfileDropdown";
 
 const navigationItems = (props) => (
   <ul className="navigation-items">
@@ -12,7 +13,7 @@ const navigationItems = (props) => (
     {!props.isAuthenticated ? (
       <NavigationItem>Sign in</NavigationItem>
     ) : (
-      <NavigationItem>Logout</NavigationItem>
+      <ProfileDropdown>Logout</ProfileDropdown>
     )}
   </ul>
 );
