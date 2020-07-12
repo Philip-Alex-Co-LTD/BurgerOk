@@ -25,9 +25,7 @@ export default function Cities() {
               </li>
               <li>
                 <FaRegComments className="icon-small" />
-                <a href="#" className="twitter-ref">
-                  @burgerok_bk
-                </a>
+                <a className="twitter-ref">@burgerok_bk</a>
               </li>
             </ul>
           </div>
@@ -45,9 +43,7 @@ export default function Cities() {
               </li>
               <li>
                 <FaRegComments className="icon-small" />
-                <a href="#" className="twitter-ref">
-                  @burgerok_ms
-                </a>
+                <a className="twitter-ref">@burgerok_ms</a>
               </li>
             </ul>
           </div>
@@ -65,9 +61,7 @@ export default function Cities() {
               </li>
               <li>
                 <FaRegComments className="icon-small" />
-                <a href="#" className="twitter-ref">
-                  @burgerok_gz
-                </a>
+                <a className="twitter-ref">@burgerok_gz</a>
               </li>
             </ul>
           </div>

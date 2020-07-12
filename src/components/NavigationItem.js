@@ -4,7 +4,6 @@ import * as signingActions from "../store/actions/index";
 import { connect } from "react-redux";
 
 const navigationItem = (props) => {
-  
   const continueSigningHandler = () => {
     props.onContinueSigning();
   };
@@ -15,23 +14,28 @@ const navigationItem = (props) => {
 
   return (
     <li className="navigation-item">
-      {(props.children === `Orders` || props.children === `BurgerOk`) ?
-        <NavLink
-          to={props.link}
-          exact={props.exact}
-          activeClassName="active"
-        >
+      {props.children === `Orders` ||
+      props.children === `BurgerOk` ||
+      props.children === `Address` ? (
+        <NavLink to={props.link} exact={props.exact} activeClassName="active">
           {props.children}
-        </NavLink> : 
-        <div 
-          className={["navigation-item", "no-ref-element", `${!props.signing ? "" : "active"}`].join(' ')}
-          onClick={props.children === `Sign in` ? 
-            () => continueSigningHandler() :
-            () => logoutHandler()}
+        </NavLink>
+      ) : (
+        <div
+          className={[
+            "navigation-item",
+            "no-ref-element",
+            `${!props.signing ? "" : "active"}`,
+          ].join(" ")}
+          onClick={
+            props.children === `Sign in`
+              ? () => continueSigningHandler()
+              : () => logoutHandler()
+          }
         >
           {props.children}
         </div>
-      }
+      )}
     </li>
   );
 };
@@ -46,16 +50,10 @@ const mapStateToProps = (state) => {
 // Function responsible for passing actions to the reducer
 const mapDispatchToProps = (dispatch) => {
   return {
-    onCancelSigning: () =>
-      dispatch(signingActions.cancelSigning()),
-    onContinueSigning: () =>
-      dispatch(signingActions.continueSigning()),
-    onLogout: () =>
-      dispatch(signingActions.logout()),
+    onCancelSigning: () => dispatch(signingActions.cancelSigning()),
+    onContinueSigning: () => dispatch(signingActions.continueSigning()),
+    onLogout: () => dispatch(signingActions.logout()),
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(navigationItem);
+export default connect(mapStateToProps, mapDispatchToProps)(navigationItem);
