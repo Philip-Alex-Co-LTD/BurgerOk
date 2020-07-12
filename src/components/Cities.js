@@ -5,13 +5,11 @@ import minsk from "../assets/images/minsk.jpg";
 import gz from "../assets/images/gz.jpg";
 export default function Cities() {
   return (
-    <React.Fragment>
-      <section className="section-cities" id="cities">
-        <div className="row">
-          <h2>Find us in these cities</h2>
-        </div>
-        <div class="row">
-
+    <section className="section-cities" id="cities">
+      <div className="row">
+        <h2>Find us in these cities</h2>
+      </div>
+      <div className="row">
         <div className="cities">
           <div className="col span-1-of-3 box">
             <img src={bobr} alt="Bobruisk" className="cities-photo" />
@@ -74,8 +72,7 @@ export default function Cities() {
             </ul>
           </div>
         </div>
-        </div>
-      </section>
-    </React.Fragment>
+      </div>
+    </section>
   );
 }
