@@ -3,18 +3,14 @@ import { NavLink } from "react-router-dom";
 import * as signingActions from "../store/actions/index";
 import { connect } from "react-redux";
 
-const navigationItem = (props) => {
+const navigationElement = (props) => {
   
   const continueSigningHandler = () => {
     props.onContinueSigning();
   };
 
-  const logoutHandler = () => {
-    props.onLogout();
-  };
-
   return (
-    <li className="navigation-item">
+    <li className="navigation-element">
       {(props.children === `BurgerOk`) ?
         <NavLink
           to={props.link}
@@ -54,4 +50,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(navigationItem);
+)(navigationElement);

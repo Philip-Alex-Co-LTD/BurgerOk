@@ -515,14 +515,6 @@ input[type="submit"]:active {
   border-bottom: 2px solid transparent;
 }
 
-.navigation-item a,
-.navigation-item .no-ref-element {
-  color: #e69122;
-  text-decoration: none;
-  width: 100%;
-  box-sizing: border-box;
-  display: block;
-}
 
 .navigation-item a:hover,
 .navigation-item .no-ref-element:hover {
@@ -694,12 +686,13 @@ input[type="submit"]:active {
 /* TOOLBAR */
 
 .toolbar {
-  height: 76px;
-  width: 100%;
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #703b09;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 2px #efefef;
+  height: 76px;
   display: flex;
   justify-content: space-between;
   align-items: center;
