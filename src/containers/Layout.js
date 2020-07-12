@@ -42,10 +42,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         onFetchedOrders: (token) => dispatch(actions.fetchOrders(token))
-//     };
-// }
-
 export default connect(mapStateToProps, null)(Layout);

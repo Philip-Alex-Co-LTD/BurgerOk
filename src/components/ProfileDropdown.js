@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import DropdownContent from "./DropdownContent";
+import DropdownElements from "./DropdownElements";
 import { FaUser } from "react-icons/fa";
 
 const profileDropdown = (props) => {
@@ -14,7 +14,7 @@ const profileDropdown = (props) => {
             >
                 <FaUser className = 'icon-profile'/>
             </button>
-            <DropdownContent isDisplayed = {hover}/>
+            <DropdownElements isDisplayed = {hover}/>
         </div>
     );
 };
