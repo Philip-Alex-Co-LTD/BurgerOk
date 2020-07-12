@@ -76,18 +76,23 @@ class BurgerBuilder extends Component {
 
     if (this.props.ings) {
       burger = (
-        <div>
-          <BuildControls
-            ingredientAdded={this.props.onIngredientAdded}
-            ingredientRemoved={this.props.onIngredientRemoved}
-            disabled={disabledInfo}
-            purchasable={this.updatedPurchaseState(this.props.ings)}
-            ordered={this.purchaseHandler}
-            isAuth={this.props.isAuthenticated}
-            price={this.props.price}
-          />
-          <Burger ingredients={this.props.ings} />
-        </div>
+        <React.Fragment>
+          <div className="burger-section-h2">
+            <h2> Start making your own burger</h2>
+          </div>
+          <div className="burger-section">
+            <BuildControls
+              ingredientAdded={this.props.onIngredientAdded}
+              ingredientRemoved={this.props.onIngredientRemoved}
+              disabled={disabledInfo}
+              purchasable={this.updatedPurchaseState(this.props.ings)}
+              ordered={this.purchaseHandler}
+              isAuth={this.props.isAuthenticated}
+              price={this.props.price}
+            />
+            <Burger ingredients={this.props.ings} />
+          </div>
+        </React.Fragment>
       );
       orderSummary = (
         <OrderSummary

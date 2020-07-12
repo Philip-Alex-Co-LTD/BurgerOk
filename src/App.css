@@ -1,4 +1,18 @@
 /* --------------------- BASIC SETUP --------------------- */
+body::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: #f5f5f5;
+}
+
+body::-webkit-scrollbar {
+  width: 12px;
+  background-color: #f5f5f5;
+}
+
+body::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #555;
+}
 
 * {
   margin: 0;
@@ -222,14 +236,42 @@ section {
   align-items: center;
   margin: 40px 0px 40px 0px;
 }
+/* BURGER SECTION */
+.burger-section {
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  height: 75vh;
+}
 
 /* BUILD CONTROL */
+.controls {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 2%;
+  width: 100%;
+}
+.bottom-controls {
+  padding-top: 5%;
+  display: flex;
+  justify-content: center;
+}
+.controls-2 {
+  background-color: #f8f8f8;
+  text-align: center;
+}
+.plan-price {
+  font-size: 300%;
+  padding-bottom: 10px;
+  font-weight: 100;
+  color: #e67e22;
+}
 
 .build-control {
-  display: inline-block;
-  justify-content: space-between;
+  display: flex;
+  justify-content: space-evenly;
   align-items: center;
-  margin: 5px 0;
+  margin: 5px 10%;
 }
 
 .build-control:first-of-type {
@@ -241,22 +283,28 @@ section {
   padding: 5px;
   margin: 0 5px;
   width: 80px;
+  border-radius: 4px;
   border: 1px solid #aa6817;
   cursor: pointer;
   outline: none;
+  background: none;
 }
 
 .build-control button:disabled {
-  background-color: #ac9980;
-  border: 1px solid #7e7365;
-  color: #ccc;
-  cursor: default;
+  border: 1px solid #e67e22;
+  color: #e67e22;
+  background-color: #eeeeee;
 }
 
 .build-control button:hover:disabled {
-  background-color: #ac9980;
-  color: #ccc;
+  border: 1px solid #e67e22;
   cursor: not-allowed;
+  box-shadow: 0px 0px 0px #fff;
+  background-color: #eeeeee;
+  color: #e67e22;
+}
+.build-control button:disabled {
+  box-shadow: 0px 0px 0px #fff;
 }
 
 .label {
@@ -267,110 +315,80 @@ section {
 }
 
 .build-control .less {
-  background-color: #d39952;
+  /* background: #c46a1c; */
+  border: 1px solid #e67e22;
+  box-shadow: 1px 1px 1px #e67e22;
   color: white;
+  color: #e67e22;
 }
 
 .build-control .more {
-  background-color: #8f5e1e;
+  background-color: #e67e22;
   color: white;
 }
 
 .build-control .less:hover,
 .build-control .less:active {
-  background-color: #daa972;
+  border: 2px solid #c46a1c;
   color: white;
+  background-color: #c46a1c;
 }
 
 .build-control .more:hover,
 .build-control .more:active {
-  background-color: #99703f;
+  border: 2px solid #c46a1c;
   color: white;
-}
-
-/* BUILD CONTROLS */
-
-.build-controls {
-  width: 30%;
-  height: 400px;
-  background-color: #eeeeee;
-  display: inline-block;
-  flex-flow: column;
-  align-items: center;
-  box-shadow: 0 2px 1px #ccc;
-  margin: 0 5%;
-  padding: 10px 0;
-}
-/* .btn:link,
-.btn:visited,
-input[type="submit"] {
-  display: inline-block;
-  font-weight: 300;
-  padding: 10px 30px;
-  text-decoration: none;
-  border-radius: 10px;
-  border: 1px solid #e67e22;
-  -webkit-transition: background-color 0.2s, border 0.2s, color 0.2s;
-  transition: background-color 0.2s, border 0.2s, color 0.2s;
-}
-
-.btn-full:link,
-.btn-full:visited,
-input[type="submit"] {
-  background-color: #e67e22;
-  border: 1px solid #e67e22;
-  color: white;
-  margin-right: 15px;
-}
-
-.btn-ghost:link,
-.btn-ghost:visited {
-  border: 1px solid #e67e22;
-  color: #e67e22;
-}
-
-.btn:hover,
-.btn:active,
-input[type="submit"]:hover,
-input[type="submit"]:active {
   background-color: #c46a1c;
 }
 
-.btn-full:hover,
-.btn-full:active {
-  border: 1px solid #c46a1c;
+/* BUILD CONTROLS */
+.burger-section-h2 {
+  align-items: center;
+  background-color: #f4f4f4;
+}
+.burger-section-h2 h2 {
+  margin: 0;
+  padding-bottom: 40px;
+  padding-top: 20px;
 }
 
-.btn-ghost:hover,
-.btn-ghost:active {
-  border: 1px solid #c46a1c;
-  color: white;
-} */
+.build-controls {
+  width: 27%;
+  height: 500px;
+  display: inline-block;
+  margin: 0 5%;
+  border-radius: 5px;
+  box-shadow: 0 2px 2px #e3e3e3;
+  background-color: white;
+}
 
 .order-button {
-  background-color: #dad735;
+  border: 1px solid #e67e22;
+  color: white;
+  background-color: #e67e22;
+  border-radius: 10px;
   outline: none;
   cursor: pointer;
-  border: 1px solid #966909;
-  color: #966909;
   font-family: inherit;
   font-size: 1.2em;
   padding: 15px 30px;
-  box-shadow: 2px 2px 2px #966909;
 }
 
 .order-button:hover,
 .order-button:active {
-  background-color: #a0db41;
-  border: 1px solid #966909;
-  color: #966909;
+  border: 1px solid #c46a1c;
+  color: white;
+  background-color: #c46a1c;
 }
 
 .order-button:disabled {
-  background-color: #c7c6c6;
   cursor: not-allowed;
-  border: 1px solid #ccc;
-  color: #888888;
+  border: 1px solid #e67e22;
+  color: #e67e22;
+  background: none;
+}
+.order-button:disabled:hover {
+  box-shadow: 1px 1px 1px #e67e22;
 }
 
 .order-button:not(:disabled) {
@@ -449,11 +467,29 @@ input[type="submit"]:active {
 }
 
 /* BURGER */
+div::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgb(255, 255, 255);
+  border-radius: 10px;
+  background-color: #ffffff;
+}
 
+div::-webkit-scrollbar {
+  width: 12px;
+  background-color: #f5f5f5;
+}
+
+div::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(218, 213, 213, 0.705);
+  background-color: #bebebe;
+}
 .burger {
   display: inline-block;
+  background-color: white;
+  box-shadow: 2px 2px 2px #e3e3e3;
   width: 100%;
-  margin: auto;
+  border-radius: 5px;
+  margin: 0 auto;
   height: 250px;
   overflow: auto;
   text-align: center;
