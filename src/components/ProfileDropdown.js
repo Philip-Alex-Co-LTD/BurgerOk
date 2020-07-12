@@ -1,18 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import DropdownContent from "./DropdownContent";
+import { FaUser } from "react-icons/fa";
 
 const profileDropdown = (props) => {
-    // Declare a new state variable, which we'll call "count"
-    const [hover, toggleHover] = useState(0);
-
-    const toggleHover = () => {
-
-    };
+    const [hover, toggleHover] = useState(false);
 
     return (
         <div className ="dropdown">
-            <button onMouseEnter={() => toggleHover()} className="dropbtn">Dropdown</button>
-            <DropdownContent/>
+            <button 
+                onMouseEnter={() => toggleHover(true)}
+                onMouseLeave={() => toggleHover(false)} 
+                className={["dropbtn", `${hover ? "active" : ""}`].join(' ')}
+            >
+                <FaUser className = 'icon-profile'/>
+            </button>
+            <DropdownContent isDisplayed = {hover}/>
         </div>
     );
 };

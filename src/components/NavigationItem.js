@@ -15,7 +15,7 @@ const navigationItem = (props) => {
 
   return (
     <li className="navigation-item">
-      {(props.children === `Orders` || props.children === `BurgerOk`) ?
+      {(props.children === `BurgerOk`) ?
         <NavLink
           to={props.link}
           exact={props.exact}
@@ -50,8 +50,6 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(signingActions.cancelSigning()),
     onContinueSigning: () =>
       dispatch(signingActions.continueSigning()),
-    onLogout: () =>
-      dispatch(signingActions.logout()),
   };
 };
 

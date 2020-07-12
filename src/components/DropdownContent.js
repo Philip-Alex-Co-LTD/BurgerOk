@@ -1,32 +1,32 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import * as signingActions from "../store/actions/index";
+import NavigationItem from "./NavigationItem";
 import { connect } from "react-redux";
 
 const profileDropdown = (props) => {
 
+  const logoutHandler = () => {
+    props.onLogout();
+  };
+
   return (
-    <div className="dropdown-content">
-        <NavigationItem link="/orders">Orders</NavigationItem>
-        <div>Logout</div>
+    <div className={["dropdown-content", `${props.isDisplayed ? "displayed" : ""}`].join(' ')}>
+        <NavigationItem link="/orders">My Orders</NavigationItem>
+        <div 
+          onClick={() => logoutHandler()}
+        >
+          Logout
+        </div>
     </div>
   );
 };
 
 // Function responsible for passing state to the reducer
-const mapStateToProps = (state) => {
-  return {
-    signing: state.auth.signing,
-  };
-};
+const mapStateToProps = () => {};
 
 // Function responsible for passing actions to the reducer
 const mapDispatchToProps = (dispatch) => {
   return {
-    onCancelSigning: () =>
-      dispatch(signingActions.cancelSigning()),
-    onContinueSigning: () =>
-      dispatch(signingActions.continueSigning()),
     onLogout: () =>
       dispatch(signingActions.logout()),
   };

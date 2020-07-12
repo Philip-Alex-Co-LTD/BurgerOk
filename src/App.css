@@ -83,6 +83,13 @@ h3 {
   vertical-align: middle;
 }
 
+.icon-profile {
+  font-size: 350%;
+  color: white;
+  display: block;
+  margin-bottom: 10px;
+}
+
 /* --------- PARAGRAPHS ----------- */
 
 .long-copy {
@@ -1427,10 +1434,10 @@ footer p {
 /* --------------------- DROPDOWN --------------------- */
 
 .dropbtn {
-  background-color: #4CAF50;
+  background-color: #703b09;
   color: white;
-  padding: 16px;
-  font-size: 16px;
+  margin-top: 10px;
+  font-size: 11px;
   border: none;
 }
 
@@ -1443,7 +1450,7 @@ footer p {
   display: none;
   position: absolute;
   background-color: #f1f1f1;
-  min-width: 160px;
+  width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 }
