@@ -9,12 +9,7 @@ const signinElement = (props) => {
   };
 
   return (
-    <div 
-        className={["no-ref-element", `${!props.signing ? "" : "active"}`].join(' ')}
-        onClick={() => continueSigningHandler()}
-    >
-        Sign in
-    </div>
+    <div onClick={() => continueSigningHandler()}>Sign in</div>
   );
 };
 

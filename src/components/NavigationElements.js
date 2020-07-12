@@ -9,7 +9,9 @@ const navigationElements = (props) => (
       BurgerOk
     </NavigationElement>
     {!props.isAuthenticated ? (
-      <SigninElement/>
+       <li className="navigation-element">
+         <SigninElement/>
+       </li>
     ) : (
       <ProfileDropdown/>
     )}
