@@ -53,7 +53,9 @@ export default function Footer() {
           </ul>
         </div>
       </div>
-      <p>Copyright &copy; 2019 by BurgerOk. All rights reserved.</p>
+      <p>
+        Copyright &copy; 2020 by BurgerOk. All rights reserved.
+      </p>
     </footer>
   );
 }

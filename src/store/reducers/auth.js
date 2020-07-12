@@ -7,11 +7,22 @@ const initialState = {
     userId: null,
     error: null,
     loading: false,
+    signing: false,
     authRedirectPath: '/'
 }
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
+        case actionTypes.CONTINUE_SIGNING:
+            return {
+                ...state,
+                signing: true
+            };
+        case actionTypes.CANCEL_SIGNING:
+            return {
+                ...state,
+                signing: false
+            };
         case actionTypes.AUTH_START:
             return {
                 ...state,
@@ -24,7 +35,8 @@ const reducer = (state = initialState, action) => {
                 token: action.token,
                 userId: action.userId,
                 error: null,
-                loading: false
+                loading: false,
+                signing: false
             };
         case actionTypes.AUTH_FAIL:
             return {
