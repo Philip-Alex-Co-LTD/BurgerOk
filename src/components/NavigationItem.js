@@ -24,10 +24,8 @@ const navigationItem = (props) => {
           {props.children}
         </NavLink> : 
         <div 
-          className={["navigation-item", "no-ref-element", `${!props.signing ? "" : "active"}`].join(' ')}
-          onClick={props.children === `Sign in` ? 
-            () => continueSigningHandler() :
-            () => logoutHandler()}
+          className={["no-ref-element", `${!props.signing ? "" : "active"}`].join(' ')}
+          onClick={() => continueSigningHandler()}
         >
           {props.children}
         </div>

@@ -10,14 +10,19 @@ const profileDropdown = (props) => {
   };
 
   return (
-    <div className={["dropdown-content", `${props.isDisplayed ? "displayed" : ""}`].join(' ')}>
-        <NavigationItem link="/orders">My Orders</NavigationItem>
-        <div 
-          onClick={() => logoutHandler()}
-        >
-          Logout
-        </div>
-    </div>
+    <ul className={["dropdown-content", `${props.isDisplayed ? "displayed" : ""}`].join(' ')}>
+        <li>
+          <NavigationItem link="/orders">My Orders</NavigationItem>
+        </li>
+        <li className = "navigation-item">
+          <div 
+            className = "no-ref-element"
+            onClick={() => logoutHandler()}
+          >
+            Logout
+          </div>
+        </li>
+    </ul>
   );
 };
 
