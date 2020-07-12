@@ -15,7 +15,7 @@ const navigationItem = (props) => {
 
   return (
     <li className="navigation-item">
-      {(props.children === `Orders` || props.children === `BurgerOk`) ?
+      {(props.children === `BurgerOk`) ?
         <NavLink
           to={props.link}
           exact={props.exact}
@@ -24,10 +24,8 @@ const navigationItem = (props) => {
           {props.children}
         </NavLink> : 
         <div 
-          className={["navigation-item", "no-ref-element", `${!props.signing ? "" : "active"}`].join(' ')}
-          onClick={props.children === `Sign in` ? 
-            () => continueSigningHandler() :
-            () => logoutHandler()}
+          className={["no-ref-element", `${!props.signing ? "" : "active"}`].join(' ')}
+          onClick={() => continueSigningHandler()}
         >
           {props.children}
         </div>
@@ -50,8 +48,6 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(signingActions.cancelSigning()),
     onContinueSigning: () =>
       dispatch(signingActions.continueSigning()),
-    onLogout: () =>
-      dispatch(signingActions.logout()),
   };
 };
 
