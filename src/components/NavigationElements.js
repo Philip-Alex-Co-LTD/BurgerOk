@@ -1,20 +1,22 @@
 import React from "react";
 import NavigationElement from "./NavigationElement";
 import SigninElement from "./SigninElement";
-import ProfileDropdown from "./ProfileDropdown";
+import ProfileElement from "./ProfileElement";
 
 const navigationElements = (props) => (
+
   <ul className="navigation-elements">
     <NavigationElement link="/" exact>
       BurgerOk
     </NavigationElement>
-    {!props.isAuthenticated ? (
-       <li className="navigation-element">
-         <SigninElement/>
-       </li>
-    ) : (
-      <ProfileDropdown/>
-    )}
+    <li className="navigation-element">
+      {!props.isAuthenticated ? (
+          <SigninElement/>
+        ) : (
+          <ProfileElement/>
+        )
+      }
+    </li>
   </ul>
 );
 

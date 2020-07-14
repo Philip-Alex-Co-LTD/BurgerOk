@@ -84,10 +84,10 @@ h3 {
 }
 
 .icon-profile {
-  font-size: 350%;
-  color: white;
+  font-size: 150%;
+  color: #555;
   display: block;
-  margin-bottom: 10px;
+  /* margin-bottom: 20px; */
 }
 
 /* --------- PARAGRAPHS ----------- */
@@ -1396,13 +1396,11 @@ footer p {
 
 /* --------------------- DROPDOWN --------------------- */
 
-.dropbtn {
-  background-color: #703b09;
-  color: white;
-  margin-top: 10px;
-  font-size: 11px;
-  padding-bottom: 5px;
-  border: none;
+.profile-element {
+  position: fixed;
+  top: 20px;
+  right: 10px;
+  padding-bottom: 40px;
 }
 
 .dropdown {
@@ -1410,8 +1408,10 @@ footer p {
   display: inline-block;
 }
 
-
-.dropdown-content {
+.dropdown-elements {
+  position: fixed;
+  top: 70px;
+  left: 100px;
   display: none;
   margin-top: 5px;
   position: absolute;
@@ -1423,32 +1423,41 @@ footer p {
   right: 0;
 }
 
-.dropdown-content li {
+.displayed {
+  display: block;
+}
+
+.dropdown-elements li {
   width: 150px;
   color: #555;
 } 
 
-.dropdown-content a {
+.dropdown-element {
   width: 10px;
   color: black;
   text-decoration: none;
   display: block;
-}
-
-.dropdown-content a:hover {
-  background-color: #ddd;
-  transition: border-bottom 0.2s;
-}
-
-.dropdown:hover .dropdown-content {
+  text-transform: uppercase;
+  margin: 10px 10px;
+  padding: 5px 0;
+  box-sizing: border-box;
   display: block;
-  transition: border-bottom 0.2s;
-  
+  width: 100%;
+  border-bottom: 2px solid transparent;
 }
 
-.dropdown:hover .dropbtn {
-  transform: scale(1.10);
+.dropdown-element:hover {
+  text-decoration: none;
+  cursor: pointer;
+  border-bottom: 2px solid #e67e22;
   transition: border-bottom 0.2s;
+}
+
+.dropdown-element a:link,
+.dropdown-element a:visited {
+  padding: 4px 0;
+  text-decoration: none;
+  color: #555;
 }
 
 /* --------------------- UNORDERED LIST --------------------- */

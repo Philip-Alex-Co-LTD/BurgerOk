@@ -1,27 +1,39 @@
-import React from "react";
-import * as signingActions from "../store/actions/index";
+import React, {useState} from "react";
+import * as authActions from "../store/actions/index";
 import DropdownElement from "./DropdownElement";
 import { connect } from "react-redux";
 
 const profileDropdown = (props) => {
-
+  
+  const [display, setDisplay] = useState(false);
+  
   const logoutHandler = () => {
     props.onLogout();
   };
 
   return (
-    <ul className={["dropdown-elements", `${props.isDisplayed ? "displayed" : ""}`].join(' ')}>
-      <DropdownElement link="/orders">My Orders</DropdownElement>
-      <DropdownElement link="/orders">My Address</DropdownElement>
-      <li className = "dropdown-element">
-        <div 
-          className = "no-ref-element"
-          onClick={() => logoutHandler()}
-        >
-          Logout
-        </div>
-      </li>
-    </ul>
+    <div 
+        onMouseEnter={() => setDisplay(true)}
+        onMouseLeave={() => setDisplay(false)} 
+    >
+      <ul className = "profile-credentials">
+        <li className = "dropdown-element">Your name: profileName</li>
+        <li className = "dropdown-element">Your e-mail: email</li>
+        
+      </ul>
+      <ul className={["dropdown-elements", `${props.isDisplayed || display ? "displayed" : ""}`].join(' ')}>
+        <DropdownElement link="/orders">My Orders</DropdownElement>
+        <DropdownElement link="/orders">My Address</DropdownElement>
+        <li className = "dropdown-element">
+          <div 
+            className = "no-ref-element"
+            onClick={() => logoutHandler()}
+          >
+            Logout
+          </div>
+        </li>
+      </ul>
+    </div>
   );
 };
 
@@ -29,7 +41,7 @@ const profileDropdown = (props) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onLogout: () =>
-      dispatch(signingActions.logout()),
+      dispatch(authActions.logout()),
   };
 };
 
