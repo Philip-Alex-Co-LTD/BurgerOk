@@ -1,7 +1,9 @@
 import React from 'react';
 import Logo from './Logo';
+import DropdownElements from './DropdownElements'
 import NavigationElements from './NavigationElements';
 import DrawerToggle from './DrawerToggle';
+import { connect } from "react-redux";
 
 const toolbar = (props) => (
     <header className="toolbar">
@@ -10,7 +12,15 @@ const toolbar = (props) => (
         <nav className="desktop-only">
             <NavigationElements isAuthenticated={props.isAuth}/>
         </nav>
+        <DropdownElements isDisplayed = {props.showingBackdrop}/>
     </header>
 );
 
-export default toolbar;
+// Function responsible for passing state to the reducer
+const mapStateToProps = (state) => {
+    return {
+      showingBackdrop: state.navigation.showingBackdrop,
+    };
+};
+
+export default connect(mapStateToProps)(toolbar);

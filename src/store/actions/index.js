@@ -18,3 +18,7 @@ export {
     continueSigning,
     cancelSigning
 } from './auth';
+export {
+    revealBackdrop,
+    hideBackdrop
+} from './navigation';
