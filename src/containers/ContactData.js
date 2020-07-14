@@ -10,7 +10,7 @@ import * as actions from "../store/actions/index";
 class ContactData extends Component {
   state = {
     orderForm: {
-      Name: {
+      "First Name": {
         elementType: "input",
         elementConfig: {
           type: "text",

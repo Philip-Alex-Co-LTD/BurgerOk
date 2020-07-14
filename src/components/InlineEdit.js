@@ -2,11 +2,6 @@ import React, { useEffect, useState, useRef } from "react";
 import { useKeyPress, useOnClickOutside } from "use-hooks";
 import { connect } from "react-redux";
 
-// import Input from "../components/Input";
-import axios from "../axios-orders";
-import withErrorHandler from "../hoc/withErrorHandler/withErrorHandler";
-import * as actions from "../store/actions/index";
-
 const Address = (props) => {
   const [isInputActive, setIsInputActive] = useState(false);
   const [inputValue, setInputValue] = useState(props.text);
@@ -58,7 +53,7 @@ const Address = (props) => {
         // set the width to the input length multiplied by the x height
         // it's not quite right but gets it close
         style={{ width: Math.ceil(inputValue.length * 0.9) + "ex" }}
-        value={inputValue}
+        value={inputValue === "enter your info" ? "" : inputValue}
         onChange={(e) => {
           setInputValue(e.target.value);
         }}
@@ -69,49 +64,5 @@ const Address = (props) => {
     </span>
   );
 };
-//   if (!props.loading && props.orders) {
-//     console.log(props.orders);
-//     const lastOrder =
-//       props.orders[
-//         Object.keys(props.orders)[Object.keys(props.orders).length - 1]
-//       ];
-//     if (lastOrder) {
-//       const inputTitle = Object.keys(lastOrder["orderData"]);
-//       const InputField = Object.values(lastOrder["orderData"]);
-//       console.log(inputTitle, InputField);
-//       for (let i in inputTitle) {
-//         output.push(
-//           <div className="address" key={i + "z745"}>
-//             <p className="span-1-of-3">{inputTitle[i]}</p>
-//             <input
-//               className="input-field span-2-of-3"
-//               value={InputField[i]}
-//             ></input>
-//           </div>
-//         );
-//       }
-//     }
-//   }
-//   return <div className="address-section">{output ? output : orders}</div>;
-// };
 
-const mapStateToProps = (state) => {
-  return {
-    orders: state.order.orders,
-    loading: state.order.loading,
-    token: state.auth.token,
-    userId: state.auth.userId,
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onFetchOrders: (token, userId) =>
-      dispatch(actions.fetchOrders(token, userId)),
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(withErrorHandler(Address, axios));
+export default Address;

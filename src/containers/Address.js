@@ -1,62 +1,60 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import axios from "../axios-orders";
-import withErrorHandler from "../hoc/withErrorHandler/withErrorHandler";
 import * as actions from "../store/actions/index";
 import Spinner from "../components/Spinner";
-import InlineEdit from "../components/Address";
+import InlineEdit from "../components/InlineEdit";
 
-const Address = (props) => {
+const address = (props) => {
   const { onFetchOrders } = props;
-  let orders = <Spinner />;
-  let output = [],
-    lastOrder,
-    InputField;
   useEffect(() => {
     onFetchOrders(props.token, props.userId);
-  }, []);
+  }, [onFetchOrders]);
+  const [personalInfo, setpersonalInfo] = useState({
+    "First Name": "",
+    "Last Name": "",
+    Country: "",
+    City: "",
+    Street: "",
+    "Zip code": "",
+    "E-mail": "",
+  });
 
-  const handleChange = (event, id) => {
-    InputField[id] = event;
+  const handleInputChange = (event, el) => {
+    const updatedFormElement = {
+      ...personalInfo,
+      ...{ [el]: event },
+    };
+
+    setpersonalInfo(updatedFormElement);
   };
 
   if (!props.loading) {
-    // console.log(props.orders);
-    lastOrder =
-      props.orders[
-        Object.keys(props.orders)[Object.keys(props.orders).length - 1]
-      ];
-    if (lastOrder) {
-      const inputTitle = Object.keys(lastOrder["orderData"]);
-      InputField = Object.values(lastOrder["orderData"]);
-
-      //   setStoredText(InputField);
-      console.log(inputTitle, InputField);
-      for (let i in inputTitle) {
-        output.push(
-          <div className="address" key={i + "z745"}>
-            <p className="span-1-of-3">{inputTitle[i]}</p>
-            <InlineEdit
-              text={InputField[i]}
-              onSetText={(event) => handleChange(event, i)}
-            />
-          </div>
-        );
-      }
-    }
   }
-  return <div className="address-section">{output ? output : orders}</div>;
+  let orders = <Spinner />;
+
+  let key = Object.keys(personalInfo);
+  let val = key.map((el) => {
+    return (
+      <div className="address" key={el + "z745"}>
+        <p className="span-1-of-3">{el}</p>
+        <InlineEdit
+          text={personalInfo[el] ? personalInfo[el] : "enter your info"}
+          onSetText={(event) => handleInputChange(event, el)}
+        />
+      </div>
+    );
+  });
+  console.log(val);
+  return <div className="address-section">{val}</div>;
 };
 
 const mapStateToProps = (state) => {
   return {
     orders: state.order.orders,
-    loading: state.order.loading,
     token: state.auth.token,
     userId: state.auth.userId,
   };
 };
-
 const mapDispatchToProps = (dispatch) => {
   return {
     onFetchOrders: (token, userId) =>
@@ -64,7 +62,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(withErrorHandler(Address, axios));
+export default connect(mapStateToProps, mapDispatchToProps)(address);
