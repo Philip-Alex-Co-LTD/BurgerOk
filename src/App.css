@@ -551,7 +551,7 @@ input[type="submit"]:active {
 /* NAVIGATION ELEMENTS */
 
 .navigation-elements {
-  margin: 0;
+  margin-right: 10px;
   padding: 0;
   list-style: none;
   display: flex;
@@ -1178,6 +1178,10 @@ section {
 	width: 32.26%; 
 }
 
+.span-2-of-3 {
+	width: 66.13%; 
+}
+
 @media only screen and (max-width: 767px) {
 	.span-2-of-3 {
 		width: 100%; 
@@ -1394,7 +1398,7 @@ footer p {
   transition: border-bottom 0.2s;
 }
 
-/* --------------------- DROPDOWN --------------------- */
+/* --------------------- DROPDOWN ELEMENTS --------------------- */
 
 .profile-element {
   position: fixed;
@@ -1403,12 +1407,19 @@ footer p {
   padding-bottom: 40px;
 }
 
-.dropdown {
+.dropdown-elements div {
   position: relative;
   display: inline-block;
+  padding: 15px;
+  border-bottom: 1px solid #e8e8e8;
 }
 
 .dropdown-elements {
+  margin-right: 10px;
+  border-radius: 5px;
+  width: 200px;
+  margin-left: 5%;
+  box-shadow: 0 2px 2px #e3e3e3;
   position: fixed;
   top: 70px;
   left: 100px;
@@ -1416,9 +1427,8 @@ footer p {
   margin-top: 5px;
   position: absolute;
   background-color: #fff;
-  min-width: 150px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+  z-index: 100;
   left: auto;
   right: 0;
 }
@@ -1427,34 +1437,49 @@ footer p {
   display: block;
 }
 
-.dropdown-elements li {
-  width: 150px;
-  color: #555;
-} 
-
 .dropdown-element {
-  width: 10px;
-  color: black;
-  text-decoration: none;
-  display: block;
   text-transform: uppercase;
   margin: 10px 10px;
   padding: 5px 0;
   box-sizing: border-box;
   display: block;
   width: 100%;
-  border-bottom: 2px solid transparent;
 }
 
-.dropdown-element:hover {
-  text-decoration: none;
+.dropdown-element:hover,
+.dropdown-element a:hover {
   cursor: pointer;
-  border-bottom: 2px solid #e67e22;
-  transition: border-bottom 0.2s;
+  color: #e67e22;
+  transition: color 0.2s;
 }
 
 .dropdown-element a:link,
 .dropdown-element a:visited {
+  text-decoration: none;
+  color: #555;
+  padding: 4px 0;
+}
+
+.logout-element {
+  text-decoration: none;
+  text-transform: uppercase;
+  display: block;
+  box-sizing: border-box;
+  margin: 10px 10px;
+  padding: 5px 0;
+  display: block;
+  width: 100%;
+}
+
+.logout-element:hover {
+  text-decoration: none;
+  cursor: pointer;
+  color: red;
+  transition: color 0.2s;
+}
+
+.logout-element a:link,
+.logout-element a:visited {
   padding: 4px 0;
   text-decoration: none;
   color: #555;
