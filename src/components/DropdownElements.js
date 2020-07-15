@@ -18,13 +18,13 @@ const profileDropdown = (props) => {
       onMouseLeave={() => setDisplay(false)} 
     >
       <div>
-        <ul className = "profile-credentials">
+        <ul className>
           <li className = "dropdown-element">Your name: profileName</li>
           <li className = "dropdown-element">Your e-mail: email</li>
         </ul>
       </div>
       <div>
-        <ul className = "profile-menu">
+        <ul className>
           <DropdownElement link="/orders">My Orders</DropdownElement>
           <DropdownElement link="/orders">My Address</DropdownElement>
         </ul>
@@ -33,7 +33,7 @@ const profileDropdown = (props) => {
         className = "no-ref-element"
         onClick={() => logoutHandler()}
       >
-        <li className = "dropdown-element">
+        <li className = "logout-element">
             Logout
         </li>
       </div>
