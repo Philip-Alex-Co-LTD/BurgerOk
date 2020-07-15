@@ -6,8 +6,7 @@ import axios from "../axios-orders";
 import Input from "../components/Input";
 import withErrorHandler from "../hoc/withErrorHandler/withErrorHandler";
 import * as actions from "../store/actions/index";
-import { useHistory } from "react-router";
-
+import ThankYouModal from "../components/thankYouModal";
 class ContactData extends Component {
   state = {
     orderForm: {
@@ -264,6 +263,7 @@ class ContactData extends Component {
     }
     return (
       <div>
+        <ThankYouModal />
         {personal && (
           <div
             className={`personal-ContactData-${this.state.active && "active"}`}
