@@ -10,11 +10,11 @@ export default function Cities() {
         <div className="row">
           <h2>Find us in these cities</h2>
         </div>
-        <div class="row">
+        <div className="row">
 
         <div className="cities">
           <div className="col span-1-of-3 box">
-            <img src={bobr} alt="Bobruisk" class="cities-photo" />
+            <img src={bobr} alt="Bobruisk" className="cities-photo" />
             <h3>Bobruisk</h3>
             <ul className="cities-details">
               <li>

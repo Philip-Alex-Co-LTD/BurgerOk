@@ -13,27 +13,31 @@ const profileDropdown = (props) => {
 
   return (
     <div 
-        onMouseEnter={() => setDisplay(true)}
-        onMouseLeave={() => setDisplay(false)} 
+      className = {["dropdown-elements", `${props.isDisplayed || display ? "displayed" : ""}`].join(' ')}
+      onMouseEnter={() => setDisplay(true)}
+      onMouseLeave={() => setDisplay(false)} 
     >
-      <ul className = "profile-credentials">
-        <li className = "dropdown-element">Your name: profileName</li>
-        <li className = "dropdown-element">Your e-mail: email</li>
-        
-      </ul>
-      <ul className={["dropdown-elements", `${props.isDisplayed || display ? "displayed" : ""}`].join(' ')}>
-        <DropdownElement link="/orders">My Orders</DropdownElement>
-        <DropdownElement link="/orders">My Address</DropdownElement>
+      <div>
+        <ul className = "profile-credentials">
+          <li className = "dropdown-element">Your name: profileName</li>
+          <li className = "dropdown-element">Your e-mail: email</li>
+        </ul>
+      </div>
+      <div>
+        <ul className = "profile-menu">
+          <DropdownElement link="/orders">My Orders</DropdownElement>
+          <DropdownElement link="/orders">My Address</DropdownElement>
+        </ul>
+      </div>
+      <div 
+        className = "no-ref-element"
+        onClick={() => logoutHandler()}
+      >
         <li className = "dropdown-element">
-          <div 
-            className = "no-ref-element"
-            onClick={() => logoutHandler()}
-          >
             Logout
-          </div>
         </li>
-      </ul>
-    </div>
+      </div>
+    </div>   
   );
 };
 
