@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useKeyPress, useOnClickOutside } from "use-hooks";
-import { connect } from "react-redux";
+import { FaEdit } from "react-icons/fa";
 
 const Address = (props) => {
   const [isInputActive, setIsInputActive] = useState(false);
@@ -41,7 +41,6 @@ const Address = (props) => {
     <span className="inline-text" ref={wrapperRef}>
       <span
         ref={textRef}
-        onClick={() => setIsInputActive(true)}
         className={`inline-text_copy inline-text_copy--${
           !isInputActive ? "active" : "hidden"
         }`}
@@ -53,7 +52,7 @@ const Address = (props) => {
         // set the width to the input length multiplied by the x height
         // it's not quite right but gets it close
         style={{ width: Math.ceil(inputValue.length * 0.9) + "ex" }}
-        value={inputValue === "enter your info" ? "" : inputValue}
+        value={inputValue === "enter your info" ? props.text : inputValue}
         onChange={(e) => {
           setInputValue(e.target.value);
         }}
@@ -61,6 +60,7 @@ const Address = (props) => {
           isInputActive ? "active" : "hidden"
         }`}
       />
+      <FaEdit className="fa-edit" onClick={() => setIsInputActive(true)} />
     </span>
   );
 };

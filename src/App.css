@@ -744,15 +744,36 @@ div::-webkit-scrollbar-thumb {
 /* Address */
 .input-field {
 }
+.fa-edit {
+  color: #e67e22;
+  cursor: pointer;
+}
 
 .address-section {
+  margin: 50px auto;
   text-align: center;
+  width: 50%;
+  height: 85vh;
+  justify-content: space-evenly;
+  border-radius: 5px;
+  box-shadow: 0 2px 2px #e3e3e3;
 }
 
 .address {
   display: flex;
+  justify-content: first baseline;
+  align-items: center;
+  margin: 20px 10%;
 }
 /* these make sure it can work in any text element */
+.inline-text {
+  width: 50%;
+  padding: 5px;
+  display: inline-flex;
+  justify-content: space-between;
+  border: 1px solid #555;
+  border-radius: 10px;
+}
 .inline-text_copy--active,
 .inline-text_input--active {
   font: inherit;
@@ -761,7 +782,6 @@ div::-webkit-scrollbar-thumb {
   padding: 0;
   background: none;
   border: none;
-  border-bottom: 1px dashed #666666;
 }
 .inline-text_copy--active {
   cursor: pointer;
@@ -772,6 +792,7 @@ div::-webkit-scrollbar-thumb {
 }
 .inline-text_input--active {
   border-bottom: 1px solid #666666;
+  width: 100%;
   text-align: left;
 }
 

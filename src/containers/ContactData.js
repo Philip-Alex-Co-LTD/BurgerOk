@@ -118,7 +118,20 @@ class ContactData extends Component {
     },
     formIsValid: false,
   };
-
+  componentDidMount() {
+    this.props.onGetAddress(this.state.token, this.state.userId);
+    // if (this.props.personal) {
+    //   let formData = {};
+    //   for (let formElementIdentifier in this.props.personal) {
+    //     formData = { ...this.state.orderForm };
+    //     formData[formElementIdentifier].value = this.props.personal[
+    //       formElementIdentifier
+    //     ];
+    //     // this.setState({ orderForm: formData });
+    //   }
+    // console.log(formData);
+    // }
+  }
   orderHandler = (event) => {
     event.preventDefault();
     const formData = {};
@@ -126,7 +139,7 @@ class ContactData extends Component {
       formData[formElementIdentifier] = this.state.orderForm[
         formElementIdentifier
       ].value;
-      console.log(formData);
+      // console.log(formData);
     }
     const order = {
       ingredients: this.props.ings,
@@ -136,6 +149,11 @@ class ContactData extends Component {
     };
 
     this.props.onOrderBurger(order, this.props.token);
+    //Implementation of storing personal info in Local Storage
+
+    //Setting personal info in Local storage
+
+    //Changing Personal info in local Storage
   };
 
   checkValidity(value, rules) {
@@ -225,6 +243,7 @@ const mapStateToProps = (state) => {
     loading: state.order.loading,
     token: state.auth.token,
     userId: state.auth.userId,
+    personal: state.address.personalInfo,
   };
 };
 
@@ -232,6 +251,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onOrderBurger: (orderData, token) =>
       dispatch(actions.purchaseBurger(orderData, token)),
+    onGetAddress: (token, userId) =>
+      dispatch(actions.getAddressData(token, userId)),
   };
 };
 

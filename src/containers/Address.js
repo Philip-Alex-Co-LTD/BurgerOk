@@ -5,10 +5,13 @@ import Spinner from "../components/Spinner";
 import InlineEdit from "../components/InlineEdit";
 
 const address = (props) => {
-  const { onFetchOrders } = props;
+  const { onGetAddress } = props;
   useEffect(() => {
-    onFetchOrders(props.token, props.userId);
-  }, [onFetchOrders]);
+    onGetAddress(props.token, props.userId);
+  }, [onGetAddress]);
+  useEffect(() => {
+    setpersonalInfo((personalInfo) => ({ ...personalInfo, ...props.personal }));
+  }, [props.personal]);
   const [personalInfo, setpersonalInfo] = useState({
     "First Name": "",
     "Last Name": "",
@@ -19,6 +22,10 @@ const address = (props) => {
     "E-mail": "",
   });
 
+  //   if (props.personal) {
+  //     setpersonalInfo(props.personal);
+  //   }
+
   const handleInputChange = (event, el) => {
     const updatedFormElement = {
       ...personalInfo,
@@ -26,10 +33,9 @@ const address = (props) => {
     };
 
     setpersonalInfo(updatedFormElement);
+    console.log(props.personal);
   };
 
-  if (!props.loading) {
-  }
   let orders = <Spinner />;
 
   let key = Object.keys(personalInfo);
@@ -44,21 +50,27 @@ const address = (props) => {
       </div>
     );
   });
-  console.log(val);
-  return <div className="address-section">{val}</div>;
+  //   console.log(val);
+  return (
+    <div className="address-section">
+      <h2>Profile information</h2>
+      {val}
+    </div>
+  );
 };
 
 const mapStateToProps = (state) => {
   return {
-    orders: state.order.orders,
+    loading: state.order.loading,
     token: state.auth.token,
     userId: state.auth.userId,
+    personal: state.address.personalInfo,
   };
 };
 const mapDispatchToProps = (dispatch) => {
   return {
-    onFetchOrders: (token, userId) =>
-      dispatch(actions.fetchOrders(token, userId)),
+    onGetAddress: (token, userId) =>
+      dispatch(actions.getAddressData(token, userId)),
   };
 };
 
