@@ -22,10 +22,6 @@ const address = (props) => {
     "E-mail": "",
   });
 
-  //   if (props.personal) {
-  //     setpersonalInfo(props.personal);
-  //   }
-
   const handleInputChange = (event, el) => {
     const updatedFormElement = {
       ...personalInfo,
@@ -55,6 +51,7 @@ const address = (props) => {
     <div className="address-section">
       <h2>Profile information</h2>
       {val}
+      <button className="order-button">SUBMIT</button>
     </div>
   );
 };

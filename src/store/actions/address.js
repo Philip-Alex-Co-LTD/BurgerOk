@@ -47,3 +47,38 @@ export const getAddressData = (token, userId) => {
       });
   };
 };
+
+export const submitPersonalInfoSuccess = (id, personalInfo) => {
+  return {
+    type: actionTypes.SUBMIT_PERSONAL_INFO_SUCCESS,
+    id: id,
+    personalInfo: personalInfo,
+  };
+};
+
+export const submitPersonalInfoFail = (error) => {
+  return {
+    type: actionTypes.SUBMIT_PERSONAL_INFO_FAIL,
+    error: error,
+  };
+};
+
+export const submitPersonalInfoStart = () => {
+  return {
+    type: actionTypes.SUBMIT_PERSONAL_INFO_START,
+  };
+};
+
+export const submitPersonalInfo = (personalInfo, token) => {
+  return (dispatch) => {
+    dispatch(submitPersonalInfoStart());
+    axios
+      .post("/address.json?auth=" + token, personalInfo)
+      .then((response) => {
+        dispatch(submitPersonalInfoSuccess(response.data.name, personalInfo));
+      })
+      .catch((error) => {
+        dispatch(submitPersonalInfoFail(error));
+      });
+  };
+};

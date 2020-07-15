@@ -85,7 +85,7 @@ class ContactData extends Component {
         validation: {
           required: true,
           minLength: 5,
-          maxLength: 5,
+          maxLength: 7,
         },
         valid: false,
         touched: false,
@@ -117,30 +117,48 @@ class ContactData extends Component {
       },
     },
     formIsValid: false,
+    personalInfo: {},
+    active: false,
   };
+  // static getDerivedStateFromProps(props, state) {
+
+  //   if (props.personal !== state.personalInfo) {
+  //     return {
+  //       ...state,
+  //       personalInfo: props.personal,
+  //     };
+  //   }
+  //   return null;
+  // }
   componentDidMount() {
-    this.props.onGetAddress(this.state.token, this.state.userId);
-    // if (this.props.personal) {
-    //   let formData = {};
-    //   for (let formElementIdentifier in this.props.personal) {
-    //     formData = { ...this.state.orderForm };
-    //     formData[formElementIdentifier].value = this.props.personal[
-    //       formElementIdentifier
-    //     ];
-    //     // this.setState({ orderForm: formData });
-    //   }
-    // console.log(formData);
-    // }
+    this.props.onGetAddress(this.props.token, this.props.userId);
   }
+  togglePersonal = () => {
+    this.setState((prevState) => {
+      return { active: !prevState.active };
+    });
+    this.setState((prevState) => {
+      return { formIsValid: !prevState.formIsValid };
+    });
+  };
   orderHandler = (event) => {
     event.preventDefault();
     const formData = {};
-    for (let formElementIdentifier in this.state.orderForm) {
-      formData[formElementIdentifier] = this.state.orderForm[
-        formElementIdentifier
-      ].value;
-      // console.log(formData);
+    if (this.state.active) {
+      for (let formElementIdentifier in this.props.personal) {
+        formData[formElementIdentifier] = this.props.personal[
+          formElementIdentifier
+        ];
+      }
+      console.log(formData);
+    } else {
+      for (let formElementIdentifier in this.state.orderForm) {
+        formData[formElementIdentifier] = this.state.orderForm[
+          formElementIdentifier
+        ].value;
+      }
     }
+    console.log(formData);
     const order = {
       ingredients: this.props.ings,
       price: this.props.price,
@@ -149,11 +167,6 @@ class ContactData extends Component {
     };
 
     this.props.onOrderBurger(order, this.props.token);
-    //Implementation of storing personal info in Local Storage
-
-    //Setting personal info in Local storage
-
-    //Changing Personal info in local Storage
   };
 
   checkValidity(value, rules) {
@@ -198,6 +211,23 @@ class ContactData extends Component {
   };
 
   render() {
+    let personal;
+    if (Object.values(this.props.personal).length) {
+      let e = Object.values(this.props.personal);
+      personal = (
+        <div className="personal-CD">
+          <p>
+            Name: {e[4]} {e[5]}
+            <br></br>
+            E-mail: {e[3]}
+            <br></br>
+            Address: {e[1]}, {e[0]}, {e[6]}, {e[7]}
+            <br></br>
+            Delivery method: {e[2]}
+          </p>
+        </div>
+      );
+    }
     const formElementsArray = [];
     for (let key in this.state.orderForm) {
       formElementsArray.push({
@@ -206,31 +236,59 @@ class ContactData extends Component {
       });
     }
     let form = (
-      <form onSubmit={this.orderHandler}>
-        {formElementsArray.map((formElement) => (
-          <Input
-            key={formElement.id}
-            elementType={formElement.config.elementType}
-            elementConfig={formElement.config.elementConfig}
-            value={formElement.config.value}
-            invalid={!formElement.config.valid}
-            shouldValidate={formElement.config.validation}
-            touched={formElement.config.touched}
-            changed={(event) => this.inputChangedHandler(event, formElement.id)}
-          />
-        ))}
-        <Button btnType="success" disabled={!this.state.formIsValid}>
-          ORDER
-        </Button>
-      </form>
+      <div>
+        <h4>Enter your Contact Data</h4>
+        <form onSubmit={this.orderHandler}>
+          {formElementsArray.map((formElement) => (
+            <Input
+              key={formElement.id}
+              elementType={formElement.config.elementType}
+              elementConfig={formElement.config.elementConfig}
+              value={formElement.config.value}
+              invalid={!formElement.config.valid}
+              shouldValidate={formElement.config.validation}
+              touched={formElement.config.touched}
+              changed={(event) =>
+                this.inputChangedHandler(event, formElement.id)
+              }
+            />
+          ))}
+          <Button btnType="Success" disabled={!this.state.formIsValid}>
+            ORDER
+          </Button>
+        </form>
+      </div>
     );
     if (this.props.loading) {
       form = <Spinner />;
     }
     return (
-      <div className="contact-data">
-        <h4>Enter your Contact Data</h4>
-        {form}
+      <div>
+        {personal && (
+          <div
+            className={`personal-ContactData-${this.state.active && "active"}`}
+          >
+            {personal}
+            <input
+              onClick={this.togglePersonal}
+              className="checkbox-CD"
+              type="checkbox"
+            ></input>
+          </div>
+        )}
+        <div className="contact-data">
+          {!this.state.active ? (
+            form
+          ) : (
+            <Button
+              btnType="success"
+              disabled={!this.state.formIsValid}
+              clicked={(event) => this.orderHandler(event)}
+            >
+              ORDER
+            </Button>
+          )}
+        </div>
       </div>
     );
   }
