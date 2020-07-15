@@ -828,27 +828,38 @@ div::-webkit-scrollbar-thumb {
   outline: none;
   cursor: pointer;
   font: inherit;
-  padding: 10px;
+  text-align: center;
   margin: 10px;
-  font-weight: bold;
+  font: inherit;
+  padding: 10px 25px;
+  min-width: 30px;
+  border-radius: 4px;
+  display: inline-block;
+}
+.danger {
+  border: 1px solid #e67e22;
+  color: #e67e22;
+  text-align: center;
+  display: inline-block;
 }
 
-.button:first-of-type {
-  margin-left: 0;
-  padding-left: 0;
+.success {
+  background-color: #e67e22;
+  color: white;
+}
+
+.danger:hover,
+.danger:active,
+.success:hover,
+.success:active {
+  border: 2px solid #c46a1c;
+  color: white;
+  background-color: #c46a1c;
 }
 
 .button:disabled {
   color: #ccc;
   cursor: not-allowed;
-}
-
-.success {
-  color: #5c9210;
-}
-
-.danger {
-  color: #944317;
 }
 
 /* INPUT */
