@@ -1,49 +1,24 @@
-import React, { Component } from "react";
-import Cities from "../components/Cities";
-import HowItWorks from "../components/HowItWorks";
-import ContactUs from "../components/ContactUs";
-import Burger from "../components/Burger";
-import Features from "../components/Features";
-import Auth from "./Auth";
-import BuildControls from "../components/BuildControls";
+import React from "react";
+import Burger from "./Burger";
 import Modal from "../components/Modal";
 import OrderSummary from "../components/OrderSummary";
 import Spinner from "../components/Spinner";
 import withErrorHandler from "../hoc/withErrorHandler/withErrorHandler";
-import * as burgerBuiderActions from "../store/actions/index";
 import { connect } from "react-redux";
-import axios from "../axios-orders";
-import Footer from "./Footer";
+
+export default function thankYouModal() {
+  return (
+    <div>
+      <p>
+        Thanks for your order! Your delicious burger will be ready and delivered
+        within 30 minutes
+      </p>
+      <Burger />
+    </div>
+  );
+}
 
 class BurgerBuilder extends Component {
-  componentDidMount() {
-    // Fetching data from the Database
-    this.props.onInitIngredients();
-  }
-
-  updatedPurchaseState(ingredients) {
-    // Construct an array from "ingredients" object keys and reduce array's total sum to a single value.
-    const sum = Object.keys(ingredients)
-      .map((igKey) => {
-        return ingredients[igKey];
-      })
-      .reduce((sum, el) => {
-        return sum + el;
-      }, 0);
-
-    //  Updates a state with a boolean value with sum exceeding 0.
-    return sum > 0;
-  }
-
-  purchaseHandler = () => {
-    if (this.props.isAuthenticated) {
-      this.props.onContinuePurchasing();
-    } else {
-      this.props.onSetAuthRedirectPath("/checkout");
-      this.props.onContinueSigning();
-    }
-  };
-
   purchaseCancelHandler = () => {
     this.props.onCancelPurchasing();
   };
@@ -131,32 +106,9 @@ class BurgerBuilder extends Component {
 // Function responsible for passing state to the reducer
 const mapStateToProps = (state) => {
   return {
-    ings: state.burgerBuilder.ingredients,
-    price: state.burgerBuilder.totalPrice,
-    error: state.burgerBuilder.error,
-    isAuthenticated: state.auth.token !== null,
     purchasing: state.burgerBuilder.purchasing,
     purchasingContinue: state.order.purchasing,
     signing: state.auth.signing,
-  };
-};
-
-// Function responsible for passing actions to the reducer
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onIngredientAdded: (ingName) =>
-      dispatch(burgerBuiderActions.addIngredient(ingName)),
-    onIngredientRemoved: (ingName) =>
-      dispatch(burgerBuiderActions.removeIngredient(ingName)),
-    onInitIngredients: () => dispatch(burgerBuiderActions.initIngredients()),
-    onInitPurchase: () => dispatch(burgerBuiderActions.purchaseInit()),
-    onSetAuthRedirectPath: (path) =>
-      dispatch(burgerBuiderActions.setAuthRedirectPath(path)),
-    onCancelPurchasing: () => dispatch(burgerBuiderActions.cancelPurchasing()),
-    onContinuePurchasing: () =>
-      dispatch(burgerBuiderActions.continuePurchasing()),
-    onContinueSigning: () => dispatch(burgerBuiderActions.continueSigning()),
-    onCancelSigning: () => dispatch(burgerBuiderActions.cancelSigning()),
   };
 };
 

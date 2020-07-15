@@ -6,6 +6,7 @@ import axios from "../axios-orders";
 import Input from "../components/Input";
 import withErrorHandler from "../hoc/withErrorHandler/withErrorHandler";
 import * as actions from "../store/actions/index";
+import { useHistory } from "react-router";
 
 class ContactData extends Component {
   state = {
@@ -150,7 +151,6 @@ class ContactData extends Component {
           formElementIdentifier
         ];
       }
-      console.log(formData);
     } else {
       for (let formElementIdentifier in this.state.orderForm) {
         formData[formElementIdentifier] = this.state.orderForm[
@@ -158,7 +158,6 @@ class ContactData extends Component {
         ].value;
       }
     }
-    console.log(formData);
     const order = {
       ingredients: this.props.ings,
       price: this.props.price,
@@ -167,6 +166,7 @@ class ContactData extends Component {
     };
 
     this.props.onOrderBurger(order, this.props.token);
+    window.location.reload();
   };
 
   checkValidity(value, rules) {
@@ -311,6 +311,7 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(actions.purchaseBurger(orderData, token)),
     onGetAddress: (token, userId) =>
       dispatch(actions.getAddressData(token, userId)),
+    onCancelPurchasing: () => dispatch(actions.cancelPurchasing()),
   };
 };
 
