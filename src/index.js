@@ -12,6 +12,7 @@ import burgerBuilderReducer from "./store/reducers/burgerBuilder";
 import orderReducer from "./store/reducers/order";
 import authReducer from "./store/reducers/auth";
 import addressReducer from "./store/reducers/address";
+import navigationReducer from "./store/reducers/navigation";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -20,6 +21,7 @@ const rootReducer = combineReducers({
   order: orderReducer,
   auth: authReducer,
   address: addressReducer,
+  navigation: navigationReducer,
 });
 
 const store = createStore(

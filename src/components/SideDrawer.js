@@ -1,6 +1,5 @@
 import React from "react";
-
-import NavigationItems from "./NavigationItems";
+import NavigationElements from "./NavigationElements";
 import Backdrop from "./Backdrop";
 
 const sideDrawer = (props) => {
@@ -13,7 +12,7 @@ const sideDrawer = (props) => {
       <Backdrop show={props.open} clicked={props.closed} />
       <div className={attachedClasses.join(" ")} onClick={props.closed}>
         <nav>
-          <NavigationItems isAuthenticated={props.isAuth} />
+          <NavigationElements isAuthenticated={props.isAuth} />
         </nav>
       </div>
     </div>

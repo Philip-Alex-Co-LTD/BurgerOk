@@ -1,15 +1,26 @@
 import React from "react";
 import Logo from "./Logo";
-import NavigationItems from "./NavigationItems";
+import DropdownElements from "./DropdownElements";
+import NavigationElements from "./NavigationElements";
 import DrawerToggle from "./DrawerToggle";
+import { connect } from "react-redux";
 
 const toolbar = (props) => (
   <header className="toolbar">
     <DrawerToggle clicked={props.drawerToggleClicked} />
+    <Logo height="80%" />
     <nav className="desktop-only">
-      <NavigationItems isAuthenticated={props.isAuth} />
+      <NavigationElements isAuthenticated={props.isAuth} />
     </nav>
+    <DropdownElements isDisplayed={props.showingBackdrop} />
   </header>
 );
 
-export default toolbar;
+// Function responsible for passing state to the reducer
+const mapStateToProps = (state) => {
+  return {
+    showingBackdrop: state.navigation.showingBackdrop,
+  };
+};
+
+export default connect(mapStateToProps)(toolbar);

@@ -1,8 +1,7 @@
 import React from "react";
-import  { connect } from 'react-redux';
-import { FaArrowUp } from "react-icons/fa";
+import { FaArrowUp, FaUser } from "react-icons/fa";
 
-const Features = (props) =>  {
+const Features = () =>  {
 
     return (
         <React.Fragment>
@@ -11,12 +10,12 @@ const Features = (props) =>  {
                     <h2>Tired of buying burgers?<br/> 
                     Build your own!</h2>
                     <p className="long-copy">
-                    Tired of eating same hamburgers, cheeseburgers, chickenburgers etc? No problem! Make your own with BurgerOk using a huge variety of top quality ingredients the way you want! You make - we cook!
+                    Tired of eating same hamburgers, cheeseburgers or chickenburgers? No problem! Make your own with BurgerOk using a huge variety of top quality ingredients the way you want! You make - we cook!
                     </p>
                 </div>
                 <div className="row wrapper">
                     <div className = 'col span-1-of-3 box'>
-                        <FaArrowUp className = 'icon-big'/>
+                        <FaUser className = 'icon-big'/>
                         <h3>create your own burger</h3>
                         <p> 
                             Yes, you didn't overhear. We only supply. You create the burger you like. Put your craziest burger ideas into life! Triple cheese or quadruple beef? Pfff, no problem!  
@@ -42,17 +41,4 @@ const Features = (props) =>  {
     );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    // ings: state.burgerBuilder.ingredients,
-    // purchased: state.order.purchased
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    // onInitPurchase: () => dispatch(actions.purchaseInit())
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Features);
+export default Features;

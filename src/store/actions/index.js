@@ -16,3 +16,4 @@ export {
 } from "./auth";
 
 export { getAddressData } from "./address";
+export { revealBackdrop, hideBackdrop } from "./navigation";
