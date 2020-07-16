@@ -5,18 +5,18 @@ import Modal from "../components/Modal";
 import { connect } from "react-redux";
 
 const thankYouModal = (props) => {
-  return (
-    <Modal show={true} modalClosed={false}>
-      <p>
-        Thanks for your order! Your delicious burger will be ready and delivered
-        within 30 minutes
-      </p>
-      <Burger
-        ingredients={props.ings}
-        style={{ width: "100px", height: "100px" }}
-      />
-    </Modal>
-  );
+  //   return (
+  //     // <Modal show={true} modalClosed={false}>
+  //     //   <p>
+  //     //     Thanks for your order! Your delicious burger will be ready and delivered
+  //     //     within 30 minutes
+  //     //   </p>
+  //     //   <Burger
+  //     //     ingredients={props.ings}
+  //     //     style={{ width: "100px", height: "100px" }}
+  //     //   />
+  //     // </Modal>
+  //   );
 };
 
 const mapStateToProps = (state) => {

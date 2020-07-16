@@ -263,7 +263,7 @@ class ContactData extends Component {
     }
     return (
       <div>
-        <ThankYouModal />
+        {/* <ThankYouModal /> */}
         {personal && (
           <div
             className={`personal-ContactData-${this.state.active && "active"}`}

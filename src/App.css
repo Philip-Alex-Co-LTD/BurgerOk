@@ -230,6 +230,81 @@ section {
   justify-content: center;
   height: 75vh;
 }
+/* HEADER */
+header {
+  background-image: -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      from(rgba(0, 0, 0, 0.699)),
+      to(rgba(0, 0, 0, 0.705))
+    ),
+    url(./assets/images/hero-min.jpeg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.699), rgba(0, 0, 0, 0.705)),
+    url(./assets/images/hero-min.jpeg);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  background-attachment: fixed;
+}
+
+.hero-text-box {
+  position: absolute;
+  width: 1140px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.logo {
+  height: 100px;
+  width: auto;
+  float: left;
+  margin-top: 20px;
+}
+
+.logo-black {
+  display: none;
+  height: 50px;
+  width: auto;
+  float: left;
+  margin-top: 5px 0;
+}
+@media only screen and (max-width: 1200px) {
+  .hero-text-box {
+    width: 100%;
+    padding: 0 2%;
+  }
+
+  .row {
+    padding: 0 2%;
+  }
+}
+/* Small tablet to big tablet: from 768px to 1023px */
+@media only screen and (max-width: 1023px) {
+  html {
+    font-size: 18px;
+  }
+  section {
+    padding: 60px 0;
+  }
+}
+
+/* Small phones to small tablets: from 481px to 767px */
+@media only screen and (max-width: 767px) {
+  html {
+    font-size: 16px;
+  }
+  section {
+    padding: 30px 0;
+  }
+
+  .row,
+  .hero-text-box {
+    padding: 0 4%;
+  }
+}
 
 /* BUILD CONTROL */
 .controls {
@@ -706,7 +781,7 @@ div::-webkit-scrollbar-thumb {
 /* TOOLBAR */
 
 .toolbar {
-  height: 56px;
+  height: 72px;
   width: 100%;
   position: fixed;
   top: 0;
@@ -768,7 +843,7 @@ div::-webkit-scrollbar-thumb {
 }
 /* these make sure it can work in any text element */
 .inline-text {
-  width: 50%;
+  width: 60%;
   padding: 5px;
   display: inline-flex;
   justify-content: space-between;

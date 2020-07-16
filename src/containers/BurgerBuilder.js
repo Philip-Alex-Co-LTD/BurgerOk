@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Header from "../containers/header";
 import Cities from "../components/Cities";
 import HowItWorks from "../components/HowItWorks";
 import ContactUs from "../components/ContactUs";
@@ -117,6 +118,7 @@ class BurgerBuilder extends Component {
         >
           <Auth />
         </Modal>
+        <Header />
         <Features />
         <HowItWorks />
         {burger}
