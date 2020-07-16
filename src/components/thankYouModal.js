@@ -1,21 +1,32 @@
 import React from "react";
 import Burger from "./Burger";
 import Modal from "../components/Modal";
-
+import Button from "./Button";
 import { connect } from "react-redux";
 
 const thankYouModal = (props) => {
   return (
-    <Modal show={true} modalClosed={false}>
-      <p>
-        Thanks for your order! Your delicious burger will be ready and delivered
-        within 30 minutes
-      </p>
-      <Burger
-        ingredients={props.ings}
-        style={{ width: "100px", height: "100px" }}
-      />
-    </Modal>
+    <div className="thankYou-modal">
+      <Modal show={props.show} modalClosed={false}>
+        <h2 style={{ marginTop: "1%", marginBottom: "3%" }}>Thank you!</h2>
+        <p style={{ marginBottom: "2%" }}>
+          Your delicious burger will be ready and delivered within 30 minutes
+        </p>
+
+        <Burger
+          ingredients={props.ings}
+          style={{
+            width: "270px",
+            height: "230px",
+            boxShadow: "0px 0px 0px #ffffff",
+          }}
+        />
+        <h3 style={{ marginBottom: "10px" }}>Enjoy!</h3>
+        <button className="order-button" onClick={props.clicked}>
+          BACK TO MAIN PAGE
+        </button>
+      </Modal>
+    </div>
   );
 };
 
