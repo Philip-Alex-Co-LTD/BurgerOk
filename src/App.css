@@ -517,7 +517,7 @@ header {
   width: 85%;
   background: url(./assets/images/salad.png) no-repeat;
   background-size: contain;
-  margin: -5% auto -10% auto;
+  margin: -9% auto -10% auto;
   position: relative;
 }
 
@@ -998,6 +998,13 @@ div::-webkit-scrollbar-thumb {
     left: calc(50% - 350px);
     height: 70%;
   }
+}
+
+/* THANK YOU MODAL */
+.thankYou-modal {
+  text-align: center;
+  align-content: center;
+  align-items: center;
 }
 
 /* SPINNER & SUFFIXES & PREFIXES */

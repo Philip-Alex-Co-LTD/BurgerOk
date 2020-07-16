@@ -119,20 +119,17 @@ class ContactData extends Component {
     formIsValid: false,
     personalInfo: {},
     active: false,
+    show: false,
   };
-  // static getDerivedStateFromProps(props, state) {
 
-  //   if (props.personal !== state.personalInfo) {
-  //     return {
-  //       ...state,
-  //       personalInfo: props.personal,
-  //     };
-  //   }
-  //   return null;
-  // }
   componentDidMount() {
     this.props.onGetAddress(this.props.token, this.props.userId);
   }
+
+  showModal = () => {
+    this.setState({ show: true });
+  };
+
   togglePersonal = () => {
     this.setState((prevState) => {
       return { active: !prevState.active };
@@ -141,6 +138,7 @@ class ContactData extends Component {
       return { formIsValid: !prevState.formIsValid };
     });
   };
+
   orderHandler = (event) => {
     event.preventDefault();
     const formData = {};
@@ -237,7 +235,7 @@ class ContactData extends Component {
     let form = (
       <div>
         <h4>Enter your Contact Data</h4>
-        <form onSubmit={this.orderHandler}>
+        <form onSubmit={this.showModal}>
           {formElementsArray.map((formElement) => (
             <Input
               key={formElement.id}
@@ -263,7 +261,11 @@ class ContactData extends Component {
     }
     return (
       <div>
-        {/* <ThankYouModal /> */}
+        <ThankYouModal
+          show={this.state.show}
+          clicked={(event) => this.orderHandler(event)}
+          closed={(event) => this.orderHandler(event)}
+        />
         {personal && (
           <div
             className={`personal-ContactData-${this.state.active && "active"}`}
@@ -283,7 +285,7 @@ class ContactData extends Component {
             <Button
               btnType="success"
               disabled={!this.state.formIsValid}
-              clicked={(event) => this.orderHandler(event)}
+              clicked={this.showModal}
             >
               ORDER
             </Button>
