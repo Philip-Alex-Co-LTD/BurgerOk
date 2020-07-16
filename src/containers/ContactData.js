@@ -264,6 +264,7 @@ class ContactData extends Component {
         <ThankYouModal
           show={this.state.show}
           clicked={(event) => this.orderHandler(event)}
+          closed={(event) => this.orderHandler(event)}
         />
         {personal && (
           <div

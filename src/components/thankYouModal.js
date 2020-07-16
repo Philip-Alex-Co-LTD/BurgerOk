@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 const thankYouModal = (props) => {
   return (
     <div className="thankYou-modal">
-      <Modal show={props.show} modalClosed={false}>
+      <Modal show={props.show} modalClosed={props.closed}>
         <h2 style={{ marginTop: "1%", marginBottom: "3%" }}>Thank you!</h2>
         <p style={{ marginBottom: "2%" }}>
           Your delicious burger will be ready and delivered within 30 minutes
