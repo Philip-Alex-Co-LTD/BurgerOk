@@ -20,7 +20,7 @@ const navigationElement = (props) => {
           {props.children}
         </NavLink> : 
         <div 
-          className={["no-ref-element", `${!props.signing ? "" : "active"}`].join(' ')}
+          className={[`${!props.signing ? "" : "active"}`].join(' ')}
           onClick={() => continueSigningHandler()}
         >
           {props.children}
