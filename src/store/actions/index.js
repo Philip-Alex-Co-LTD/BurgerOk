@@ -19,9 +19,9 @@ export {
   cancelSigning
 } from './auth';
 export {
+  addRef,
   revealBackdrop,
-  hideBackdrop,
-  addReference
+  hideBackdrop
 } from './navigation';
 export { 
   getAddressData 

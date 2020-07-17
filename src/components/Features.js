@@ -3,14 +3,14 @@ import { FaArrowUp, FaUser } from "react-icons/fa";
 import * as navigationActions from "../store/actions/index";
 import { connect } from "react-redux";
 
-const Features = () =>  {
-    
+const Features = (props) =>  {
     const myRef = useRef(null);
 
     useEffect(() => {
-        console.log(props.onAddReference);
-        props.onAddReference(['section-features', myRef])
-    }, []);
+        if (myRef != {current: null}) {
+            props.onAddRef(['section-features', myRef])
+        }
+    }, [myRef]);
 
     return (
         <React.Fragment>
@@ -22,7 +22,7 @@ const Features = () =>  {
                     Tired of eating same hamburgers, cheeseburgers or chickenburgers? No problem! Make your own with BurgerOk using a huge variety of top quality ingredients the way you want! You make - we cook!
                     </p>
                 </div>
-                <div className="row wrapper">
+                <div className="row wrapper">   
                     <div className = 'col span-1-of-3 box'>
                         <FaUser className = 'icon-big'/>
                         <h3>create your own burger</h3>
@@ -53,8 +53,8 @@ const Features = () =>  {
 // Function responsible for passing actions to the reducer
 const mapDispatchToProps = (dispatch) => {
     return {
-        onAddReference: (referenceAndClassName) =>
-        dispatch(navigationActions.addReference(referenceAndClassName))
+        onAddRef: (classNameAndReference) =>
+        dispatch(navigationActions.addRef(classNameAndReference))
     };
 };
 
