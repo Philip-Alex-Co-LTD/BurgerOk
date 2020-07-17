@@ -12,50 +12,48 @@ export default function Footer() {
         <div className="col span-1-of-2">
           <ul className="footer-nav">
             <li>
-              <a href="#">About us</a>
+              <a>About us</a>
             </li>
             <li>
-              <a href="#">Blog</a>
+              <a>Blog</a>
             </li>
             <li>
-              <a href="#">Press</a>
+              <a>Press</a>
             </li>
             <li>
-              <a href="#">iOS App</a>
+              <a>iOS App</a>
             </li>
             <li>
-              <a href="#">Android App</a>
+              <a>Android App</a>
             </li>
           </ul>
         </div>
         <div className="col span-1-of-2">
           <ul className="social-links">
             <li>
-              <a href="#">
+              <a>
                 <FaFacebookSquare className="ion-social-facebook" />
               </a>
             </li>
             <li>
-              <a href="#">
+              <a>
                 <FaTwitter className="ion-social-twitter" />
               </a>
             </li>
             <li>
-              <a href="#">
+              <a>
                 <FaGooglePlusG className="ion-social-googleplus" />
               </a>
             </li>
             <li>
-              <a href="#">
+              <a>
                 <FaInstagram className="ion-social-instagram" />
               </a>
             </li>
           </ul>
         </div>
       </div>
-      <p>
-        Copyright &copy; 2020 by BurgerOk. All rights reserved.
-      </p>
+      <p>Copyright &copy; 2020 by BurgerOk. All rights reserved.</p>
     </footer>
   );
 }

@@ -6,8 +6,8 @@ import Layout from "./containers/Layout";
 import BurgerBuilder from "./containers/BurgerBuilder";
 import Checkout from "./containers/Checkout";
 import Orders from "./containers/Orders";
-import Auth from "./containers/Auth";
 import Logout from "./containers/Logout";
+import Address from "./containers/Address";
 import * as actions from "./store/actions/index";
 
 class App extends Component {
@@ -18,7 +18,6 @@ class App extends Component {
   render() {
     let routes = (
       <Switch>
-        {/* <Route path="/auth" component={Auth} /> */}
         <Route path="/" exact component={BurgerBuilder} />
         <Redirect to="/" />
       </Switch>
@@ -29,10 +28,10 @@ class App extends Component {
         <Switch>
           <Route path="/checkout" component={Checkout} />
           <Route path="/orders" component={Orders} />
+          <Route path="/address" component={Address} />
           <Route path="/logout" component={Logout} />
-          {/* <Route path="/auth" component={Auth} /> */}
           <Route path="/" exact component={BurgerBuilder} />
-          <Redirect to="/" />
+          {/* <Redirect to="/" /> */}
         </Switch>
       );
     }

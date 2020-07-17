@@ -16,7 +16,6 @@ import axios from "../axios-orders";
 import Footer from "./Footer";
 
 class BurgerBuilder extends Component {
-
   componentDidMount() {
     // Fetching data from the Database
     this.props.onInitIngredients();
@@ -55,6 +54,7 @@ class BurgerBuilder extends Component {
 
   purchaseContinueHandler = () => {
     this.props.onInitPurchase();
+
     this.props.history.push("/checkout");
   };
 
@@ -72,51 +72,58 @@ class BurgerBuilder extends Component {
       <Spinner />
     );
 
-        if (this.props.ings) {
-            burger = (
-                <section>
-                    <Burger ingredients={this.props.ings}/>
-                    <BuildControls
-                        ingredientAdded={this.props.onIngredientAdded}
-                        ingredientRemoved={this.props.onIngredientRemoved}
-                        disabled={disabledInfo}
-                        purchasable={this.updatedPurchaseState(this.props.ings)}
-                        ordered={this.purchaseHandler}
-                        isAuth={this.props.isAuthenticated}
-                        price={this.props.price}
-                    />
-                </section>
-            );
-            orderSummary = <OrderSummary 
-                ingredients={this.props.ings}
-                price={this.props.price}
-                purchaseCancelled={this.purchaseCancelHandler}
-                purchaseContinued={this.purchaseContinueHandler}
-            />;
-        };
+    if (this.props.ings) {
+      burger = (
+        <React.Fragment>
+          <div className="burger-section-h2">
+            <h2> Start making your own burger</h2>
+          </div>
+          <div className="burger-section">
+            <BuildControls
+              ingredientAdded={this.props.onIngredientAdded}
+              ingredientRemoved={this.props.onIngredientRemoved}
+              disabled={disabledInfo}
+              purchasable={this.updatedPurchaseState(this.props.ings)}
+              ordered={this.purchaseHandler}
+              isAuth={this.props.isAuthenticated}
+              price={this.props.price}
+            />
+            <Burger ingredients={this.props.ings} />
+          </div>
+        </React.Fragment>
+      );
+      orderSummary = (
+        <OrderSummary
+          ingredients={this.props.ings}
+          price={this.props.price}
+          purchaseCancelled={this.purchaseCancelHandler}
+          purchaseContinued={this.purchaseContinueHandler}
+        />
+      );
+    }
 
     // {salad: true, meat: false, ...}
     return (
-        <React.Fragment>
-            <Modal
-              show={this.props.purchasing}
-              modalClosed={this.purchaseCancelHandler}
-            >
-            {orderSummary}
-            </Modal>
-            <Modal 
-              show={this.props.signing}
-              modalClosed={this.signingCancelHandler}
-            >
-              <Auth/>
-            </Modal>
-            <Features />
-            <HowItWorks />
-              {burger}
-            <Cities />
-            <ContactUs />
-            <Footer />
-        </React.Fragment>
+      <React.Fragment>
+        <Modal
+          show={this.props.purchasing}
+          modalClosed={this.purchaseCancelHandler}
+        >
+          {orderSummary}
+        </Modal>
+        <Modal
+          show={this.props.signing}
+          modalClosed={this.signingCancelHandler}
+        >
+          <Auth />
+        </Modal>
+        <Features />
+        <HowItWorks />
+        {burger}
+        <Cities />
+        <ContactUs />
+        <Footer />
+      </React.Fragment>
     );
   }
 }
@@ -144,14 +151,11 @@ const mapDispatchToProps = (dispatch) => {
     onInitPurchase: () => dispatch(burgerBuiderActions.purchaseInit()),
     onSetAuthRedirectPath: (path) =>
       dispatch(burgerBuiderActions.setAuthRedirectPath(path)),
-    onCancelPurchasing: () =>
-      dispatch(burgerBuiderActions.cancelPurchasing()),
+    onCancelPurchasing: () => dispatch(burgerBuiderActions.cancelPurchasing()),
     onContinuePurchasing: () =>
       dispatch(burgerBuiderActions.continuePurchasing()),
-    onContinueSigning: () =>
-      dispatch(burgerBuiderActions.continueSigning()),
-    onCancelSigning: () =>
-      dispatch(burgerBuiderActions.cancelSigning()),
+    onContinueSigning: () => dispatch(burgerBuiderActions.continueSigning()),
+    onCancelSigning: () => dispatch(burgerBuiderActions.cancelSigning()),
   };
 };
 

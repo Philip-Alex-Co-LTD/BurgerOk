@@ -18,15 +18,15 @@ const profileDropdown = (props) => {
       onMouseLeave={() => setDisplay(false)} 
     >
       <div>
-        <ul className>
+        <ul>
           <li className = "dropdown-element">Your name: profileName</li>
           <li className = "dropdown-element">Your e-mail: email</li>
         </ul>
       </div>
       <div>
-        <ul className>
+        <ul>
           <DropdownElement link="/orders">My Orders</DropdownElement>
-          <DropdownElement link="/orders">My Address</DropdownElement>
+          <DropdownElement link="/address">My Address</DropdownElement>
         </ul>
       </div>
       <div 

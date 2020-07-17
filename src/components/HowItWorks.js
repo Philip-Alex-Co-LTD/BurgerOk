@@ -6,7 +6,7 @@ export default function HowItWorks() {
         <div className="row">
           <h2>How it works &mdash; Simple as 1, 2, 3</h2>
         </div>
-        <ol>
+        <ol className = "span-1-of-3 how-it-works-steps">
           <li>
             Login or create new account.<br/> Now you are ready to start! 
           </li>

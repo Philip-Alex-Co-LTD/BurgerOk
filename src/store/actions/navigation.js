@@ -11,3 +11,10 @@ export const hideBackdrop = () => {
         type: actionTypes.HIDE_BACKDROP
     };
 };
+
+export const addReference = (referenceAndClassName) => {
+    return {
+        type: actionTypes.ADD_REFERENCE,
+        reference: referenceAndClassName
+    };
+};

@@ -1,24 +1,29 @@
 export {
-    addIngredient,
-    removeIngredient,
-    initIngredients,
-    continuePurchasing,
-    cancelPurchasing
-} from './burgerBuilder';
+  addIngredient,
+  removeIngredient,
+  initIngredients,
+  continuePurchasing,
+  cancelPurchasing,
+} from "./burgerBuilder";
 export {
-    purchaseBurger,
-    purchaseInit,
-    fetchOrders
+  purchaseBurger,
+  purchaseInit,
+  fetchOrders
 } from './order';
 export {
-    auth,
-    logout,
-    setAuthRedirectPath,
-    authCheckState,
-    continueSigning,
-    cancelSigning
+  auth,
+  logout,
+  setAuthRedirectPath,
+  authCheckState,
+  continueSigning,
+  cancelSigning
 } from './auth';
 export {
-    revealBackdrop,
-    hideBackdrop
+  revealBackdrop,
+  hideBackdrop,
+  addReference
 } from './navigation';
+export { 
+  getAddressData 
+} from "./address";
+
