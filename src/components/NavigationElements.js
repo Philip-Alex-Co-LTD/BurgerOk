@@ -6,16 +6,16 @@ import ProfileElement from "./ProfileElement";
 const navigationElements = (props) => (
 
   <ul className="navigation-elements">
-    <NavigationElement scrollTo = "section-contact">
+    <NavigationElement scrollToSection = "section-contact">
       Contact us
     </NavigationElement>
-    <NavigationElement scrollTo = "section-cities">
+    <NavigationElement scrollToSection = "section-cities">
       Our cities
     </NavigationElement>
-    <NavigationElement scrollTo = "section-steps">
+    <NavigationElement scrollToSection = "section-steps">
       How it works
     </NavigationElement>
-    <NavigationElement scrollTo = "section-features">
+    <NavigationElement scrollToSection = "section-features">
       Food delivery
     </NavigationElement>
     <NavigationElement link="/" exact>

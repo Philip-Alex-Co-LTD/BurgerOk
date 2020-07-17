@@ -1,12 +1,16 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import * as signingActions from "../store/actions/index";
-import { connect } from "react-redux";
+import { connect, useSelector, useDispatch } from "react-redux";
 
 const navigationElement = (props) => {
-  
-  const continueSigningHandler = () => {
-    props.onContinueSigning();
+
+  const executeScroll = () => {
+    references.forEach(el => {
+      if (el[0] === props.scrollToSection) {
+        scrollToRef(el[1]);
+      };
+    })
   };
 
   return (
@@ -21,7 +25,7 @@ const navigationElement = (props) => {
         </NavLink> : 
         <div 
           className={[`${!props.signing ? "" : "active"}`].join(' ')}
-          onClick={() => continueSigningHandler()}
+          onClick={() => scrollToRef(executeScroll)}
         >
           {props.children}
         </div>
@@ -33,7 +37,7 @@ const navigationElement = (props) => {
 // Function responsible for passing state to the reducer
 const mapStateToProps = (state) => {
   return {
-    signing: state.auth.signing,
+    references: state.navigation.references,
   };
 };
 

@@ -3,7 +3,7 @@ import { FaUser } from "react-icons/fa";
 import * as navigationActions from "../store/actions/index";
 import { connect } from "react-redux";
 
-const profileElement = (props) => {
+const profileElement = () => {
 
     const hoverOnProfileElement = () => {
         props.onRevealBackdrop();

@@ -2,7 +2,7 @@ import React from "react";
 import * as signingActions from "../store/actions/index";
 import { connect } from "react-redux";
 
-const signinElement = (props) => {
+const signinElement = () => {
   
   const continueSigningHandler = () => {
     props.onContinueSigning();
