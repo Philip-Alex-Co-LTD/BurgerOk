@@ -8,11 +8,14 @@ import { connect } from "react-redux";
 
 
 const Cities = () => {
-  
   const myRef = useRef(null);
 
   useEffect(() => {
-      props.onAddingReference(['section-cities', myRef])
+    let referenceAndClassName = ['section-cities', myRef]
+
+    if (myRef != {current: null}) {
+      props.onAddReference(referenceAndClassName)
+    }
   }, [myRef]);
 
 
@@ -92,7 +95,7 @@ const Cities = () => {
 // Function responsible for passing actions to the reducer
 const mapDispatchToProps = (dispatch) => {
   return {
-    onAddingReference: (referenceAndClassName) =>
+    onAddReference: (referenceAndClassName) =>
       dispatch(navigationActions.addReference(referenceAndClassName))
   };
 };
