@@ -3,13 +3,12 @@ import { FaArrowUp, FaUser } from "react-icons/fa";
 import * as navigationActions from "../store/actions/index";
 import { connect } from "react-redux";
 
-const Features = () =>  {
+const Features = (props) =>  {
     const myRef = useRef(null);
 
     useEffect(() => {
-        
         if (myRef != {current: null}) {
-          props.onAddReference(referenceAndClassName)
+            props.onAddRef(['section-features', myRef])
         }
     }, [myRef]);
 
@@ -54,8 +53,8 @@ const Features = () =>  {
 // Function responsible for passing actions to the reducer
 const mapDispatchToProps = (dispatch) => {
     return {
-        onAddReference: (referenceAndClassName) =>
-        dispatch(navigationActions.addReference(referenceAndClassName))
+        onAddRef: (classNameAndReference) =>
+        dispatch(navigationActions.addRef(classNameAndReference))
     };
 };
 

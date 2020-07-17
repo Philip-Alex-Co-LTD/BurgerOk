@@ -6,15 +6,16 @@ export const revealBackdrop = () => {
     };
 };
 
+export const addReference = (referenceAndClassName) => {
+    return {
+        type: actionTypes.ADD_REF,
+        reference: referenceAndClassName
+    };
+};
+
 export const hideBackdrop = () => {
     return {
         type: actionTypes.HIDE_BACKDROP
     };
 };
 
-export const addReference = (referenceAndClassName) => {
-    return {
-        type: actionTypes.ADD_REFERENCE,
-        reference: referenceAndClassName
-    };
-};

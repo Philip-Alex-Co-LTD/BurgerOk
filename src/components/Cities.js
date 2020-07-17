@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from "react";
+// import { addRef } from "../store/actions/index";
 import { FaRegStar, FaUser, FaRegComments } from "react-icons/fa";
 import bobr from "../assets/images/bobr.jpg";
 import minsk from "../assets/images/minsk.jpg";
@@ -7,17 +8,14 @@ import * as navigationActions from "../store/actions/index";
 import { connect } from "react-redux";
 
 
-const Cities = () => {
+const Cities = (props) => {
   const myRef = useRef(null);
 
   useEffect(() => {
-    let referenceAndClassName = ['section-cities', myRef]
-
     if (myRef != {current: null}) {
-      props.onAddReference(referenceAndClassName)
+      props.onAddRef(['section-cities', myRef])
     }
   }, [myRef]);
-
 
   return (
     <React.Fragment>
@@ -95,8 +93,8 @@ const Cities = () => {
 // Function responsible for passing actions to the reducer
 const mapDispatchToProps = (dispatch) => {
   return {
-    onAddReference: (referenceAndClassName) =>
-      dispatch(navigationActions.addReference(referenceAndClassName))
+    onAddRef: (classNameAndReference) =>
+      dispatch(navigationActions.addRef(classNameAndReference))
   };
 };
 

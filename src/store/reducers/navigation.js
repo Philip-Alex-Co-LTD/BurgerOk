@@ -17,7 +17,7 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 showingBackdrop: false 
             };
-        case actionTypes.ADD_REFERENCE:
+        case actionTypes.ADD_REF:
             return {
                 ...state,
                 references: state.references.push(action.reference)

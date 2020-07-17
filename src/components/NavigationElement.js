@@ -1,12 +1,14 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import * as signingActions from "../store/actions/index";
-import { connect, useSelector, useDispatch } from "react-redux";
+import { connect } from "react-redux";
 
 const navigationElement = (props) => {
 
+  const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop);   
+
   const executeScroll = () => {
-    references.forEach(el => {
+    props.references.forEach(el => {
       if (el[0] === props.scrollToSection) {
         scrollToRef(el[1]);
       };
@@ -25,7 +27,7 @@ const navigationElement = (props) => {
         </NavLink> : 
         <div 
           className={[`${!props.signing ? "" : "active"}`].join(' ')}
-          onClick={() => scrollToRef(executeScroll)}
+          onClick={() => executeScroll()}
         >
           {props.children}
         </div>
