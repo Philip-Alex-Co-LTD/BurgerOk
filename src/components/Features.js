@@ -5,7 +5,7 @@ const Features = (props) =>  {
 
     return (
         <React.Fragment>
-            <section className = 'section-features' ref={myRef}>
+            <section className = 'section-features' id="features">
                 <div className="row">
                     <h2>Tired of buying burgers?<br/> 
                     Build your own!</h2>

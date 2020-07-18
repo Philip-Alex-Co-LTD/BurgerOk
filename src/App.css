@@ -531,12 +531,6 @@ div::-webkit-scrollbar-thumb {
   display: block;
 }
 
-.navigation-item a:hover,
-.navigation-item .no-ref-element:hover,
-.navigation-item .active {
-  color: #40a4c8;
-}
-
 .navigation-element {
   text-transform: uppercase;
   text-decoration: none;
@@ -578,7 +572,7 @@ div::-webkit-scrollbar-thumb {
 /* NAVIGATION ELEMENTS */
 
 .navigation-elements {
-  float: left;
+  float: right;
   margin-right: 10px;
   padding: 0;
   list-style: none;
@@ -589,9 +583,12 @@ div::-webkit-scrollbar-thumb {
 }
 
 .navigation-elements li {
-  /* margin: 0px 10px; */
   margin-left: 40px;
   font-size: 100%;
+}
+
+.navigation-elements li:last-of-type {
+  margin-right: 10px;
 }
 
 @media (min-width: 500px) {
@@ -659,14 +656,16 @@ div::-webkit-scrollbar-thumb {
 /* TOOLBAR */
 
 .toolbar {
+  float: right;
   position: fixed;
+  opacity: 0.95;
   top: 0;
   left: 0;
   width: 100%;
   background-color: rgba(255, 255, 255, 0.98);
   box-shadow: 0 2px #efefef;
   height: 76px;
-  display: flex;
+  /* display: flex; */
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
@@ -954,35 +953,6 @@ div::-webkit-scrollbar-thumb {
   padding: 10px;
   box-sizing: border-box;
 }
-/* 
-@media (min-width: 600px) {
-  .sign-form {
-    width: 40%;
-  }
-}
-
-@media (min-width: 1000px) {
-  .sign-form {
-    width: 30%;
-  }
-}
-} */
-
-/* .navigation-items {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    height: 100%;
-}
-
-@media (min-width: 500px) {
-    .navigation-items {
-        flex-flow: row;
-    }
-} */
 
 /* CONTACT DATA */
 
@@ -1446,7 +1416,7 @@ footer p {
   position: fixed;
   top: 20px;
   right: 10px;
-  padding-bottom: 40px;
+  padding: 0 0 40px 40px;
 }
 
 .dropdown-elements div {
@@ -1480,6 +1450,7 @@ footer p {
 }
 
 .dropdown-element {
+  color: #555;
   text-transform: uppercase;
   margin: 10px 10px;
   padding: 5px 0;
@@ -1488,15 +1459,17 @@ footer p {
   width: 100%;
 }
 
-.dropdown-element:hover,
-.dropdown-element a:hover {
+.dropdown-element:hover {
   cursor: pointer;
   color: #e67e22;
   transition: color 0.2s;
 }
 
-.dropdown-element a:link,
-.dropdown-element a:visited {
+.dropdown-link:hover {
+  color: #e67e22;
+}
+
+.dropdown-link {
   text-decoration: none;
   color: #555;
   padding: 4px 0;
