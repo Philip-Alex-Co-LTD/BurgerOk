@@ -4,7 +4,7 @@ export default class ContactUs extends Component {
   render() {
     return (
       <React.Fragment>
-        <section className="section-contact">
+        <section className="section-contact" id = "contact-us">
 
           <div className="row">
             <h2>We're happy to hear from you</h2>

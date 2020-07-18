@@ -4,7 +4,8 @@ import { NavLink } from "react-router-dom";
 const dropdownElement = (props) => {
   return (
     <li className="dropdown-element">
-        <NavLink
+        <NavLink 
+          className = "dropdown-link"
           to={props.link}
           exact={props.exact}
           activeClassName="active"

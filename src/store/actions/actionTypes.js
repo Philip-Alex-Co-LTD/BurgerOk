@@ -25,7 +25,7 @@ export const SET_AUTH_REDIRECT_PATH = "SET_AUTH_REDIRECT_PATH";
 
 export const REVEAL_BACKDROP = "REVEAL_BACKDROP";
 export const HIDE_BACKDROP = "HIDE_BACKDROP";
-export const ADD_REF = "ADD_REF";
+// export const ADD_REF = "ADD_REF";
 
 export const GET_ADDRESS_DATA = "GET_ADDRESS_DATA";
 export const GET_ADDRESS_DATA_START = "GET_ADDRESS_DATA_START";
