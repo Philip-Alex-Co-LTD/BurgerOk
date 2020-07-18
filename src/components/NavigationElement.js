@@ -5,10 +5,10 @@ import { HashLink as Link } from 'react-router-hash-link';
 const navigationElement = (props) => {
 
   return (
-    <li className="navigation-element">
+    <li>
       {(props.children === `BurgerOk`) ?
         <NavLink
-          className = "burgerok-nav"
+          className = "navigation-element"
           to={props.link}
           exact={props.exact}
           activeClassName="active"
@@ -18,7 +18,7 @@ const navigationElement = (props) => {
         <Link
           to={props.path} 
           scroll={el => el.scrollIntoView({block: "start", inline: "nearest"})}
-          className={[`${!props.signing ? "" : "active"}`].join(' ')}
+          className={["navigation-element", `${!props.signing ? "" : "active"}`].join(' ')}
         >
           {props.children}
         </Link>

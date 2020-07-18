@@ -521,14 +521,22 @@ div::-webkit-scrollbar-thumb {
 }
 
 /* NAVIGATION ELEMENT */
-.navigation-element a:link,
-.navigation-element a:visited {
+.navigation-element:link,
+.navigation-element:visited {
   padding: 4px 0;
   text-decoration: none;
   color: #555;
   width: 100%;
   box-sizing: border-box;
   display: block;
+}
+
+.burgerok-nav:hover {
+  color: #e67e22;
+}
+
+.burgerok-nav:active {
+  color: #e67e22;
 }
 
 .navigation-element {
@@ -1416,12 +1424,11 @@ footer p {
   position: fixed;
   top: 20px;
   right: 10px;
-  padding: 0 0 40px 40px;
+  padding: 0 0 40px 60px;
 }
 
 .dropdown-elements div {
-  position: relative;
-  display: inline-block;
+  display: block;
   padding: 15px;
   border-bottom: 1px solid #e8e8e8;
 }
@@ -1430,12 +1437,12 @@ footer p {
   margin-right: 10px;
   border-radius: 5px;
   width: 200px;
+  display: none;
   margin-left: 5%;
   box-shadow: 0 2px 2px #e3e3e3;
   position: fixed;
   top: 70px;
   left: 100px;
-  display: none;
   margin-top: 5px;
   position: absolute;
   background-color: #fff;
