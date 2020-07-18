@@ -1,25 +1,15 @@
-import React, { useRef, useEffect } from "react";
-// import { addRef } from "../store/actions/index";
+import React from "react";
 import { FaRegStar, FaUser, FaRegComments } from "react-icons/fa";
 import bobr from "../assets/images/bobr.jpg";
 import minsk from "../assets/images/minsk.jpg";
 import gz from "../assets/images/gz.jpg";
-import * as navigationActions from "../store/actions/index";
-import { connect } from "react-redux";
 
 
 const Cities = (props) => {
-  const myRef = useRef(null);
-
-  useEffect(() => {
-    if (myRef != {current: null}) {
-      props.onAddRef(['section-cities', myRef])
-    }
-  }, [myRef]);
 
   return (
     <React.Fragment>
-      <section className="section-cities" id="cities" ref={myRef}>
+      <section className="section-cities" id="cities">
         <div className="row">
           <h2>Find us in these cities</h2>
         </div>
@@ -90,15 +80,4 @@ const Cities = (props) => {
   );
 }
 
-// Function responsible for passing actions to the reducer
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onAddRef: (classNameAndReference) =>
-      dispatch(navigationActions.addRef(classNameAndReference))
-  };
-};
-
-export default connect(
-  null,
-  mapDispatchToProps
-)(Cities);
+export default Cities;

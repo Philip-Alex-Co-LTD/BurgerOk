@@ -1,16 +1,7 @@
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import { FaArrowUp, FaUser } from "react-icons/fa";
-import * as navigationActions from "../store/actions/index";
-import { connect } from "react-redux";
 
 const Features = (props) =>  {
-    const myRef = useRef(null);
-
-    useEffect(() => {
-        if (myRef != {current: null}) {
-            props.onAddRef(['section-features', myRef])
-        }
-    }, [myRef]);
 
     return (
         <React.Fragment>
@@ -50,17 +41,6 @@ const Features = (props) =>  {
     );
 };
 
-// Function responsible for passing actions to the reducer
-const mapDispatchToProps = (dispatch) => {
-    return {
-        onAddRef: (classNameAndReference) =>
-        dispatch(navigationActions.addRef(classNameAndReference))
-    };
-};
-
-export default connect(
-  null,
-  mapDispatchToProps
-)(Features);
+export default Features;
 
 
