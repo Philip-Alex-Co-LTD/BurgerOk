@@ -15,5 +15,5 @@ export {
   cancelSigning,
 } from "./auth";
 
-export { getAddressData } from "./address";
+export { getAddressData, submitPersonalInfo } from "./address";
 export { revealBackdrop, hideBackdrop } from "./navigation";

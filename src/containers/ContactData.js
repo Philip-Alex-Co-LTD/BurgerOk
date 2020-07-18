@@ -210,17 +210,17 @@ class ContactData extends Component {
   render() {
     let personal;
     if (Object.values(this.props.personal).length) {
-      let e = Object.values(this.props.personal);
+      let e = this.props.personal;
       personal = (
         <div className="personal-CD">
           <p>
-            Name: {e[4]} {e[5]}
+            Name: {e["First Name"]} {e["Last Name"]}
             <br></br>
-            E-mail: {e[3]}
+            E-mail: {e["E-mail"]}
             <br></br>
-            Address: {e[1]}, {e[0]}, {e[6]}, {e[7]}
+            Address: {e["Country"]}, {e["City"]}, {e["Street"]}, {e["Zip code"]}
             <br></br>
-            Delivery method: {e[2]}
+            Delivery method: {e["Delivery method"]}
           </p>
         </div>
       );

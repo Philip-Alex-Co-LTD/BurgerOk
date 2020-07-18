@@ -1,6 +1,5 @@
 import React from "react";
 import Button from "./Button";
-import { node } from "prop-types";
 
 const orderSummary = (props) => {
   const ingredientSummary = Object.keys(props.ingredients).map((igKey) => {

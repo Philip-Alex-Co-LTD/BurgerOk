@@ -1,7 +1,6 @@
 import React from "react";
 import Burger from "./Burger";
 import Modal from "../components/Modal";
-import Button from "./Button";
 import { connect } from "react-redux";
 
 const thankYouModal = (props) => {

@@ -29,14 +29,9 @@ const reducer = (state = initialState, action) => {
         loading: true,
       };
     case actionTypes.SUBMIT_PERSONAL_INFO_SUCCESS:
-      const newInfo = {
-        ...action.personalInfo,
-        id: action.id,
-      };
       return {
         ...state,
         loading: false,
-        personalInfo: newInfo,
       };
     case actionTypes.SUBMIT_PERSONAL_INFO_FAIL:
       return {

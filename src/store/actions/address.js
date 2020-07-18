@@ -28,19 +28,10 @@ export const getAddressData = (token, userId) => {
     const queryParams =
       "?auth=" + token + '&orderBy="userId"&equalTo="' + userId + '"';
     axios
-      .get("/orders.json" + queryParams)
+      .get("/Address.json" + queryParams)
       .then((res) => {
-        const fetchedOrders = [];
-        let b;
-        for (let key in res.data) {
-          let a = res.data[key];
-          a = a["orderData"];
-          fetchedOrders.push({
-            ...a,
-          });
-          b = a;
-        }
-        dispatch(getAddressDataSuccess(b));
+        let a = res.data[Object.keys(res.data).sort().reverse()[0]].Data;
+        dispatch(getAddressDataSuccess(a));
       })
       .catch((err) => {
         dispatch(getAddressDataFail(err));
@@ -48,11 +39,9 @@ export const getAddressData = (token, userId) => {
   };
 };
 
-export const submitPersonalInfoSuccess = (id, personalInfo) => {
+export const submitPersonalInfoSuccess = () => {
   return {
     type: actionTypes.SUBMIT_PERSONAL_INFO_SUCCESS,
-    id: id,
-    personalInfo: personalInfo,
   };
 };
 
@@ -73,9 +62,9 @@ export const submitPersonalInfo = (personalInfo, token) => {
   return (dispatch) => {
     dispatch(submitPersonalInfoStart());
     axios
-      .post("/address.json?auth=" + token, personalInfo)
+      .post("/Address.json?auth=" + token, personalInfo)
       .then((response) => {
-        dispatch(submitPersonalInfoSuccess(response.data.name, personalInfo));
+        dispatch(submitPersonalInfoSuccess());
       })
       .catch((error) => {
         dispatch(submitPersonalInfoFail(error));

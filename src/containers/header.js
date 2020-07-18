@@ -8,12 +8,8 @@ export default function header() {
           Goodbye regular burgers.
           <br /> Become burger designer on your own
         </h1>
-        <a className="btn btn-full" href="#">
-          I'm hungry
-        </a>
-        <a className="btn btn-ghost" href="#">
-          Show me more
-        </a>
+        <a className="button success ">I'm hungry</a>
+        <a className="button danger">Show me more</a>
       </div>
     </header>
   );
