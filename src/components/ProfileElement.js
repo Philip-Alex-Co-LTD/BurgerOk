@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { FaUser } from "react-icons/fa";
 import * as navigationActions from "../store/actions/index";
 import { connect } from "react-redux";

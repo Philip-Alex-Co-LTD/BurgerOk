@@ -1,11 +1,11 @@
 import React from "react";
 import { FaArrowUp, FaUser } from "react-icons/fa";
 
-const Features = () =>  {
+const Features = (props) =>  {
 
     return (
         <React.Fragment>
-            <section className = 'section-features'>
+            <section className = 'section-features' id="features">
                 <div className="row">
                     <h2>Tired of buying burgers?<br/> 
                     Build your own!</h2>
@@ -13,7 +13,7 @@ const Features = () =>  {
                     Tired of eating same hamburgers, cheeseburgers or chickenburgers? No problem! Make your own with BurgerOk using a huge variety of top quality ingredients the way you want! You make - we cook!
                     </p>
                 </div>
-                <div className="row wrapper">
+                <div className="row wrapper">   
                     <div className = 'col span-1-of-3 box'>
                         <FaUser className = 'icon-big'/>
                         <h3>create your own burger</h3>
@@ -42,3 +42,5 @@ const Features = () =>  {
 };
 
 export default Features;
+
+

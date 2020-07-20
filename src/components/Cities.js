@@ -3,7 +3,8 @@ import { FaRegStar, FaUser, FaRegComments } from "react-icons/fa";
 import bobr from "../assets/images/bobr.jpg";
 import minsk from "../assets/images/minsk.jpg";
 import gz from "../assets/images/gz.jpg";
-export default function Cities() {
+
+const Cities = (props) => {
   return (
     <React.Fragment>
       <section className="section-cities" id="cities">
@@ -71,4 +72,6 @@ export default function Cities() {
       </section>
     </React.Fragment>
   );
-}
+};
+
+export default Cities;

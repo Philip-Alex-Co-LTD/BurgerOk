@@ -1,7 +1,8 @@
 import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
-    showingBackdrop: false
+    showingBackdrop: false,
+    // references: []
 };
 
 const reducer = (state = initialState, action) => {
@@ -16,6 +17,11 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 showingBackdrop: false 
             };
+        // case actionTypes.ADD_REF:
+        //     return {
+        //         ...state,
+        //         references: state.references.push(action.reference)
+        //     };
         default:
             return state;
     }

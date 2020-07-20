@@ -8,7 +8,6 @@ import { connect } from "react-redux";
 const toolbar = (props) => (
   <header className="toolbar">
     <DrawerToggle clicked={props.drawerToggleClicked} />
-    <Logo height="80%" />
     <nav className="desktop-only">
       <NavigationElements isAuthenticated={props.isAuth} />
     </nav>
