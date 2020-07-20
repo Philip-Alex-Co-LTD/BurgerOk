@@ -234,7 +234,6 @@ class ContactData extends Component {
     }
     let form = (
       <div>
-        <h4>Enter your Contact Data</h4>
         <form onSubmit={this.showModal}>
           {formElementsArray.map((formElement) => (
             <Input
@@ -261,21 +260,33 @@ class ContactData extends Component {
     }
     return (
       <div>
+        <h2 style={{ paddingTop: "70px" }}>
+          Complete your Contact data to order
+        </h2>
+
         <ThankYouModal
           show={this.state.show}
           clicked={(event) => this.orderHandler(event)}
           closed={(event) => this.orderHandler(event)}
         />
         {personal && (
-          <div
-            className={`personal-ContactData-${this.state.active && "active"}`}
-          >
-            {personal}
-            <input
+          <div>
+            <h3>
+              You can also choose information based on your previous order
+            </h3>
+            <div
               onClick={this.togglePersonal}
-              className="checkbox-CD"
-              type="checkbox"
-            ></input>
+              className={`personal-ContactData-${
+                this.state.active && "active"
+              }`}
+            >
+              {personal}
+              <input
+                className="checkbox-CD"
+                type="checkbox"
+                checked={this.state.active}
+              ></input>
+            </div>
           </div>
         )}
         <div className="contact-data">

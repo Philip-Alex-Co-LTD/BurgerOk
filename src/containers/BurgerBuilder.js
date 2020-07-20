@@ -56,7 +56,7 @@ class BurgerBuilder extends Component {
   purchaseContinueHandler = () => {
     this.props.onInitPurchase();
 
-    this.props.history.push("/checkout");
+    this.props.history.push("/contact-data");
   };
 
   render() {
@@ -80,6 +80,7 @@ class BurgerBuilder extends Component {
             <h2> Start making your own burger</h2>
           </div>
           <div className="burger-section">
+            <Burger ingredients={this.props.ings} />
             <BuildControls
               ingredientAdded={this.props.onIngredientAdded}
               ingredientRemoved={this.props.onIngredientRemoved}
@@ -89,7 +90,6 @@ class BurgerBuilder extends Component {
               isAuth={this.props.isAuthenticated}
               price={this.props.price}
             />
-            <Burger ingredients={this.props.ings} />
           </div>
         </React.Fragment>
       );
