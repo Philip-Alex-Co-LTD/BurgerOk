@@ -1662,7 +1662,7 @@ ul li {
   padding: 5px 10px;
 }
 
-@media (max-width: 1150px) {
+/* @media (max-width: 1150px) {
   .build-controls {
     width: 35%;
     height: 500px;
@@ -1806,6 +1806,170 @@ ul li {
   }
   .personal-ContactData-false,
   .personal-ContactData-active {
+    width: 100%;
+  }
+} */
+
+@media (max-width: 1150px) {
+  .build-controls {
+    width: 35%;
+    height: 500px;
+    margin: 0px;
+  }
+  .burger-section {
+    height: auto;
+    text-align: center;
+  }
+}
+
+@media (max-width: 1000px) {
+  .build-controls {
+    height: 400px;
+    margin: 0 auto;
+    width: 38%;
+  }
+  .burger {
+    width: 450px;
+    margin: 0 auto 20px auto;
+    height: 400px;
+  }
+
+  .curr {
+    margin-bottom: 0px;
+  }
+  .bottom-controls {
+    padding-top: 0px;
+  }
+  .build-control:first-of-type {
+    margin-top: 0px;
+  }
+  .build-control {
+    margin: 0px 15%;
+  }
+  .plan-price {
+    padding-bottom: 0px;
+  }
+  .burger-section-h2 h2 {
+    padding-bottom: 5px;
+    padding-top: 0px;
+  }
+  .address-section {
+    width: 90%;
+    margin: 0 5%;
+  }
+
+  .address .span-1-of-3 {
+    width: 32.6%;
+  }
+}
+@media (max-width: 768px) {
+  .section-cities .row {
+    width: 70%;
+  }
+}
+
+@media (max-width: 750px) {
+  .build-controls {
+    width: 100%;
+    height: 350px;
+    margin: auto;
+  }
+  .burger-section {
+    display: block;
+    height: auto;
+    text-align: center;
+  }
+  ol {
+    margin: 20px 0px 0px 15%;
+    width: 80%;
+  }
+  .section-contact form {
+    width: 100%;
+  }
+  .section-contact form .row {
+    margin: 2% auto;
+  }
+  footer p {
+    margin: 15px auto;
+  }
+  footer {
+    padding: 20px;
+    text-align: center;
+  }
+  .footer .row {
+    padding: 0;
+  }
+  footer .span-1-of-2 {
+    width: 100%;
+  }
+  .footer-nav,
+  .social-links {
+    float: unset;
+  }
+}
+
+@media (max-width: 600px) {
+  .build-control {
+    margin: auto;
+  }
+  .burger {
+    width: 96vw;
+    height: 86vw;
+  }
+  .inline-text {
+    width: 66%;
+  }
+  .address-section {
+    width: 96%;
+    margin: auto;
+    height: auto;
+  }
+  .address {
+    margin: 2% 2%;
+  }
+  .address-section .order-button {
+    margin-bottom: 20px;
+  }
+  .section-cities .row {
+    width: 90%;
+  }
+  .personal-ContactData-false,
+  .personal-ContactData-active {
+    width: 90%;
+  }
+  .section-steps .span-1-of-3 {
+    margin: 20px 0px 0px 20%;
+    width: 70%;
+  }
+}
+
+@media (max-width: 400px) {
+  h2 {
+    padding: 0px;
+    margin-bottom: 0px;
+  }
+  .modal {
+    width: 94%;
+    left: 3%;
+    height: fit-content;
+  }
+  .personal-ContactData-false,
+  .personal-ContactData-active {
+    width: 100%;
+  }
+  .address {
+    display: unset;
+  }
+  .address-section .order-button {
+    margin-top: 10px;
+  }
+  .inline-text {
+    width: 90%;
+    margin: 0.5% auto 3% auto;
+  }
+  .address p {
+    margin-left: 7%;
+    text-align: left;
     width: 100%;
   }
 }
