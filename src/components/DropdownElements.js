@@ -8,6 +8,7 @@ const profileDropdown = (props) => {
 
   const logoutHandler = () => {
     props.onLogout();
+    setDisplay(false);
   };
 
   return (
@@ -31,7 +32,7 @@ const profileDropdown = (props) => {
           <DropdownElement link="/address">My Address</DropdownElement>
         </ul>
       </div>
-      <div className="no-ref-element" onClick={() => logoutHandler()}>
+      <div onClick={() => logoutHandler()}>
         <li className="logout-element">Logout</li>
       </div>
     </div>

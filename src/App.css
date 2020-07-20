@@ -99,6 +99,15 @@ h3 {
   vertical-align: middle;
 }
 
+.icon-error {
+  width: 30px;
+  font-size: 120%;
+  display: inline-block;
+  margin-right: 15px;
+  margin-bottom: 5px;
+  vertical-align: middle;
+}
+
 .icon-profile {
   font-size: 150%;
   color: #555;
@@ -855,10 +864,29 @@ div::-webkit-scrollbar-thumb {
 
 /* BUTTON */
 
+.success {
+  background: rgb(28, 184, 65);
+}
+
+.success:hover {
+  background: rgb(1, 153, 37);
+  transition: background-color 0.2s, border 0.2s, color 0.2s;
+}
+
+.secondary  {
+  background: rgb(66, 184, 221);
+}
+
+.secondary:hover  {
+  background: rgb(12, 158, 202);
+  transition: background-color 0.2s, border 0.2s, color 0.2s;
+}
+
 .button {
-  background-color: transparent;
+  /* background-color: transparent; */
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
   border: none;
-  color: white;
+  color: white; 
   outline: none;
   cursor: pointer;
   font: inherit;
@@ -921,6 +949,7 @@ butt
 .input-element {
   outline: none;
   border: 1px solid #ccc;
+  border-radius: 5px;
   background-color: white;
   font: inherit;
   padding: 6px 10px;
@@ -935,33 +964,39 @@ butt
 }
 
 .invalid {
-  border: 1px solid red;
-  background-color: salmon;
+  border: 1px solid salmon;
+  background-color: #FFD2D2;
 }
 
 /* MODAL */
 
 .modal {
+  transform: translateY(-100vh);
+  opacity: 0;
+  border-radius: 5px;
   position: fixed;
   z-index: 500;
-  background-color: white;
-  width: 80%;
-  height: 70%;
+  background-color: #e7e7f6;
+  box-sizing: border-box;
+  width: 60%;
   border: 1px solid #ccc;
   box-shadow: 1px 1px 1px black;
-  left: 10%;
-  top: 15%;
-  box-sizing: border-box;
-  transition: all 0.3s ease-out;
+  left: 20%;
+  top: 25%;
+  transition: all .5s ease;
 }
 
-@media (min-width: 600px) {
+.visible {
+  transform: translateY(10px);
+  opacity: 1;
+  transition: all .5s ease;
+}
+/* @media (min-width: 600px) {
   .modal {
     width: 700px;
     left: calc(50% - 350px);
-    height: 70%;
   }
-}
+} */
 
 /* THANK YOU MODAL */
 .thankYou-modal {
@@ -1051,6 +1086,13 @@ butt
 
 /* SIGNIN / SIGNUP FORM */
 
+.error-message {
+  margin: 10px 0px;
+  padding: 12px; 
+  color: #D8000C;
+  background-color: #FFD2D2;
+}
+
 .sign-form {
   margin: auto;
   width: 100%;
@@ -1059,6 +1101,12 @@ butt
   border: 1px solid #eee;
   padding: 10px;
   box-sizing: border-box;
+}
+
+form .label {
+  font-size: 1.0em;
+  color: #ceaee8;
+  margin-right: 13px;
 }
 
 /* CONTACT DATA */
@@ -1257,13 +1305,6 @@ section {
   text-align: center;
 }
 
-.icon-big {
-  font-size: 350%;
-  color: #e67e22;
-  display: block;
-  margin-bottom: 10px;
-}
-
 .box p {
   font-size: 90%;
   line-height: 145%;
@@ -1420,7 +1461,7 @@ textarea {
   width: 100%;
   padding: 7px;
   border-radius: 3px;
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
 }
 
 textarea {

@@ -1,5 +1,4 @@
 import React from "react";
-import Logo from "./Logo";
 import DropdownElements from "./DropdownElements";
 import NavigationElements from "./NavigationElements";
 import DrawerToggle from "./DrawerToggle";
