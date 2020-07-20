@@ -18,7 +18,7 @@ export default function Cities() {
               <ul className="cities-details">
                 <li>
                   <FaUser className="icon-small" />
-                  600+ happy eaters
+                  1000+ happy eaters
                 </li>
                 <li>
                   <FaRegStar className="icon-small" />

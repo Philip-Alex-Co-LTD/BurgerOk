@@ -78,36 +78,6 @@ export default class ContactUs extends Component {
                   <input type="submit" value="Send it!" />
                 </div>
               </div>
-              <div className="row">
-                <div className="col span-33">
-                  <label>Newsletter?</label>
-                </div>
-                <div className="col span-66">
-                  <input
-                    type="checkbox"
-                    name="news"
-                    id="news"
-                    defaultChecked="checked"
-                  />{" "}
-                  Yes, please
-                </div>
-              </div>
-              <div className="row">
-                <div className="col span-33">
-                  <label>Drop us a line</label>
-                </div>
-                <div className="col span-66">
-                  <textarea placeholder="Your message"></textarea>
-                </div>
-              </div>
-              <div className="row">
-                <div className="col span-33">
-                  <label>&nbsp;</label>
-                </div>
-                <div className="col span-66">
-                  <input type="submit" value="Send it!" />
-                </div>
-              </div>
             </form>
           </div>
         </section>

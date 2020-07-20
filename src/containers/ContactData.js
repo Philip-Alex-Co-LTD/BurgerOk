@@ -125,6 +125,9 @@ class ContactData extends Component {
   componentDidMount() {
     this.props.onGetAddress(this.props.token, this.props.userId);
   }
+  componentWillUnmount() {
+    this.props.onCancelPurchasing();
+  }
 
   showModal = () => {
     this.setState({ show: true });
@@ -260,7 +263,7 @@ class ContactData extends Component {
     }
     return (
       <div>
-        <h2 style={{ paddingTop: "70px" }}>
+        <h2 style={{ paddingTop: "40px" }}>
           Complete your Contact data to order
         </h2>
 
