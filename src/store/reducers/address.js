@@ -23,6 +23,21 @@ const reducer = (state = initialState, action) => {
         ...state,
         loading: false,
       };
+    case actionTypes.SUBMIT_PERSONAL_INFO_START:
+      return {
+        ...state,
+        loading: true,
+      };
+    case actionTypes.SUBMIT_PERSONAL_INFO_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+      };
+    case actionTypes.SUBMIT_PERSONAL_INFO_FAIL:
+      return {
+        ...state,
+        loading: false,
+      };
     default:
       return state;
   }

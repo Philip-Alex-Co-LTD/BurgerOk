@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import * as actions from "../store/actions/index";
-import Spinner from "../components/Spinner";
 import InlineEdit from "../components/InlineEdit";
 
 const address = (props) => {
@@ -20,12 +19,18 @@ const address = (props) => {
     Street: "",
     "Zip code": "",
     "E-mail": "",
+    "Delivery method": "fastest",
   });
 
-  //   if (props.personal) {
-  //     setpersonalInfo(props.personal);
-  //   }
-
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const Address = {
+      Data: personalInfo,
+      userId: props.userId,
+    };
+    props.onSubmitAddress(Address, props.token);
+    props.history.push("/");
+  };
   const handleInputChange = (event, el) => {
     const updatedFormElement = {
       ...personalInfo,
@@ -33,10 +38,9 @@ const address = (props) => {
     };
 
     setpersonalInfo(updatedFormElement);
-    console.log(props.personal);
   };
 
-  let orders = <Spinner />;
+  //   let orders = <Spinner />;
 
   let key = Object.keys(personalInfo);
   let val = key.map((el) => {
@@ -55,6 +59,9 @@ const address = (props) => {
     <div className="address-section">
       <h2>Profile information</h2>
       {val}
+      <button className="order-button" onClick={(event) => handleSubmit(event)}>
+        SUBMIT
+      </button>
     </div>
   );
 };
@@ -71,6 +78,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onGetAddress: (token, userId) =>
       dispatch(actions.getAddressData(token, userId)),
+    onSubmitAddress: (personalInfo, token) =>
+      dispatch(actions.submitPersonalInfo(personalInfo, token)),
   };
 };
 

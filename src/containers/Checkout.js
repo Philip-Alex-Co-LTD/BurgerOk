@@ -13,6 +13,7 @@ class Checkout extends Component {
 
   checkoutCancelledHandler = () => {
     this.props.history.goBack();
+    this.props.onCancelPurchase();
   };
 
   checkoutContinuedHandler = () => {
@@ -54,6 +55,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onInitPurchase: () => dispatch(actions.purchaseInit()),
+    onCancelPurchase: () => dispatch(actions.cancelPurchasing()),
   };
 };
 

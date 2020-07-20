@@ -9,7 +9,10 @@ const signinElement = (props) => {
   };
 
   return (
-    <div onClick={() => continueSigningHandler()}>Sign in</div>
+    <div 
+      onClick={() => continueSigningHandler()}
+      className = "signin-element"
+    >Sign in</div>
   );
 };
 

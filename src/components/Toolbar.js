@@ -1,8 +1,8 @@
-import React from 'react';
-import Logo from './Logo';
-import DropdownElements from './DropdownElements'
-import NavigationElements from './NavigationElements';
-import DrawerToggle from './DrawerToggle';
+import React from "react";
+import Logo from "./Logo";
+import DropdownElements from "./DropdownElements";
+import NavigationElements from "./NavigationElements";
+import DrawerToggle from "./DrawerToggle";
 import { connect } from "react-redux";
 
 const toolbar = (props) => (
@@ -17,9 +17,9 @@ const toolbar = (props) => (
 
 // Function responsible for passing state to the reducer
 const mapStateToProps = (state) => {
-    return {
-      showingBackdrop: state.navigation.showingBackdrop,
-    };
+  return {
+    showingBackdrop: state.navigation.showingBackdrop,
+  };
 };
 
 export default connect(mapStateToProps)(toolbar);

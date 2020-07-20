@@ -14,7 +14,6 @@ const Cities = (props) => {
           <h2>Find us in these cities</h2>
         </div>
         <div className="row">
-
           <div className="cities">
             <div className="col span-1-of-3 box">
               <img src={bobr} alt="Bobruisk" className="cities-photo" />
@@ -34,7 +33,6 @@ const Cities = (props) => {
                 </li>
               </ul>
             </div>
-
             <div className="col span-1-of-3 box">
               <img src={minsk} alt="Minsk" className="cities-photo" />
               <h3>Minsk</h3>
@@ -53,7 +51,6 @@ const Cities = (props) => {
                 </li>
               </ul>
             </div>
-
             <div className="col span-1-of-3 box">
               <img src={gz} alt="Guangzhou" className="cities-photo" />
               <h3>Guangzhou</h3>

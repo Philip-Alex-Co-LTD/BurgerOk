@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Header from "../containers/header";
 import Cities from "../components/Cities";
 import HowItWorks from "../components/HowItWorks";
 import ContactUs from "../components/ContactUs";
@@ -106,7 +107,7 @@ class BurgerBuilder extends Component {
     return (
       <React.Fragment>
         <Modal
-          show={this.props.purchasing}
+          show={this.props.purchasing && this.props.purchasingContinue}
           modalClosed={this.purchaseCancelHandler}
         >
           {orderSummary}
@@ -117,6 +118,7 @@ class BurgerBuilder extends Component {
         >
           <Auth />
         </Modal>
+        <Header />
         <Features />
         <HowItWorks />
         {burger}
@@ -136,6 +138,7 @@ const mapStateToProps = (state) => {
     error: state.burgerBuilder.error,
     isAuthenticated: state.auth.token !== null,
     purchasing: state.burgerBuilder.purchasing,
+    purchasingContinue: state.order.purchasing,
     signing: state.auth.signing,
   };
 };

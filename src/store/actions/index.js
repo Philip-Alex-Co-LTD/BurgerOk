@@ -16,14 +16,14 @@ export {
   setAuthRedirectPath,
   authCheckState,
   continueSigning,
-  cancelSigning
-} from './auth';
+  cancelSigning,
+} from "./auth";
 export {
-  // addRef,
   revealBackdrop,
   hideBackdrop
 } from './navigation';
 export { 
-  getAddressData 
+  getAddressData,
+  submitPersonalInfo
 } from "./address";
 
