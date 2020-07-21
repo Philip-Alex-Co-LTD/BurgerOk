@@ -22,8 +22,8 @@ const profileDropdown = (props) => {
     >
       <div>
         <ul>
-          <li className="dropdown-element">Your name: profileName</li>
-          <li className="dropdown-element">Your e-mail: email</li>
+          <li className="dropdown-element">Your name: {props.name}</li>
+          <li className="dropdown-element">Your e-mail: {props.email}</li>
         </ul>
       </div>
       <div>
@@ -39,6 +39,13 @@ const profileDropdown = (props) => {
   );
 };
 
+const mapStateToProps = (state) => {
+  return {
+    email: state.address.email,
+    name: state.address.name
+  };
+};
+
 // Function responsible for passing actions to the reducer
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -46,4 +53,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(profileDropdown);
+export default connect(mapStateToProps, mapDispatchToProps)(profileDropdown);

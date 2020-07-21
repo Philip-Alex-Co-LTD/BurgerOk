@@ -46,7 +46,7 @@ class Auth extends Component {
   };
 
   componentDidMount() {
-    if (!this.props.buildingBurger && this.props.authRedirectPath !== "/") {
+    if (!this.props.buildingBurger && this.props.authRedirectPath !== "/address") {
       this.props.onSetAuthRedirectPath();
     }
   }
@@ -134,8 +134,16 @@ class Auth extends Component {
     }
 
     let errorMessage = null;
+    let errorText = null;
 
     if (this.props.error) {
+
+      if (this.state.control.password.value.length < this.state.control.password.validation.minValue) {
+        errorText = `Password is too short. Sorry :(`
+      } else if (this.props.error.code === 400) {
+        errorText = `This email address is already being used. Sorry :(`
+      }
+       
       errorMessage = 
         <div className = "error-message">
           <FaRegWindowClose className = 'icon-error'/>
@@ -155,7 +163,7 @@ class Auth extends Component {
         {errorMessage}
         <form onSubmit={this.submitHandler}>
           {form}
-          <Button btnType="success">SUBMIT</Button>
+          <Button btnType="success" disabled = {!this.state.controls.email.valid || !this.state.controls.password.valid}>SUBMIT</Button>
         </form>
         <Button
           clicked={this.switchAuthModeHandler}
@@ -183,7 +191,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onAuth: (email, password, isSignup) =>
       dispatch(actions.auth(email, password, isSignup)),
-    onSetAuthRedirectPath: () => dispatch(actions.setAuthRedirectPath("/")),
+    onSetAuthRedirectPath: () => dispatch(actions.setAuthRedirectPath("/address")),
   };
 };
 

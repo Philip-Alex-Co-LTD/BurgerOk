@@ -2,6 +2,8 @@ import * as actionTypes from "../actions/actionTypes";
 
 const initialState = {
   personalInfo: {},
+  email: null,
+  name: null,
   loading: false,
 };
 
@@ -37,6 +39,12 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
+      };
+    case actionTypes.STORE_NAME_AND_EMAIL:
+      return {
+        ...state,
+        name: action.name,
+        email: action.email,
       };
     default:
       return state;

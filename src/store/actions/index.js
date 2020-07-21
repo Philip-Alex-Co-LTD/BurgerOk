@@ -16,7 +16,7 @@ export {
   setAuthRedirectPath,
   authCheckState,
   continueSigning,
-  cancelSigning,
+  cancelSigning
 } from "./auth";
 export {
   revealBackdrop,
@@ -24,6 +24,7 @@ export {
 } from './navigation';
 export { 
   getAddressData,
-  submitPersonalInfo
+  submitPersonalInfo,
+  storeNameAndEmail
 } from "./address";
 
