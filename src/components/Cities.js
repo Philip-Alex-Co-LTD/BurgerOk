@@ -4,9 +4,7 @@ import bobr from "../assets/images/bobr.jpg";
 import minsk from "../assets/images/minsk.jpg";
 import gz from "../assets/images/gz.jpg";
 
-
 const Cities = (props) => {
-
   return (
     <React.Fragment>
       <section className="section-cities" id="cities">
@@ -21,7 +19,7 @@ const Cities = (props) => {
               <ul className="cities-details">
                 <li>
                   <FaUser className="icon-small" />
-                  600+ happy eaters
+                  1000+ happy eaters
                 </li>
                 <li>
                   <FaRegStar className="icon-small" />
@@ -70,11 +68,10 @@ const Cities = (props) => {
               </ul>
             </div>
           </div>
-          
         </div>
       </section>
     </React.Fragment>
   );
-}
+};
 
 export default Cities;

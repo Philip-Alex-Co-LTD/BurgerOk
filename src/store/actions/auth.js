@@ -60,25 +60,29 @@ export const auth = (email, password, isSignup) => {
       password: password,
       returnSecureToken: true,
     };
-    let url = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDCHsN7blQMYGTZTgcD5u-mjmI1UQ6PUs0';
+    let url =
+      "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDCHsN7blQMYGTZTgcD5u-mjmI1UQ6PUs0";
     if (!isSignup) {
-        url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDCHsN7blQMYGTZTgcD5u-mjmI1UQ6PUs0'
+      url =
+        "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDCHsN7blQMYGTZTgcD5u-mjmI1UQ6PUs0";
     }
-    axios.post(url, authData)
-        .then(response => {
-            const expirationDate = new Date(new Date().getTime() + response.data.expiresIn * 1000);
-            localStorage.setItem('token', response.data.idToken);
-            localStorage.setItem('expirationDate', expirationDate);
-            localStorage.setItem('userId',  response.data.localId);
-            dispatch(authSuccess(response.data.idToken, response.data.localId));
-            dispatch(checkAuthTimeout(response.data.expiresIn));
-        })
-        .catch(err => {
-            dispatch(authFail(err.response.data.error));
-        })
+    axios
+      .post(url, authData)
+      .then((response) => {
+        const expirationDate = new Date(
+          new Date().getTime() + response.data.expiresIn * 1000
+        );
+        localStorage.setItem("token", response.data.idToken);
+        localStorage.setItem("expirationDate", expirationDate);
+        localStorage.setItem("userId", response.data.localId);
+        dispatch(authSuccess(response.data.idToken, response.data.localId));
+        dispatch(checkAuthTimeout(response.data.expiresIn));
+      })
+      .catch((err) => {
+        dispatch(authFail(err.response.data.error));
+      });
   };
 };
-
 
 export const setAuthRedirectPath = (path) => {
   return {

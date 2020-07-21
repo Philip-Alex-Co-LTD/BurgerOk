@@ -4,8 +4,7 @@ export default class ContactUs extends Component {
   render() {
     return (
       <React.Fragment>
-        <section className="section-contact" id = "contact-us">
-
+        <section className="section-contact" id="contact-us">
           <div className="row">
             <h2>We're happy to hear from you</h2>
           </div>
@@ -13,7 +12,6 @@ export default class ContactUs extends Component {
           <div className="row">
             <form method="post" action="#" className="contact-form">
               <div className="row">
-
                 <div className="col span-1-of-3">
                   <label htmlFor="name">Name</label>
                 </div>
@@ -27,7 +25,6 @@ export default class ContactUs extends Component {
                     required
                   />
                 </div>
-
               </div>
 
               <div className="row">
@@ -61,7 +58,6 @@ export default class ContactUs extends Component {
                     <option value="other">Other</option>
                   </select>
                 </div>
-          
               </div>
 
               <div className="row">
@@ -73,11 +69,9 @@ export default class ContactUs extends Component {
                   <input type="checkbox" name="news" id="news" checked /> Yes,
                   please
                 </div>
-
               </div>
 
               <div className="row">
-
                 <div className="col span-1-of-3">
                   <label>Drop us a line</label>
                 </div>
@@ -88,7 +82,6 @@ export default class ContactUs extends Component {
               </div>
 
               <div className="row">
-
                 <div className="col span-1-of-3">
                   <label>&nbsp;</label>
                 </div>

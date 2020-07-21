@@ -15,13 +15,18 @@ const thankYouModal = (props) => {
         <Burger
           ingredients={props.ings}
           style={{
-            width: "270px",
+            width: "260px",
             height: "230px",
             boxShadow: "0px 0px 0px #ffffff",
+            marginBottom: "0px",
           }}
         />
         <h3 style={{ marginBottom: "10px" }}>Enjoy!</h3>
-        <button className="order-button" onClick={props.clicked}>
+        <button
+          className="order-button"
+          onClick={props.clicked}
+          style={{ marginBottom: "10px" }}
+        >
           BACK TO MAIN PAGE
         </button>
       </Modal>

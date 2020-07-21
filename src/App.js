@@ -9,6 +9,7 @@ import Orders from "./containers/Orders";
 import Logout from "./containers/Logout";
 import Address from "./containers/Address";
 import * as actions from "./store/actions/index";
+import ContactData from "./containers/ContactData";
 
 class App extends Component {
   componentDidMount() {
@@ -26,7 +27,7 @@ class App extends Component {
     if (this.props.isAuthenticated) {
       routes = (
         <Switch>
-          <Route path="/checkout" component={Checkout} />
+          <Route path="/contact-data" component={ContactData} />
           <Route path="/orders" component={Orders} />
           <Route path="/address" component={Address} />
           <Route path="/logout" component={Logout} />
