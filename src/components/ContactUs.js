@@ -89,7 +89,9 @@ export default class ContactUs extends Component {
                 <div className="col span-2-of-3">
                   <input type="submit" value="Send it!" />
                 </div>
+
               </div>
+
             </form>
           </div>
         </section>

@@ -8,7 +8,26 @@ const profileDropdown = (props) => {
 
   const logoutHandler = () => {
     props.onLogout();
+    setDisplay(false);
   };
+
+  let name, email;
+
+  if (!props.name) {
+    name = `---`;
+  } else if (props.name.length >= 7) {
+    name = `${props.name.substr(0, 7)}...`;
+  } else {
+    name = props.name
+  }
+
+  if (!props.email) {
+    email = `---`;
+  } else if (props.email.length >= 7) {
+    email = `${props.email.substr(0, 7)}...`;
+  } else {
+    email = props.email
+  }
 
   return (
     <div
@@ -21,8 +40,8 @@ const profileDropdown = (props) => {
     >
       <div>
         <ul>
-          <li className="dropdown-element">Your name: profileName</li>
-          <li className="dropdown-element">Your e-mail: email</li>
+          <li className="dropdown-element">Your name: {name}</li>
+          <li className="dropdown-element">Your e-mail: {email}</li>
         </ul>
       </div>
       <div>
@@ -31,11 +50,18 @@ const profileDropdown = (props) => {
           <DropdownElement link="/address">My Address</DropdownElement>
         </ul>
       </div>
-      <div className="no-ref-element" onClick={() => logoutHandler()}>
+      <div onClick={() => logoutHandler()}>
         <li className="logout-element">Logout</li>
       </div>
     </div>
   );
+};
+
+const mapStateToProps = (state) => {
+  return {
+    email: state.address.email,
+    name: state.address.name
+  };
 };
 
 // Function responsible for passing actions to the reducer
@@ -45,4 +71,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(profileDropdown);
+export default connect(mapStateToProps, mapDispatchToProps)(profileDropdown);

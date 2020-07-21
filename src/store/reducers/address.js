@@ -2,6 +2,8 @@ import * as actionTypes from "../actions/actionTypes";
 
 const initialState = {
   personalInfo: {},
+  email: null,
+  name: null,
   loading: false,
 };
 
@@ -16,6 +18,8 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         personalInfo: action.personalInfo,
+        name: action.personalInfo[`First Name`],
+        email: action.personalInfo[`E-mail`],
         loading: false,
       };
     case actionTypes.GET_ADDRESS_DATA_FAIL:

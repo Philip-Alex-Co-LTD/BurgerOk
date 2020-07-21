@@ -1,3 +1,4 @@
+import { FaRegWindowClose } from "react-icons/fa";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
@@ -11,10 +12,11 @@ class Auth extends Component {
   state = {
     controls: {
       email: {
+        label: "Email:",
         elementType: "input",
         elementConfig: {
           type: "email",
-          placeholder: "Mail address",
+          // placeholder: "Enter email",
         },
         value: "",
         validation: {
@@ -25,10 +27,11 @@ class Auth extends Component {
         touched: false,
       },
       password: {
+        label: "Password:",
         elementType: "input",
         elementConfig: {
           type: "password",
-          placeholder: "Password",
+          // placeholder: "Enter password",
         },
         value: "",
         validation: {
@@ -43,7 +46,7 @@ class Auth extends Component {
   };
 
   componentDidMount() {
-    if (!this.props.buildingBurger && this.props.authRedirectPath !== "/") {
+    if (!this.props.buildingBurger && this.props.authRedirectPath !== "/address") {
       this.props.onSetAuthRedirectPath();
     }
   }
@@ -122,6 +125,7 @@ class Auth extends Component {
         shouldValidate={formElement.config.validation}
         touched={formElement.config.touched}
         changed={(event) => this.inputChangedHandler(event, formElement.id)}
+        label={formElement.config.label}
       />
     ));
 
@@ -130,9 +134,22 @@ class Auth extends Component {
     }
 
     let errorMessage = null;
+    let errorText = null;
 
     if (this.props.error) {
-      errorMessage = <p>{this.props.error.message}</p>;
+
+      if (this.state.control.password.value.length < this.state.control.password.validation.minValue) {
+        errorText = `Password is too short. Sorry :(`
+      } else if (this.props.error.code === 400) {
+        errorText = `This email address is already being used. Sorry :(`
+      }
+       
+      errorMessage = 
+        <div className = "error-message">
+          <FaRegWindowClose className = 'icon-error'/>
+          {console.log(this.props.error)}
+          {this.props.error.code === 400 ? `This email address is already being used.` : ``}
+        </div>;
     }
 
     let authRedirect = null;
@@ -146,11 +163,11 @@ class Auth extends Component {
         {errorMessage}
         <form onSubmit={this.submitHandler}>
           {form}
-          <Button btnType="success">SUBMIT</Button>
+          <Button btnType="success" disabled = {!this.state.controls.email.valid || !this.state.controls.password.valid}>SUBMIT</Button>
         </form>
         <Button
           clicked={this.switchAuthModeHandler}
-          btnType={this.state.isSignup ? "danger" : "success"}
+          btnType="secondary"
         >
           SWITCH TO {this.state.isSignup ? "SIGNIN" : "SIGNUP"}
         </Button>
@@ -174,7 +191,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onAuth: (email, password, isSignup) =>
       dispatch(actions.auth(email, password, isSignup)),
-    onSetAuthRedirectPath: () => dispatch(actions.setAuthRedirectPath("/")),
+    onSetAuthRedirectPath: () => dispatch(actions.setAuthRedirectPath("/address")),
   };
 };
 

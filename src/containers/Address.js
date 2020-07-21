@@ -74,6 +74,7 @@ const mapStateToProps = (state) => {
     personal: state.address.personalInfo,
   };
 };
+
 const mapDispatchToProps = (dispatch) => {
   return {
     onGetAddress: (token, userId) =>

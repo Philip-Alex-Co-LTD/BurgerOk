@@ -99,6 +99,15 @@ h3 {
   vertical-align: middle;
 }
 
+.icon-error {
+  width: 30px;
+  font-size: 120%;
+  display: inline-block;
+  margin-right: 15px;
+  margin-bottom: 5px;
+  vertical-align: middle;
+}
+
 .icon-profile {
   font-size: 150%;
   color: #555;
@@ -186,30 +195,6 @@ html {
   text-rendering: optimizeLegibility;
 }
 
-h1 {
-  color: #fff;
-  font-size: 200%;
-  letter-spacing: 1px;
-  word-spacing: 4px;
-  margin-bottom: 30px;
-}
-
-h1,
-h2,
-h3 {
-  margin: 0;
-  text-transform: uppercase;
-  font-weight: 300;
-}
-
-h2 {
-  font-size: 180%;
-  letter-spacing: 1px;
-  word-spacing: 2px;
-  margin-top: 0;
-  margin-bottom: 30px;
-  text-align: center;
-}
 .twitter-ref:hover,
 .twitter-ref:active {
   color: #555;
@@ -379,7 +364,6 @@ header {
 .build-control button:hover:disabled {
   border: 1px solid #e67e22;
   cursor: not-allowed;
-  transition: border-bottom 0.2s;
   box-shadow: 0px 0px 0px #fff;
   background-color: #eeeeee;
   color: #e67e22;
@@ -600,14 +584,22 @@ div::-webkit-scrollbar-thumb {
 }
 
 /* NAVIGATION ELEMENT */
-.navigation-element a:link,
-.navigation-element a:visited {
+.signin-element:hover {
+  color: #2ecc71
+}
+
+.navigation-element:link,
+.navigation-element:visited {
   padding: 4px 0;
   text-decoration: none;
   color: #555;
   width: 100%;
   box-sizing: border-box;
   display: block;
+}
+
+.navigation-element:active {
+  color: #e67e22;
 }
 
 .navigation-element {
@@ -618,14 +610,13 @@ div::-webkit-scrollbar-thumb {
   box-sizing: border-box;
   display: block;
   width: 100%;
-  border-bottom: 2px solid transparent;
 }
 
 .navigation-element:hover {
   text-decoration: none;
   cursor: pointer;
-  border-bottom: 2px solid #e67e22;
-  transition: border-bottom 0.3s;
+  color: #e67e22;
+  transition: color 0.3s;
 }
 
 @media (min-width: 500px) {
@@ -637,14 +628,13 @@ div::-webkit-scrollbar-thumb {
     height: 100%;
     width: auto;
     align-items: center;
-    border-bottom: 2px solid transparent;
   }
 
   .navigation-element:hover {
     text-decoration: none;
     cursor: pointer;
-    border-bottom: 2px solid #e67e22;
-    transition: border-bottom 0.3s;
+    color: #e67e22;
+    transition: color 0.3s;
   }
 }
 
@@ -851,10 +841,33 @@ div::-webkit-scrollbar-thumb {
 
 /* BUTTON */
 
+.success {
+  background: rgb(28, 184, 65);
+}
+
+.success:hover {
+  background: rgb(1, 153, 37);
+  transition: background-color 0.2s, border 0.2s, color 0.2s;
+}
+
+.success:disabled {
+  opacity: 35%
+}
+
+.secondary  {
+  background: rgb(66, 184, 221);
+}
+
+.secondary:hover  {
+  background: rgb(12, 158, 202);
+  transition: background-color 0.2s, border 0.2s, color 0.2s;
+}
+
 .button {
-  background-color: transparent;
+  /* background-color: transparent; */
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
   border: none;
-  color: white;
+  color: white; 
   outline: none;
   cursor: pointer;
   font: inherit;
@@ -862,30 +875,35 @@ div::-webkit-scrollbar-thumb {
   margin: 10px;
   font: inherit;
   padding: 10px 25px;
-  min-width: 30px;
-  border-radius: 4px;
+  width: 200px;
+  border-radius: 10px;
   display: inline-block;
 }
-.danger {
+
+.button-ghost {
   border: 1px solid #e67e22;
   color: #e67e22;
   text-align: center;
-  display: inline-block;
 }
 
-.success {
+.button-full {
   background-color: #e67e22;
+  border: 2px solid transparent;
   color: white;
+  margin-right: 15px;
 }
 
-.danger:hover,
-.danger:active,
-.success:hover,
-.success:active {
+.button-ghost:hover,
+.button-ghost:active,
+.button-full:hover,
+.button-full:active {
   border: 2px solid #c46a1c;
   color: white;
   background-color: #c46a1c;
+  transition: background-color 0.2s, border 0.2s, color 0.2s;
 }
+
+butt
 
 .button:disabled {
   cursor: not-allowed;
@@ -912,6 +930,7 @@ div::-webkit-scrollbar-thumb {
 .input-element {
   outline: none;
   border: 1px solid #ccc;
+  border-radius: 5px;
   background-color: white;
   font: inherit;
   padding: 6px 10px;
@@ -926,33 +945,39 @@ div::-webkit-scrollbar-thumb {
 }
 
 .invalid {
-  border: 1px solid red;
-  background-color: salmon;
+  border: 1px solid salmon;
+  background-color: #FFD2D2;
 }
 
 /* MODAL */
 
 .modal {
+  transform: translateY(-100vh);
+  opacity: 0;
+  border-radius: 5px;
   position: fixed;
   z-index: 500;
-  background-color: white;
-  width: 80%;
-  height: 70%;
+  background-color: #e7e7f6;
+  box-sizing: border-box;
+  width: 60%;
   border: 1px solid #ccc;
   box-shadow: 1px 1px 1px black;
-  left: 10%;
-  top: 15%;
-  box-sizing: border-box;
-  transition: all 0.3s ease-out;
+  left: 20%;
+  top: 25%;
+  transition: all .5s ease;
 }
 
-@media (min-width: 800px) {
+.visible {
+  transform: translateY(10px);
+  opacity: 1;
+  transition: all .5s ease;
+}
+/* @media (min-width: 600px) {
   .modal {
     width: 700px;
     left: calc(50% - 350px);
-    height: 70%;
   }
-}
+} */
 
 /* THANK YOU MODAL */
 .thankYou-modal {
@@ -1042,6 +1067,13 @@ div::-webkit-scrollbar-thumb {
 
 /* SIGNIN / SIGNUP FORM */
 
+.error-message {
+  margin: 10px 0px;
+  padding: 12px; 
+  color: #D8000C;
+  background-color: #FFD2D2;
+}
+
 .sign-form {
   margin: auto;
   width: 100%;
@@ -1050,6 +1082,12 @@ div::-webkit-scrollbar-thumb {
   border: 1px solid #eee;
   padding: 10px;
   box-sizing: border-box;
+}
+
+form .label {
+  font-size: 1.0em;
+  color: #ceaee8;
+  margin-right: 13px;
 }
 
 /* CONTACT DATA */
@@ -1249,13 +1287,6 @@ section {
   text-align: center;
 }
 
-.icon-big {
-  font-size: 350%;
-  color: #e67e22;
-  display: block;
-  margin-bottom: 10px;
-}
-
 .box p {
   font-size: 90%;
   line-height: 145%;
@@ -1412,7 +1443,7 @@ textarea {
   width: 100%;
   padding: 7px;
   border-radius: 3px;
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
 }
 
 textarea {
@@ -1568,12 +1599,11 @@ footer p {
   position: fixed;
   top: 20px;
   right: 10px;
-  padding: 0 0 40px 40px;
+  padding: 0 0 40px 60px;
 }
 
 .dropdown-elements div {
-  position: relative;
-  display: inline-block;
+  display: block;
   padding: 15px;
   border-bottom: 1px solid #e8e8e8;
 }
@@ -1582,12 +1612,12 @@ footer p {
   margin-right: 10px;
   border-radius: 5px;
   width: 200px;
+  display: none;
   margin-left: 5%;
   box-shadow: 0 2px 2px #e3e3e3;
   position: fixed;
   top: 70px;
   left: 100px;
-  display: none;
   margin-top: 5px;
   position: absolute;
   background-color: #fff;
