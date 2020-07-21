@@ -1,6 +1,5 @@
 import * as actionTypes from "./actionTypes";
 import axios from "../../axios-orders";
-// import { useImperativeHandle } from 'react';
 
 export const getAddressDataSuccess = (personalInfo) => {
   return {
@@ -64,19 +63,10 @@ export const submitPersonalInfo = (personalInfo, token) => {
     axios
       .post("/Address.json?auth=" + token, personalInfo)
       .then((response) => {
-        dispatch(storeNameAndEmail(personalInfo));
         dispatch(submitPersonalInfoSuccess());
       })
       .catch((error) => {
         dispatch(submitPersonalInfoFail(error));
       });
-  };
-};
-
-export const storeNameAndEmail = (personalInfo) => {
-  return {
-    type: actionTypes.STORE_NAME_AND_EMAIL,
-    email: Object.values(personalInfo[3]),
-    name: Object.values(personalInfo[4]),
   };
 };

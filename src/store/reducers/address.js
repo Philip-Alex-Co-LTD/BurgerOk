@@ -18,6 +18,8 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         personalInfo: action.personalInfo,
+        name: action.personalInfo[`First Name`],
+        email: action.personalInfo[`E-mail`],
         loading: false,
       };
     case actionTypes.GET_ADDRESS_DATA_FAIL:
@@ -39,12 +41,6 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-      };
-    case actionTypes.STORE_NAME_AND_EMAIL:
-      return {
-        ...state,
-        name: action.name,
-        email: action.email,
       };
     default:
       return state;

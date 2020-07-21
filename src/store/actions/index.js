@@ -24,7 +24,6 @@ export {
 } from './navigation';
 export { 
   getAddressData,
-  submitPersonalInfo,
-  storeNameAndEmail
+  submitPersonalInfo
 } from "./address";
 

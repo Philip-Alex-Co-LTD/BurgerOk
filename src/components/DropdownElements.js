@@ -11,6 +11,24 @@ const profileDropdown = (props) => {
     setDisplay(false);
   };
 
+  let name, email;
+
+  if (!props.name) {
+    name = `---`;
+  } else if (props.name.length >= 7) {
+    name = `${props.name.substr(0, 7)}...`;
+  } else {
+    name = props.name
+  }
+
+  if (!props.email) {
+    email = `---`;
+  } else if (props.email.length >= 7) {
+    email = `${props.email.substr(0, 7)}...`;
+  } else {
+    email = props.email
+  }
+
   return (
     <div
       className={[
@@ -22,8 +40,8 @@ const profileDropdown = (props) => {
     >
       <div>
         <ul>
-          <li className="dropdown-element">Your name: {props.name}</li>
-          <li className="dropdown-element">Your e-mail: {props.email}</li>
+          <li className="dropdown-element">Your name: {name}</li>
+          <li className="dropdown-element">Your e-mail: {email}</li>
         </ul>
       </div>
       <div>
