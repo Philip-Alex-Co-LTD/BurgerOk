@@ -252,7 +252,7 @@ class ContactData extends Component {
               }
             />
           ))}
-          <Button btnType="Success" disabled={!this.state.formIsValid}>
+          <Button btnType="success" disabled={!this.state.formIsValid}>
             ORDER
           </Button>
         </form>
