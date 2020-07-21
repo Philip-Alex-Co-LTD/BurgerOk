@@ -1,5 +1,5 @@
 import React from "react";
-import { FaArrowUp, FaUser } from "react-icons/fa";
+import { FaArrowUp, FaPalette, FaFistRaised } from "react-icons/fa";
 
 const Features = (props) =>  {
 
@@ -15,15 +15,15 @@ const Features = (props) =>  {
                 </div>
                 <div className="row wrapper">   
                     <div className = 'col span-1-of-3 box'>
-                        <FaUser className = 'icon-big'/>
-                        <h3>create your own burger</h3>
+                        <FaPalette className = 'icon-big'/>
+                        <h3>create by your own</h3>
                         <p> 
                             Yes, you didn't overhear. We only supply. You create the burger you like. Put your craziest burger ideas into life! Triple cheese or quadruple beef? Pfff, no problem!  
                         </p>
                     </div>
                     <div className = 'col span-1-of-3 box'>
-                        <FaArrowUp className = 'icon-big'/>
-                        <h3>top ingredients together</h3>
+                        <FaFistRaised className = 'icon-big'/>
+                        <h3>put top quality ingredients together</h3>
                         <p> 
                             We have fruits delivered from Australia, spices from China and juicy vegetables from New Zealand. Irish tender roast beef and English cheese. All of them are brought to be in your burger.
                         </p>

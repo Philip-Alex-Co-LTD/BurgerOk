@@ -13,20 +13,20 @@ const profileDropdown = (props) => {
 
   let name, email;
 
-  if (!props.personalInfo[`First Name`]) {
+  if (!props.name) {
     name = `---`;
-  } else if (props.personalInfo[`First Name`].length >= 7) {
-    name = `${props.personalInfo[`First Name`].substr(0, 7)}...`;
+  } else if (props.name.length >= 7) {
+    name = `${props.name.substr(0, 7)}...`;
   } else {
-    name = props.personalInfo[`First Name`]
+    name = props.name
   }
 
-  if (!props.personalInfo[`E-mail`]) {
+  if (!props.email) {
     email = `---`;
-  } else if (props.personalInfo[`E-mail`].length >= 7) {
-    email = `${props.personalInfo[`E-mail`].substr(0, 7)}...`;
+  } else if (props.email.length >= 7) {
+    email = `${props.email.substr(0, 7)}...`;
   } else {
-    email = props.personalInfo[`E-mail`]
+    email = props.email
   }
 
   return (
@@ -59,7 +59,8 @@ const profileDropdown = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    personalInfo: state.address.personalInfo
+    email: state.address.email,
+    name: state.address.name
   };
 };
 

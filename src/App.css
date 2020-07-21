@@ -356,21 +356,8 @@ header {
 }
 
 .build-control button:disabled {
-  border: 1px solid #e67e22;
-  color: #e67e22;
-  background-color: #eeeeee;
-}
-
-.build-control button:hover:disabled {
-  border: 1px solid #e67e22;
-  cursor: not-allowed;
-  box-shadow: 0px 0px 0px #fff;
-  background-color: #eeeeee;
-  color: #e67e22;
-}
-
-.build-control button:disabled {
-  box-shadow: 0px 0px 0px #fff;
+ 
+  opacity: 35%
 }
 
 .label {
@@ -448,13 +435,7 @@ header {
 }
 
 .order-button:disabled {
-  cursor: not-allowed;
-  border: 1px solid #e67e22;
-  color: #e67e22;
-  background: none;
-}
-.order-button:disabled:hover {
-  box-shadow: 1px 1px 1px #e67e22;
+  opacity: 35%
 }
 
 .order-button:not(:disabled) {
@@ -869,6 +850,15 @@ div::-webkit-scrollbar-thumb {
   transition: background-color 0.2s, border 0.2s, color 0.2s;
 }
 
+.danger  {
+  background: #ff3547
+}
+
+.danger:hover  {
+  background: #be1a28;
+  transition: background-color 0.2s, border 0.2s, color 0.2s;
+}
+
 .button {
   /* background-color: transparent; */
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
@@ -912,11 +902,7 @@ div::-webkit-scrollbar-thumb {
 butt
 
 .button:disabled {
-  cursor: not-allowed;
-  border: 1px solid #e67e22;
-  box-shadow: 0px 0px 0px #fff;
-  background-color: #eeeeee;
-  color: #e67e22;
+  opacity: 35%
 }
 
 /* INPUT */
