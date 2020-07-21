@@ -4,13 +4,17 @@ import * as actions from "../store/actions/index";
 import InlineEdit from "../components/InlineEdit";
 
 const address = (props) => {
+
+
   const { onGetAddress } = props;
   useEffect(() => {
     onGetAddress(props.token, props.userId);
   }, [onGetAddress]);
+
   useEffect(() => {
     setpersonalInfo((personalInfo) => ({ ...personalInfo, ...props.personal }));
   }, [props.personal]);
+
   const [personalInfo, setpersonalInfo] = useState({
     "First Name": "",
     "Last Name": "",

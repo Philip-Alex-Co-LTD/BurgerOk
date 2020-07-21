@@ -602,6 +602,12 @@ div::-webkit-scrollbar-thumb {
   color: #e67e22;
 }
 
+.invisible {
+  opacity: 0;
+  display: none;
+  transition: all 0.3s;
+}
+
 .navigation-element {
   text-transform: uppercase;
   text-decoration: none;

@@ -6,6 +6,7 @@ const initialState = {
   error: false,
   building: false,
   purchasing: false,
+  isVisible: false
 };
 
 const INGREDIENT_PRICES = {
@@ -58,6 +59,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         error: true,
+      };
+    case actionTypes.IS_NAVIGATION_VISIBLE:
+      return {
+        ...state,
+        isVisible: action.isVisible,
       };
     default:
       return state;

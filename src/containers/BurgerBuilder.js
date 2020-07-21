@@ -17,9 +17,17 @@ import axios from "../axios-orders";
 import Footer from "./Footer";
 
 class BurgerBuilder extends Component {
+
   componentDidMount() {
     // Fetching data from the Database
     this.props.onInitIngredients();
+    let isNavigationVisible = true;
+    this.props.onMakingNavigationVisible(isNavigationVisible);
+  }
+  
+  componentWillUnmount() {
+    let isNavigationVisible = false;
+    this.props.onMakingNavigationVisible(isNavigationVisible);
   }
 
   updatedPurchaseState(ingredients) {
@@ -159,6 +167,7 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(burgerBuiderActions.continuePurchasing()),
     onContinueSigning: () => dispatch(burgerBuiderActions.continueSigning()),
     onCancelSigning: () => dispatch(burgerBuiderActions.cancelSigning()),
+    onMakingNavigationVisible: (isNavigationVisible) => dispatch(burgerBuiderActions.makingNavigationVisible(isNavigationVisible)),
   };
 };
 

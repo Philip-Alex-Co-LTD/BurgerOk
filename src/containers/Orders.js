@@ -13,6 +13,10 @@ class Orders extends Component {
   }
 
   render() {
+    let startOrdering = null;
+    if (!this.props.orders.length) {
+      startOrdering = <h2 style = {{padding: '170px'}}>You don't have any orders yet. To start making order click "BurgerOk".</h2>
+    }
     let orders = <Spinner />;
     if (!this.props.loading) {
       orders = this.props.orders.map((order) => (
@@ -23,7 +27,10 @@ class Orders extends Component {
         />
       ));
     }
-    return <div>{orders}</div>;
+    return <div>
+      {orders}
+      {startOrdering}
+    </div>;
   }
 }
 
