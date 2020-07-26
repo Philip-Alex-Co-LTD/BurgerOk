@@ -2,8 +2,8 @@ import * as actionTypes from "../actions/actionTypes";
 
 const initialState = {
   personalInfo: {},
-  email: null,
   name: null,
+  email: null,
   loading: false,
 };
 

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-
+import { FaRegWindowClose } from "react-icons/fa";
 import Order from "../components/Order";
 import axios from "../axios-orders";
 import withErrorHandler from "../hoc/withErrorHandler/withErrorHandler";
@@ -13,6 +13,10 @@ class Orders extends Component {
   }
 
   render() {
+    let startOrdering = null;
+    if (!this.props.orders.length && !this.props.loading) {
+      startOrdering = <h2 style = {{padding: '170px'}}>You don't have any orders yet. To start making order click "BurgerOk".</h2>
+    }
     let orders = <Spinner />;
     if (!this.props.loading) {
       orders = this.props.orders.map((order) => (
@@ -23,7 +27,11 @@ class Orders extends Component {
         />
       ));
     }
-    return <div>{orders}</div>;
+    return <div>
+      <FaRegWindowClose className = 'icon-cancel' onClick = {() => this.props.history.push("/")}/>
+      {orders}
+      {startOrdering}
+    </div>;
   }
 }
 

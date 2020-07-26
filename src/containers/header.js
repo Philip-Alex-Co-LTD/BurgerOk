@@ -1,16 +1,42 @@
-import React from "react";
+import * as actions from "../store/actions/index";import React from "react";
+import Toolbar from "../components/Toolbar";
+import SideDrawer from "../components/SideDrawer";
+import { connect } from "react-redux";
 
-export default function header() {
+const header = (props) => {
+
   return (
     <header>
+      <Toolbar
+        isAuth={props.isAuth}
+        drawerToggleClicked={props.drawerToggleClicked}
+      />
+      <SideDrawer
+        isAuth={props.isAuth}
+        open={props.open}
+        closed={props.closed}
+      />
       <div className="hero-text-box">
         <h1>
           Goodbye regular burgers.
           <br /> Become burger designer on your own
         </h1>
-        <a className="button button-full">I'm hungry</a>
-        <a className="button button-ghost">Show me more</a>
       </div>
     </header>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    isAuthenticated: state.auth.token !== null,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onMakingNavigationNotSticky: (isSticky) =>
+      dispatch(actions.makingNavigationSticky(isSticky)),
+  };
+};
+
+export default connect ( mapStateToProps, mapDispatchToProps )(header);

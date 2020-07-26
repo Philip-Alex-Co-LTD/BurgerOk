@@ -43,12 +43,26 @@ export const fetchIngredientsFailed = (ingredients) => {
 export const initIngredients = () => {
   return (dispatch) => {
     axios
-      .get("https://react-burger-builder-a618c.firebaseio.com/ingredients.json")
-      .then((response) => {
-        dispatch(setIngredients(response.data));
-      })
-      .catch((error) => {
-        dispatch(fetchIngredientsFailed(error));
-      });
+    .get("https://react-burger-builder-a618c.firebaseio.com/ingredients.json")
+    .then((response) => {
+      dispatch(setIngredients(response.data));
+    })
+    .catch((error) => {
+      dispatch(fetchIngredientsFailed(error));
+    });
+  };
+};
+
+export const makingNavigationVisible = (isNavigationVisible) => {
+  return {
+    type: actionTypes.IS_NAVIGATION_VISIBLE,
+    isVisible: isNavigationVisible 
+  };
+};
+
+export const makingNavigationSticky = (isSticky) => {
+  return {
+    type: actionTypes.IS_NAVIGATION_STICKY,
+    isSticky: isSticky 
   };
 };

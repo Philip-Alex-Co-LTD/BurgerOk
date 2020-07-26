@@ -237,7 +237,7 @@ class ContactData extends Component {
     }
     let form = (
       <div>
-        <form onSubmit={this.showModal}>
+        <form >
           {formElementsArray.map((formElement) => (
             <Input
               key={formElement.id}
@@ -252,10 +252,10 @@ class ContactData extends Component {
               }
             />
           ))}
-          <Button btnType="Success" disabled={!this.state.formIsValid}>
+        </form>
+          <Button btnType="success" disabled={!this.state.formIsValid} clicked={this.showModal}>
             ORDER
           </Button>
-        </form>
       </div>
     );
     if (this.props.loading) {
@@ -269,12 +269,11 @@ class ContactData extends Component {
 
         <ThankYouModal
           show={this.state.show}
-          clicked={(event) => this.orderHandler(event)}
           closed={(event) => this.orderHandler(event)}
         />
         {personal && (
           <div>
-            <h3>
+            <h3 className = "center">
               You can also choose information based on your previous order
             </h3>
             <div

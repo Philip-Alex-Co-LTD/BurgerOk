@@ -16,6 +16,15 @@ class App extends Component {
     this.props.onTryAutoSignup();
   }
 
+  componentWillUpdate() {
+    console.log(this.props.location.pathname)
+    if (this.props.location.pathname !== '/') {
+      this.props.onMakingNavigationSticky(true) 
+    }else {
+      this.props.onMakingNavigationSticky(false) 
+    }
+  }
+
   render() {
     let routes = (
       <Switch>
@@ -38,9 +47,11 @@ class App extends Component {
     }
 
     return (
-      <div>
-        <Layout>{routes}</Layout>
-      </div>
+      <React.Fragment>
+        {/* <Layout> */}
+          {routes}
+        {/* </Layout> */}
+      </React.Fragment>
     );
   }
 }
@@ -54,6 +65,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onTryAutoSignup: () => dispatch(actions.authCheckState()),
+    onMakingNavigationSticky: (isSticky) =>
+      dispatch(actions.makingNavigationSticky(isSticky)),
   };
 };
 

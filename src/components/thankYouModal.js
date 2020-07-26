@@ -24,7 +24,7 @@ const thankYouModal = (props) => {
         <h3 style={{ marginBottom: "10px" }}>Enjoy!</h3>
         <button
           className="order-button"
-          onClick={props.clicked}
+          onClick={props.closed}
           style={{ marginBottom: "10px" }}
         >
           BACK TO MAIN PAGE

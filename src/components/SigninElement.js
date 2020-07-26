@@ -9,11 +9,24 @@ const signinElement = (props) => {
   };
 
   return (
-    <div 
+    <li 
+      className = {["signin-element", `${!props.isSticky && !props.isGrey  ? "white" : "grey"}`].join(' ')}
       onClick={() => continueSigningHandler()}
-      className = "signin-element"
-    >Sign in</div>
+    >
+      {/* <div 
+        onClick={() => continueSigningHandler()}
+        className = "signin-element"
+      > */}
+        Sign in
+      {/* </div> */}
+    </li>
   );
+};
+
+const mapStateToProps = (state) => {
+  return {
+    isSticky: state.burgerBuilder.isSticky
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {
@@ -24,6 +37,6 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(signinElement);

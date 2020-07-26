@@ -1,0 +1,10 @@
+diff a/src/store/reducers/address.js b/src/store/reducers/address.js	(rejected hunks)
+@@ -2,8 +2,6 @@
+ 
+ const initialState = {
+   personalInfo: {},
+-  email: null,
+-  name: null,
+   loading: false,
+ };
+ 

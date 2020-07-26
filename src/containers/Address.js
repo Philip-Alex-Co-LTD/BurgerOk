@@ -4,13 +4,17 @@ import * as actions from "../store/actions/index";
 import InlineEdit from "../components/InlineEdit";
 
 const address = (props) => {
+
+
   const { onGetAddress } = props;
   useEffect(() => {
     onGetAddress(props.token, props.userId);
   }, [onGetAddress]);
+
   useEffect(() => {
     setpersonalInfo((personalInfo) => ({ ...personalInfo, ...props.personal }));
   }, [props.personal]);
+
   const [personalInfo, setpersonalInfo] = useState({
     "First Name": "",
     "Last Name": "",
@@ -59,9 +63,12 @@ const address = (props) => {
     <div className="address-section">
       <h2>Profile information</h2>
       {val}
-      <button className="order-button" onClick={(event) => handleSubmit(event)}>
+      <button className="button success" onClick={(event) => handleSubmit(event)}>
         SUBMIT
       </button>
+      {/* <button className="button secondary" onClick={() => props.history.push("/")}>
+        MAIN PAGE
+      </button> */}
     </div>
   );
 };
