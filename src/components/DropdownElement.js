@@ -1,11 +1,12 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { connect } from "react-redux";
 
 const dropdownElement = (props) => {
   return (
     <li className="dropdown-element">
         <NavLink 
-          className = "dropdown-link"
+          className = {["dropdown-link", `${!props.isSticky ? "white" : "grey"}`].join(' ')}
           to={props.link}
           exact={props.exact}
           activeClassName="active"
@@ -16,4 +17,10 @@ const dropdownElement = (props) => {
   );
 };
 
-export default dropdownElement;
+const mapStateToProps = (state) => {
+  return {
+    isSticky: state.burgerBuilder.isSticky
+  };
+};
+
+export default connect(mapStateToProps)(dropdownElement);

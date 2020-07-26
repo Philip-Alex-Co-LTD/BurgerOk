@@ -59,3 +59,10 @@ export const makingNavigationVisible = (isNavigationVisible) => {
     isVisible: isNavigationVisible 
   };
 };
+
+export const makingNavigationSticky = (isSticky) => {
+  return {
+    type: actionTypes.IS_NAVIGATION_STICKY,
+    isSticky: isSticky 
+  };
+};

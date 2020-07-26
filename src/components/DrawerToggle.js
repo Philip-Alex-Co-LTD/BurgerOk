@@ -1,11 +1,6 @@
 import React from 'react';
+import { FaList } from "react-icons/fa";
 
-const drawerToggle = (props) => (
-    <div className="drawer-toggle" onClick={props.clicked}>
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
-);
+const drawerToggle = (props) => (<FaList className="drawer-toggle"  onClick={props.clicked}/>);
 
 export default drawerToggle;

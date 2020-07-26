@@ -63,9 +63,12 @@ const address = (props) => {
     <div className="address-section">
       <h2>Profile information</h2>
       {val}
-      <button className="order-button" onClick={(event) => handleSubmit(event)}>
+      <button className="button success" onClick={(event) => handleSubmit(event)}>
         SUBMIT
       </button>
+      {/* <button className="button secondary" onClick={() => props.history.push("/")}>
+        MAIN PAGE
+      </button> */}
     </div>
   );
 };

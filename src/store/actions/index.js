@@ -4,7 +4,8 @@ export {
   initIngredients,
   continuePurchasing,
   cancelPurchasing,
-  makingNavigationVisible
+  makingNavigationVisible,
+  makingNavigationSticky
 } from "./burgerBuilder";
 export {
   purchaseBurger,

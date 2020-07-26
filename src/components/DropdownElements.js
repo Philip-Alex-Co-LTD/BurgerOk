@@ -34,14 +34,15 @@ const profileDropdown = (props) => {
       className={[
         "dropdown-elements",
         `${props.isDisplayed || display ? "displayed" : ""}`,
+        `${!props.isSticky ? "not-sticky" : ""}`
       ].join(" ")}
       onMouseEnter={() => setDisplay(true)}
       onMouseLeave={() => setDisplay(false)}
     >
       <div>
         <ul>
-          <li className="dropdown-element">Your name: {name}</li>
-          <li className="dropdown-element">Your e-mail: {email}</li>
+          <li className={["dropdown-element", `${!props.isSticky ? "white" : "grey"}`].join(' ')}>Your name: {name}</li>
+          <li className={["dropdown-element", `${!props.isSticky ? "white" : "grey"}`].join(' ')}>Your e-mail: {email}</li>
         </ul>
       </div>
       <div>
@@ -51,7 +52,7 @@ const profileDropdown = (props) => {
         </ul>
       </div>
       <div onClick={() => logoutHandler()}>
-        <li className="logout-element">Logout</li>
+        <li className={["logout-element", `${!props.isSticky ? "white" : "grey"}`].join(' ')}>Logout</li>
       </div>
     </div>
   );
@@ -60,7 +61,8 @@ const profileDropdown = (props) => {
 const mapStateToProps = (state) => {
   return {
     email: state.address.email,
-    name: state.address.name
+    name: state.address.name,
+    isSticky: state.burgerBuilder.isSticky
   };
 };
 

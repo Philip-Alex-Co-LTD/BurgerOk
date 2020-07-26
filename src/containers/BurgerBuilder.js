@@ -18,6 +18,10 @@ import Footer from "./Footer";
 
 class BurgerBuilder extends Component {
 
+  state = {
+    showSideDrawer: false,
+  };
+
   componentDidMount() {
     // Fetching data from the Database
     this.props.onInitIngredients();
@@ -29,6 +33,17 @@ class BurgerBuilder extends Component {
     let isNavigationVisible = false;
     this.props.onMakingNavigationVisible(isNavigationVisible);
   }
+
+  SideDrawerClosedHandler = () => {
+    this.setState({ showSideDrawer: false });
+  };
+
+  SideDrawerToggleHandler = () => {
+    this.setState((prevState) => {
+      return { showSideDrawer: !prevState.showSideDrawer };
+    });
+  };
+
 
   updatedPurchaseState(ingredients) {
     // Construct an array from "ingredients" object keys and reduce array's total sum to a single value.
@@ -84,21 +99,23 @@ class BurgerBuilder extends Component {
     if (this.props.ings) {
       burger = (
         <React.Fragment>
-          <div className="burger-section-h2">
-            <h2> Start making your own burger</h2>
-          </div>
-          <div className="burger-section">
-            <Burger ingredients={this.props.ings} />
-            <BuildControls
-              ingredientAdded={this.props.onIngredientAdded}
-              ingredientRemoved={this.props.onIngredientRemoved}
-              disabled={disabledInfo}
-              purchasable={this.updatedPurchaseState(this.props.ings)}
-              ordered={this.purchaseHandler}
-              isAuth={this.props.isAuthenticated}
-              price={this.props.price}
-            />
-          </div>
+          <section className="burger-section-h2">
+            <div className="row">
+              <h2> Start making your own burger</h2>
+            </div>
+            <div className="burger-section">
+              <Burger ingredients={this.props.ings} />
+              <BuildControls
+                ingredientAdded={this.props.onIngredientAdded}
+                ingredientRemoved={this.props.onIngredientRemoved}
+                disabled={disabledInfo}
+                purchasable={this.updatedPurchaseState(this.props.ings)}
+                ordered={this.purchaseHandler}
+                isAuth={this.props.isAuthenticated}
+                price={this.props.price}
+              />
+            </div>
+          </section>
         </React.Fragment>
       );
       orderSummary = (
@@ -111,34 +128,39 @@ class BurgerBuilder extends Component {
       );
     }
 
-    // {salad: true, meat: false, ...}
     return (
       <React.Fragment>
-        <Modal
-          show={this.props.purchasing && this.props.purchasingContinue}
-          modalClosed={this.purchaseCancelHandler}
-        >
-          {orderSummary}
-        </Modal>
-        <Modal
-          show={this.props.signing}
-          modalClosed={this.signingCancelHandler}
-        >
-          <Auth />
-        </Modal>
-        <Header />
-        <Features />
-        <HowItWorks />
-        {burger}
-        <Cities />
-        <ContactUs />
-        <Footer />
+        {/* <main className="content"> */}
+          <Header 
+            isAuth={this.props.isAuthenticated}
+            drawerToggleClicked={this.SideDrawerToggleHandler}
+            open={this.state.showSideDrawer}
+            closed={this.SideDrawerClosedHandler}
+          />
+          <Modal
+            show={this.props.purchasing && this.props.purchasingContinue}
+            modalClosed={this.purchaseCancelHandler}
+          >
+            {orderSummary}
+          </Modal>
+          <Modal
+            show={this.props.signing}
+            modalClosed={this.signingCancelHandler}
+          >
+            <Auth />
+          </Modal>
+          <Features />
+          <HowItWorks />
+          {burger}
+          <Cities />
+          <ContactUs />
+          <Footer />
+        {/* </main> */}
       </React.Fragment>
     );
   }
 }
 
-// Function responsible for passing state to the reducer
 const mapStateToProps = (state) => {
   return {
     ings: state.burgerBuilder.ingredients,
@@ -148,10 +170,10 @@ const mapStateToProps = (state) => {
     purchasing: state.burgerBuilder.purchasing,
     purchasingContinue: state.order.purchasing,
     signing: state.auth.signing,
+    isAuthenticated: state.auth.token !== null,
   };
 };
 
-// Function responsible for passing actions to the reducer
 const mapDispatchToProps = (dispatch) => {
   return {
     onIngredientAdded: (ingName) =>

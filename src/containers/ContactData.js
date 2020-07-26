@@ -273,7 +273,7 @@ class ContactData extends Component {
         />
         {personal && (
           <div>
-            <h3>
+            <h3 className = "center">
               You can also choose information based on your previous order
             </h3>
             <div

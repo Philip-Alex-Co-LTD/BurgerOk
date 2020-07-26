@@ -14,14 +14,24 @@ const profileElement = (props) => {
     };
 
     return (
+      <li className="navigation-element">
         <div 
-            onMouseEnter={() => hoverOnProfileElement()}
-            onMouseLeave={() => hoverOffProfileElement()} 
-            className="profile-element"
+          onMouseEnter={() => hoverOnProfileElement()}
+          onMouseLeave={() => hoverOffProfileElement()} 
+          className={["profile-element", `${!props.isGrey  ? "" : "profile-invisible"}`].join(' ')}
         >
-            <FaUser className = 'icon-profile'/>
+          <FaUser
+            className = {['icon-profile', `${!props.isSticky && !props.isGrey  ? "white" : "grey"}`].join(' ')}
+          />
         </div>
+      </li>
     );
+};
+
+const mapStateToProps = (state) => {
+  return {
+    isSticky: state.burgerBuilder.isSticky
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {
@@ -34,6 +44,6 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(profileElement);
