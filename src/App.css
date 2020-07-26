@@ -27,7 +27,7 @@ html {
   font-weight: 300;
   font-size: 20px;
   text-rendering: optimizeLegibility;
-  scroll-behavior: smooth,
+  scroll-behavior: smooth;
 }
 
 /* --------- HEADINGS ------------ */
@@ -380,7 +380,7 @@ header {
 
 .build-control button:disabled {
   pointer-events: none;
-  opacity: 35%
+  opacity: 35%;
 }
 
 .label {
@@ -590,7 +590,7 @@ div::-webkit-scrollbar-thumb {
   display: block;
 }
 
-.for-sticky .icon-profile{
+.for-sticky .icon-profile {
   color: #fff;
 }
 
@@ -678,7 +678,7 @@ div::-webkit-scrollbar-thumb {
   color: #555;
   background-color: rgba(255, 255, 255, 0.7);
   z-index: 199;
-  border: 2px solid  #555;
+  border: 2px solid #555;
   border-radius: 5px;
   position: fixed;
   left: 20px;
@@ -881,20 +881,20 @@ div::-webkit-scrollbar-thumb {
   pointer-events: none;
 }
 
-.secondary  {
+.secondary {
   background: rgb(66, 184, 221);
 }
 
-.secondary:hover  {
+.secondary:hover {
   background: rgb(12, 158, 202);
   transition: background-color 0.2s, border 0.2s, color 0.2s;
 }
 
-.danger  {
-  background: #ff3547
+.danger {
+  background: #ff3547;
 }
 
-.danger:hover  {
+.danger:hover {
   background: #be1a28;
   transition: background-color 0.2s, border 0.2s, color 0.2s;
 }
@@ -903,7 +903,7 @@ div::-webkit-scrollbar-thumb {
   /* background-color: transparent; */
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
   border: none;
-  color: white; 
+  color: white;
   outline: none;
   cursor: pointer;
   font: inherit;
@@ -939,9 +939,7 @@ div::-webkit-scrollbar-thumb {
   transition: background-color 0.2s, border 0.2s, color 0.2s;
 }
 
-butt
-
-.button:disabled {
+butt .button:disabled {
   opacity: 35%;
   pointer-events: none;
 }
@@ -979,7 +977,7 @@ butt
 
 .invalid {
   border: 1px solid salmon;
-  background-color: #FFD2D2;
+  background-color: #ffd2d2;
 }
 
 /* MODAL */
@@ -997,13 +995,13 @@ butt
   box-shadow: 1px 1px 1px black;
   left: 20%;
   top: 25%;
-  transition: all .5s ease;
+  transition: all 0.5s ease;
 }
 
 .visible {
   transform: translateY(10px);
   opacity: 1;
-  transition: all .5s ease;
+  transition: all 0.5s ease;
 }
 /* @media (min-width: 600px) {
   .modal {
@@ -1102,9 +1100,9 @@ butt
 
 .error-message {
   margin: 10px 0px;
-  padding: 12px; 
-  color: #D8000C;
-  background-color: #FFD2D2;
+  padding: 12px;
+  color: #d8000c;
+  background-color: #ffd2d2;
 }
 
 .sign-form {
@@ -1118,7 +1116,7 @@ butt
 }
 
 form .label {
-  font-size: 1.0em;
+  font-size: 1em;
   color: #ceaee8;
   margin-right: 13px;
 }
@@ -1204,10 +1202,15 @@ form .label {
 
 .section-steps {
   background-color: rgb(255, 255, 255);
+  /* display: flex; */
 }
 
-.app-screen {
-  width: 40%;
+.img {
+  width: 60%;
+  object-fit: contain;
+}
+.section-works {
+  display: flex;
 }
 
 .works-step div {
@@ -1759,6 +1762,14 @@ ul li {
 @media (max-width: 768px) {
   .section-cities .row {
     width: 70%;
+  }
+  .img {
+    margin-left: 10%;
+    width: 80%;
+    object-fit: contain;
+  }
+  .section-works {
+    display: block;
   }
 }
 
